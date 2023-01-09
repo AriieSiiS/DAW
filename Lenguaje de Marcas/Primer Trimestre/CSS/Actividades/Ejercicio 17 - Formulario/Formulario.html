@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Estilos.css" media="screen" />
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="titulo">
+        <h1>HOJA DE INSCRIPCIÓN</h1>
+        <h1 class="titulo2">EN LOS CICLOS FORMATIVOS DE GRADO SUPERIOR</h1>
+    </div>
+    
+
+    <form action="basededatos.sql" method="post">
+        <fieldset class="DatosPersonales">
+                <legend class="DatosPersonales1">Datos personales</legend>
+                <table>
+                    <tr>
+                        <td><label for="Apellidos">Apellidos:</label></td>
+                        <td><label for="Nombre">Nombre:</label> </td>
+                        <td><label for="DNI">DNI:</label> </td>
+                    </tr>
+                    <tr>
+                        <td> <input type="text" name="Apellidos" ></td>
+                        <td><input type="text" name="Nombre" size="8" ></td>
+                        <td><input type="text" name="DNI" id="DNI" size="4" ></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="Nacimiento">Nacido/a en:</label></td>
+                        <td><label for="Provincia">Provincia:</label> </td>
+                        <td><label for="Fecha" >Fecha nacimiento (dd/mm/aaaa):</label> </td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="Nacimiento" size="12" ></td>
+                        <td><select name="Provincia">
+                            <option  selected="selected">Santa Cruz</option>
+                        </select></td>
+                        <td><input type="text" name="Fecha" size="4" ></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><label for="Domicilio">Domicilio (Calle, plaza y número)</label></td>
+                        <td><label for="Postal" id="nombre">Código postal:</label> </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="text" name="Domicilio" ></td>
+                        <td><input type="text" name="Nombre" size="8" ></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="Localidad">Localidad:</label></td>
+                        <td><label for="Provincia" >Provincia:</label> </td>
+                        <td> <label for="Telefono">Telefono:</label> </td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="Localidad" ></td>
+                        <td><select name="Provincia">
+                            <option  selected="selected">Santa Cruz</option>
+                        </select></td>
+                        <td><input type="text" name="Telefono" size="4" ></td>
+                    </tr>
+                 </table>
+        </fieldset>
+
+        <!-- Segunda caja -->
+
+        <fieldset class="RequisitosAcesso">
+            <legend class="RequisitosAcesso1">Requisitos de Acesso</legend>
+            <div id="lista">
+                <ol>
+                    <li><input type="radio" name="opcion1"/> Directo</li>
+                        <ol>
+                            <li> <input type="radio" name="opcion2"/>Bachillerato LOGSE. Modalidad: <input type="text"/> </li>
+                            <li> <input type="radio" name="opcion2"/>Bachilletaro Experimental</li>
+                            <li> <input type="radio" name="opcion2"/>COU. Opción:  <input type="text"/></li>
+                            <li> <input type="radio" name="opcion2"/>FP2</li>
+                            <li> <input type="radio" name="opcion2"/>Otros (especifique):  <input type="text"/></li>
+                        </ol>
+                    <li> <input type="radio" name="opcion1"/>Mediante prueba</li>
+                </ol>
+            </div>
+        </fieldset>
+
+         <!-- Tercera caja -->
+
+        <fieldset class="Solicitud">
+            <legend class="Solicitud1">Solicitud</legend>
+            <table>
+                <tr>
+                    <td colspan="3">El/la que suscribe desea ser admitido en este centro para cursar el ciclo formativo de grado superior:</td>
+                </tr>
+                <tr>
+                    <td colspan="3">Ciclo formativo:<select name="Provincia">
+                        <option value="Santa Cruz1"></option>
+                        <option value="Santa Cruz">Santa Cruz de Tenerife</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td colspan="3">En caso de no ser admitido/a, solicita la admisión por orden de preferencia en los siguientes:</td>
+                </tr>
+                <tr>
+                    <td><strong>Ciclos formativos</strong></td>
+                    <td><strong>Centros</strong></td>
+                    <td><strong>Localidad</strong></td>
+                </tr>
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">Modalidad de horario especial (marque):<input type="checkbox"/></td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <!-- Cuarta caja -->
+
+        <fieldset class="Documentacion">
+            <legend class="Documentacion1">Documentación presentada</legend>
+            <table>
+                <tr>
+                    <td><input type="checkbox"/>Fotocopia DNI </td>
+                    <td><input type="checkbox"/>Certificiado académico</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="checkbox"/>Otros documentos (especifique) <input type="text" size="24"></td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <!-- Quinta caja -->
+
+        <fieldset class="Comunicacion">
+            <legend class="Comunicacion1">Comunicación</legend>
+            <p>De acuerdo con el artículo 42.2 de la Ley 30/1992, de 26 de noviembre, de Régimen Jurídico de las Administraciones Públicas y del Procedimiento
+                Administrativo Común, según la nueva redacción de la Ley 4/1999, de 13 de enero, se informa que:
+                <ol>
+                    <li class="tipo1">El plazo máximo para resolver la presente solicitud es de 3 meses
+                        desde la fecha en que haya tenido entrada en el registro del órgano
+                        competente para la tramitación, sin perjuicio de lo previsto en el
+                        artículo 42.5 de la misma ley.</li>
+                    <li  class="tipo1">El efecto que producirá el silencio administrativo si transcurre el plazo sin que se haya dictado
+                        y notificado la resolución correspondiente, es desestimatorio de la solicitud.</li>
+                </ol>
+            </p>
+            
+            <p><input type="text"/>,  &nbsp;<input type="text" size="1"/> de <input type="text"/> &nbsp;de <select name="Fecha">
+                <option  selected="selected">2013</option></select>
+            </p>
+            <p>La persona solicitante,</p>
+            <img id="cuadro" src="Imagen de WhatsApp 2022-11-28 a las 21.43.48.jpg">
+            <p>Firma</p>
+        </fieldset>
+    </form>
+
+    <fieldset class="Final">
+        <p>	 Los datos personales contenidos en este impreso
+            podrán ser incluidos en un fichero para su tratamiento por la Consejeria de
+             Educación, en el uso de las funciones propias que tiene atribuidas
+            en el ámbito de sus competencias, pudiendo dirigirse a cualquier órgano de la
+            misma para ejercitarlos derechos de acceso, rectificación, cancelación y
+            oposición, según lo dispuesto en la Ley Orgánica 15/1999, de 13 de diciembre,
+            de Protección de Datos de Carácter Personal (BOE núm 298, de 14 de diciembre
+            de 1999).</p>
+    </fieldset>
+
+    <div class="TituloFinal">
+        <h2>DIRECTO/A TITULAR DEL CENTRO</h2>
+
+    </div>
+
+
+</body>
+</html>

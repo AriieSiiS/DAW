@@ -1,0 +1,104 @@
+body {
+    background-color: blanchedalmond;
+}
+
+.cabecera {
+    background-color: olivedrab;
+    text-align: right;
+    color: white;
+    padding-right: 1%;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+h1 {
+    background-color: peru;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: underline;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 0;
+}
+
+.intro {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-style: dotted;
+    border-top-width: 0px;
+    border-right-width: 5px;
+    border-left-width: 5px;
+    border-bottom-width: 0px;
+    border-color: green;
+    padding: 5px;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-indent: 2em;
+}
+
+.par {
+    border-style: solid;
+    border-color: #660000;
+    margin-left: 25%;
+    margin-top: 1%;
+    margin-right: 2%;
+    background-color: #d4b8b8;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.par h2 {
+    background-color: #660000;
+    color: white;
+    text-align: left;
+    margin-top: 0;
+    text-indent: 11px;
+}
+
+.par p {
+    padding: 1%;
+    text-indent: 2em;
+}
+
+.organismo {
+    background-color: black;
+    color: white;
+    padding: 3px;
+}
+
+.proyecto {
+    font-style: italic;
+    border-bottom: 2px white dashed;
+}
+
+.impar {
+    border-style: solid;
+    border-color: #669966;
+    margin-right: 25%;
+    margin-top: 1%;
+    margin-left: 1%;
+    background-color: #c8dac8;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.impar h2 {
+    background-color: #669966;
+    color: white;
+    text-align: left;
+    margin-top: 0;
+    text-indent: 11px;
+}
+
+.impar p {
+    padding: 1%;
+    text-indent: 2em;
+}
+
+address {
+    margin-top: 1%;
+    color: black;
+    border-top: auto;
+    border-right: 0px;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-style: double;
+    border-color:  #660000;
+    background-color: hsl(32, 51%, 55%);
+}

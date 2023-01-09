@@ -1,0 +1,151 @@
+
+.titulo {
+    background-color: #eaeaea;
+    text-align: center;
+    font-size: 10px;
+}
+
+.titulo2 {
+    position: relative;
+    bottom: 10px;
+    height: 12px;
+}
+
+
+/* PrimeraCaja */
+
+.DatosPersonales {
+    background-color:  #eaeaea;
+    border-style: solid;
+    border-width: 1px;
+    padding-left: 10px;
+    margin-right: 50px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+.DatosPersonales1 {
+    background-color: white;
+    border-style: solid;
+    border-color: #eaeaea;
+    border-width: 2px;
+}
+
+
+/* SegundaCaja */
+
+
+.RequisitosAcesso {
+    background-color: #ffffe0;
+    border-style: solid;
+    border-width: 1px;
+    padding-left: 10px;
+    margin-right: 50px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+.RequisitosAcesso1 {
+    background-color: white;
+    border-style: solid;
+    border-color: #ffffe0;
+    border-width: 2px;
+}
+
+div ol li {
+    list-style-type: none;
+}
+
+#lista {
+    position: relative;
+    right: 25px;
+    bottom: 5px;
+}
+
+
+/* TerceraCaja */
+
+.Solicitud {
+    background-color: #add8e6;
+    border-style: solid;
+    border-width: 1px;
+    padding-left: 10px;
+    margin-right: 50px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+.Solicitud1 {
+    background-color: white;
+    border-style: solid;
+    border-color: #add8e6;
+    border-width: 2px;
+}
+
+/* CuartaCaja */
+
+.Documentacion {
+    background-color:#ffb6c1;
+    border-style: solid;
+    border-width: 1px;
+    padding-left: 10px;
+    margin-right: 50px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+.Documentacion1 {
+    background-color: white;
+    border-style: solid;
+    border-color: #ffb6c1;
+    border-width: 2px;
+}
+
+/* QuintaCaja */
+
+.Comunicacion {
+    background-color:#ffe4c4;
+    border-style: solid;
+    border-width: 1px;
+    padding-left: 10px;
+    margin-right: 50px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+.Comunicacion1 {
+    background-color: white;
+    border-style: solid;
+    border-color: #ffe4c4;
+    border-width: 2px;
+}
+
+ol li {
+    list-style-type: circle;
+}
+
+#cuadro {
+    position: relative;
+    bottom: -40px;
+    left: 85%;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/* SextaCaja */
+
+
+.Final {
+    border-style:dashed;
+    border-width: 2px;
+    padding-left: 10px;
+    margin-right: 50px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+.TituloFinal {
+    text-align: center;
+    font-size: 10px;
+}
+

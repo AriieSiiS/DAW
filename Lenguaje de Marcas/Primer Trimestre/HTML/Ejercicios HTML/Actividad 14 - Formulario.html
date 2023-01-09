@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Formulario</title>
+    </head>
+   <body>
+    <form action="basededatos.sql" method="post">
+        Nombre: <input type="text" name="Nombre" /> </br>
+        </br>
+        Apellidos: <input type="text" name="Apellidos" /> </br>
+        </br>
+        Correo electronico: <input type="email" name="Email" /> </br>
+        </br>
+        Población: <input type="text" name="Población" /> </br>
+        </br>
+        Provincia: <input type="text" name="Provincia" /> </br>
+        </br>
+        
+        <table>
+           <tr>
+                <td>
+                Edad: </br>
+                <input type="radio" value="0-20" name="Edad" /> 0-20  </br>
+                <input type="radio" value="20-40" name="Edad" checked /> 20-40 </br>
+                <input type="radio" value="40-60" name="Edad" /> 40-60  </br>
+                <input type="radio" value="60-100" name="Edad" /> 60-100  </br>
+                </td>
+                <td>
+                ¿Cómo nos conociste?  </br>
+                <input type="checkbox" value="" name="" /> A través de un amigo </br>
+                <input type="checkbox" value="" name="" /> A través de un buscador </br>
+                <input type="checkbox" value="" name="" /> Navegando por la rod </br>
+                <input type="checkbox" value="" name="" /> Otros </br>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" name="enviar" value="Enviar formulario" /> <input type="reset" name="limpiar"
+        value="Borrar formulario" />
+    </form>
+    </body>
+
+</html>

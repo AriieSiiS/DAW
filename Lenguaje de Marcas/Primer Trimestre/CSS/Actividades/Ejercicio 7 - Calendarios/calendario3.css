@@ -1,0 +1,53 @@
+body {
+    background-color: #95E1FF;
+}
+
+caption {
+    margin-top: 10px;
+    text-align: left;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+.nov14 {
+    background-color: lightyellow;
+    width: fit-content;
+    border-style: solid;
+    border-width: 1px;
+}
+
+tbody {
+    background-color: #FFFFEE;
+    
+    
+}
+
+table {
+    border-style:solid;
+    border-width: 1px;
+    margin-left: 18px;
+    margin-right: 18px;
+    margin-bottom: 15px;
+    border-collapse: collapse;
+}
+
+tr {
+    border-style:solid;
+    border-width: 1px;
+}
+
+td {
+    border-style:solid;
+    border-width: 1px;
+    padding-bottom: 15px;
+    font-size: 10px;
+}
+
+th {
+    border-style:solid;
+    border-width: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

@@ -1,0 +1,40 @@
+.principal  {
+    height: 700px;
+    width: 700px;
+    overflow:hidden;
+}
+
+div div:hover {
+    position: relative;
+    bottom: 150px;
+}
+
+
+ .Descripcion {
+    background-color: rgba(185, 121, 47, 0.5);
+    float:right;
+    position: relative;
+    bottom: 430px;
+    height: 140px;
+    width: 700px;
+    text-align: center;
+    font-size: 60px;
+}
+
+.Escondido {
+    float:right;
+    position: relative;
+    bottom: 550px;
+    width: 700px;
+    height: 140px;
+    text-align: center;
+    font-size: 60px;
+    background-color: orange;
+}
+
+
+
+
+
+
+

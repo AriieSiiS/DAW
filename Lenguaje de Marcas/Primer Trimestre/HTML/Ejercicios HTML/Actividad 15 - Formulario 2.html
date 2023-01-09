@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Rellena tu CV</title>
+    </head>
+    <body>
+        <h1>Rellena tu CV</h1>
+        <form action="basededatos.sql" method="post">
+            <fieldset>
+                <legend>Datos Personales</legend>
+                <label for="Provincia">Provincia</label> <br/>
+                <select id="provincia" name="provincia">
+                    <option value="" selected="selecciona"> Selecciona</option>
+                    <option value="Madrid">Madrid</option>
+                    <option value="Barcelona"> Barcelona</option>
+                    <option value="Valencia"> Valencia</option>
+                </select>
+                <br/>
+                <br/>
+                <label for="Fecha">Fecha de nacimiento</label><br/>
+                <input type="text" size="1" name="día" maxlength="2" placeholder="03"> de
+                <select id="Meses" name="meses">
+                    <option value="enero" selected="Enero">Enero</option>
+                    <option value="febrero">Febrero</option>
+                    <option value="marzo">Marzo</option>
+                    <option value="abril">Abril</option>
+                    <option value="mayo">Mayo</option>
+                    <option value="junio">Junio</option>
+                </select>
+                de
+                <input type="text" size="6" name="año" maxlength="10" placeholder="10/03/2001"> 
+                <br/>
+                <br/>
+                <label for="interes">Temas de Interés</label><br/>
+                <select multiple="multiple" id="interes" name="interes" size="4">
+                    <option value="Administración">Administración</option>
+                    <option value="Analisis">Analisis</option>
+                    <option value="Arquitectura">Arquitectura</option>
+                    <option value="Calidad">Calidad</option>
+                    <option value="CMR">CMR</option>
+                </select>
+            </fieldset>
+        </form>
+    </body>
+</html>

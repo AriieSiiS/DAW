@@ -1,0 +1,30 @@
+table {
+    border-style: solid;
+    border-collapse: collapse;
+}
+
+tr {
+    border-style: solid;
+}
+
+td {
+    border-style: solid;
+    padding:20px;
+}
+
+.peonblanco {
+    background-image: url("Peon-blanco.png");
+}
+
+.peonnegro {
+    background-image: url("Peon-Negro.png");
+}
+
+.blanco {
+    background-color: white;
+}
+
+.negro {
+    background-color: black;
+}
+
