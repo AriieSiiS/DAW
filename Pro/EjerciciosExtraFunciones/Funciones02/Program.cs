@@ -20,8 +20,15 @@ namespace Ejercicio
             Console.WriteLine("Dime una segunda frase o palabra a ver si está en la primera");
             comparación = Console.ReadLine();
 
+            //ponemos el resultado
             resultado = primeracadena.Contains(comparación);
-            Console.WriteLine(resultado);
+            if (resultado == true)
+                Console.WriteLine("\nEstá");
+            else
+                Console.WriteLine("\nNo está");
+
+
+
         }
     }
 }

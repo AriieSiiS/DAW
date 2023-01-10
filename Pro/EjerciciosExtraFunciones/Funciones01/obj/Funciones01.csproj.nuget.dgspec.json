@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Users\\Usuario\\Downloads\\Ale\\DAW\\Pro\\EjerciciosExtraFunciones\\Funciones01\\Funciones01.csproj": {}
+    "C:\\Users\\ModuloPRO\\Desktop\\DAW\\Pro\\EjerciciosExtraFunciones\\Funciones01\\Funciones01.csproj": {}
   },
   "projects": {
-    "E:\\Users\\Usuario\\Downloads\\Ale\\DAW\\Pro\\EjerciciosExtraFunciones\\Funciones01\\Funciones01.csproj": {
+    "C:\\Users\\ModuloPRO\\Desktop\\DAW\\Pro\\EjerciciosExtraFunciones\\Funciones01\\Funciones01.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Users\\Usuario\\Downloads\\Ale\\DAW\\Pro\\EjerciciosExtraFunciones\\Funciones01\\Funciones01.csproj",
+        "projectUniqueName": "C:\\Users\\ModuloPRO\\Desktop\\DAW\\Pro\\EjerciciosExtraFunciones\\Funciones01\\Funciones01.csproj",
         "projectName": "Funciones01",
-        "projectPath": "E:\\Users\\Usuario\\Downloads\\Ale\\DAW\\Pro\\EjerciciosExtraFunciones\\Funciones01\\Funciones01.csproj",
-        "packagesPath": "C:\\Users\\aries\\.nuget\\packages\\",
-        "outputPath": "E:\\Users\\Usuario\\Downloads\\Ale\\DAW\\Pro\\EjerciciosExtraFunciones\\Funciones01\\obj\\",
+        "projectPath": "C:\\Users\\ModuloPRO\\Desktop\\DAW\\Pro\\EjerciciosExtraFunciones\\Funciones01\\Funciones01.csproj",
+        "packagesPath": "C:\\Users\\ModuloPRO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ModuloPRO\\Desktop\\DAW\\Pro\\EjerciciosExtraFunciones\\Funciones01\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\aries\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ModuloPRO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

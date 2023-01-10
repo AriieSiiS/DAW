@@ -11,6 +11,7 @@
             int contadormayus = 0;
             int letra = 0;
             bool novalido = false;
+            //validamos que lo introducido sea texto
             do
             {
                 Console.WriteLine("Introduce tu frase");

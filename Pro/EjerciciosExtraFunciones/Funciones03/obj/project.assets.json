@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\aries\\.nuget\\packages\\": {}
+    "C:\\Users\\ModuloPRO\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Users\\Usuario\\Downloads\\Ale\\DAW\\Pro\\EjerciciosExtraFunciones\\Funciones03\\Funciones03.csproj",
+      "projectUniqueName": "C:\\Users\\ModuloPRO\\Desktop\\DAW\\Pro\\EjerciciosExtraFunciones\\Funciones03\\Funciones03.csproj",
       "projectName": "Funciones03",
-      "projectPath": "E:\\Users\\Usuario\\Downloads\\Ale\\DAW\\Pro\\EjerciciosExtraFunciones\\Funciones03\\Funciones03.csproj",
-      "packagesPath": "C:\\Users\\aries\\.nuget\\packages\\",
-      "outputPath": "E:\\Users\\Usuario\\Downloads\\Ale\\DAW\\Pro\\EjerciciosExtraFunciones\\Funciones03\\obj\\",
+      "projectPath": "C:\\Users\\ModuloPRO\\Desktop\\DAW\\Pro\\EjerciciosExtraFunciones\\Funciones03\\Funciones03.csproj",
+      "packagesPath": "C:\\Users\\ModuloPRO\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ModuloPRO\\Desktop\\DAW\\Pro\\EjerciciosExtraFunciones\\Funciones03\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\aries\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ModuloPRO\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
