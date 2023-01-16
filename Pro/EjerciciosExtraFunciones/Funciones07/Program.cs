@@ -22,10 +22,10 @@ namespace Ejercicio
             for (int i = 0; i < numeroproductos; i++)
             {
                 Console.WriteLine("Dime el nombre del producto");
-                while (nombreproducto[i] == null)
+                while (nombreproducto[i] == null || nombreproducto[i] == "")
                 {
                     nombreproducto[i] = Console.ReadLine();
-                    if (nombreproducto[i] == null)
+                    if (nombreproducto[i] == "")
                         Console.WriteLine("El nombre no puede estar vacio");
                 }
                 Console.WriteLine("Dime el precio del producto");
