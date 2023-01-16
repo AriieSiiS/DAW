@@ -1,0 +1,54 @@
+div{
+    background-color: orange;
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 20px;
+    float: left;
+    margin: 20px;
+}
+
+#rotar1 {
+    transform:rotate(55deg)
+}
+
+#rotar2 {
+    transform:rotate(-55deg);
+}
+
+#escala1{
+    transform: scale(0.5);
+}
+
+#escala2{
+    transform: scaleY(1) scaleX(0.5);
+}
+
+#skewX1{
+    transform: skewX(25deg);
+}
+
+#skewX2{
+    transform: skewX(-25deg);
+}
+
+#skewY1{
+    transform: skewY(25deg);
+}
+
+#skewY2{
+    transform: skewY(-25deg);
+}
+
+#translate1  {
+    transform: translate(35px, 20px);
+}
+
+#translate2{
+    transform: translate(35px, -20-px);
+}
+
+#contentBox1:hover{
+    transform: skewX(-25deg);
+}

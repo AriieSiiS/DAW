@@ -1,0 +1,19 @@
+.P1 {
+    text-shadow: 0.5px 0.5px yellow;
+}
+
+.P2 {
+    text-shadow: 1.5px 1.5px yellow;
+}
+
+.P3 {
+    text-shadow: 0px 0px 5px yellow;
+}
+
+.P4 {
+      text-shadow: -2px -2px 0.5px red;
+}
+
+.P5 {
+     text-shadow: -2px -2px 3.5px red;
+}

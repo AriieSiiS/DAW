@@ -1,0 +1,56 @@
+.imagen {
+    background-image: url("Gato.jpg");
+    background-repeat:no-repeat;
+    background-position: 35%;
+    background-color: white;
+    padding: 150px;
+}
+
+
+td {
+    text-align: center;
+}
+
+.blur {
+    filter:blur(5px);
+}
+
+.brightness {
+    filter:brightness(33%);
+}
+
+.contrast {
+    filter:contrast(20%);
+}
+
+.shadow {
+    filter:drop-shadow(10px 5px gray);
+}
+
+.grayscale {
+    filter:grayscale(90%);
+}
+
+.rotate {
+    filter:hue-rotate(75deg);
+}
+
+.invert {
+    filter:invert(20%);
+}
+
+.opacity {
+    filter:opacity(25%);
+}
+
+.saturate {
+    filter:saturate(90%);
+}
+
+.sepia {
+    filter:sepia(50%);
+}
+
+
+
+

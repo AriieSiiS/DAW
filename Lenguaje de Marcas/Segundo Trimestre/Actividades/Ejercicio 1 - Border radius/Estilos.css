@@ -1,0 +1,139 @@
+h3 { 
+    height : fit-content; 
+    width : fit-content; 
+    padding: 10px;
+    background-color : #8AC007; 
+    border-top-right-radius : 1em 1em; 
+    border-bottom-left-radius : 1em 1em; 
+    color: white;
+    }
+
+caption {
+    margin-bottom: 10px;
+    
+}
+
+.table {
+    border-width: 1px;
+    border-style: solid;
+    width: fit-content;
+    padding: 5px;
+}
+
+.P1 {
+    height : 3em; 
+    width : 6em; 
+    border-style: solid;
+    background-color : #8AC007; 
+}
+
+.P2 {
+    height : 3em; 
+    width : 6em; 
+    border-style: solid;
+    background-color : #8AC007; 
+    border-top-left-radius: 2em 1em; 
+}
+
+.P3 {
+    height : 3em; 
+    width : 6em; 
+    border-style: solid;
+    background-color : #8AC007; 
+    border-radius: 0.3em;
+}
+
+.P4 {
+    height : 3em; 
+    width : 6em; 
+    border-style: solid;
+    background-color : #8AC007; 
+    border-top-left-radius: 6em 6em; 
+    border-top-right-radius: 4em 4em; 
+    border-bottom-left-radius : 3em 4em; 
+    border-bottom-right-radius : 6em 6em; 
+}
+
+.P5 {
+    height : 3em; 
+    width : 6em; 
+    border-style: solid;
+    background-color : #8AC007; 
+    border-radius: 0.7em;
+}
+
+.P6 {
+    height : 3em; 
+    width : 6em; 
+    border-style: solid;
+    background-color : #8AC007; 
+    border-top-left-radius: 4em 4em; 
+    border-top-right-radius: 1em 1em; 
+    border-bottom-left-radius : 2em; 
+    border-bottom-right-radius : 0em 0em; 
+}
+
+.P7 {
+    height : 3em; 
+    width : 6em; 
+    border-style: solid;
+    background-color : #8AC007; 
+    border-radius: 2em 2em;
+}
+
+.P8 {
+    height : 3em; 
+    width : 6em; 
+    border-style: solid;
+    background-color : #8AC007; 
+    border-top-left-radius: 4em 4em; 
+    border-top-right-radius: 2em; 
+    border-bottom-left-radius : 7em 7em; 
+    border-bottom-right-radius : 0em 0em; 
+}
+
+.P9 {
+    height : 3em; 
+    width : 6em; 
+    border-style: solid;
+    background-color : #8AC007; 
+    border-radius: 8em 8em;
+}
+
+.P10 {
+    height : 3em; 
+    width : 6em; 
+    border-style: solid;
+    background-color : #8AC007; 
+    border-top-left-radius: 2em 1em; 
+    border-top-right-radius: 2em 1em; 
+    border-bottom-left-radius : 2em 1em; 
+    border-bottom-right-radius : 2em 1em; 
+}
+
+
+.P11 {
+    height : 3em; 
+    width : 6em; 
+    border-style: double;
+    border-width: 6px;
+    border-color: orange;
+    background-color : #8AC007; 
+    border-top-left-radius: 2em 1em; 
+    border-top-right-radius: 2em 1em; 
+    border-bottom-left-radius : 2em 1em; 
+    border-bottom-right-radius : 2em 1em; 
+}
+
+
+.P12 {
+    height : 3em; 
+    width : 6em; 
+    border-style: solid;
+    border-color: orange;
+    background-color : #8AC007; 
+    border-top-left-radius: 12em 6em; 
+    border-top-right-radius: 12em 6em; 
+    border-bottom-left-radius : 12em 6em; 
+    border-bottom-right-radius : 12em 6em; 
+}

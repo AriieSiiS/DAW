@@ -1,6 +1,203 @@
-p {       
-    height : 6em; 
-    width : 10em; 
-    background-color : #8AC007; 
-    border-radius : 2em;
+
+
+caption {
+    margin-bottom: 10px;
 }
+
+.table {
+    border-width: 1px;
+    border-style: solid;
+    width: fit-content;
+    padding: 5px;
+}
+
+table {
+    border-spacing: 25px;
+    border-collapse: separate;
+}
+
+.P1 {
+    height : 3m; 
+    width : 9em; 
+    border-style: solid;
+    background-color : hsl(61, 98%, 60%);
+    border-radius: 0.7em;
+    box-shadow: -5px -5px; 
+}
+
+.P2 {
+    height : 3em; 
+    width : 9em; 
+    border-style: solid;
+    background-color : hsl(61, 98%, 60%);
+    border-radius: 0.7em;
+    box-shadow: -4px -2px 0px 5px;
+}
+
+.P3 {
+    height : 3em; 
+    width : 9em; 
+    border-style: solid;
+    background-color : hsl(61, 98%, 60%);
+    border-radius: 0.7em;
+    box-shadow: 5px 5px; 
+}
+
+.P4 {
+    height : 3em; 
+    width : 9em; 
+    border-style: solid;
+    background-color : hsl(61, 98%, 60%);
+    border-radius: 0.7em;
+    box-shadow: 5px 5px 10px; 
+}
+
+.P5 {
+    height : 3em; 
+    width : 9em; 
+    border-style: solid;
+    background-color : hsl(61, 98%, 60%);
+    border-radius: 0.7em;
+    box-shadow: 8px 8px; 
+}
+
+.P6 {
+    height : 3em; 
+    width : 9em; 
+    border-style: solid;
+    background-color : hsl(61, 98%, 60%);
+    border-radius: 0.7em;
+    box-shadow: 8px 8px 10px 3px; 
+}
+
+.P7 {
+    height : 3em; 
+    width : 9em; 
+    border-style: solid;
+    background-color : hsl(61, 98%, 60%);
+    border-radius: 0.7em;
+    box-shadow: 8px 8px maroon; 
+}
+
+.P8 {
+    height : 3em; 
+    width : 9em; 
+    border-style: solid;
+    background-color : hsl(61, 98%, 60%);
+    border-radius: 0.7em;
+    box-shadow: 0px 0px 5px 0px maroon; 
+}
+
+.P9 {
+    height : 3em; 
+    width : 9em; 
+    border-style: solid;
+    background-color : hsl(61, 98%, 60%);
+    border-radius: 0.7em;
+    box-shadow: 5px 5px 10px 0px maroon; 
+}
+
+.P10 {
+    height : 3em; 
+    width : 9em; 
+    border-style: solid;
+    background-color : hsl(61, 98%, 60%);
+    border-radius: 0.7em;
+    box-shadow: 0px 0px 10px 5px maroon; 
+}
+
+.P11 {
+    height : 3em; 
+    width : 9em; 
+    border-style: solid;
+    background-color : hsl(61, 98%, 60%);
+    border-radius: 0.7em;
+    box-shadow: inset -5px -5px; 
+}
+
+
+.P12 {
+    height : 3em; 
+    width : 9em; 
+    border-style: solid;
+    background-color : hsl(61, 98%, 60%);
+    border-radius: 0.7em;
+    box-shadow: inset -4px -2px 0px 5px;
+}
+
+.P13 {
+    height : 3em; 
+    width : 9em; 
+    border-style: solid;
+    background-color : hsl(61, 98%, 60%);
+    border-radius: 0.7em;
+    box-shadow: inset 5px 5px;
+
+}
+
+.P14 {
+    height : 3em; 
+    width : 9em; 
+    border-style: solid;
+    background-color : hsl(61, 98%, 60%);
+    border-radius: 0.7em;
+    box-shadow: inset 5px 5px 7px;
+}
+
+.P15 {
+    height : 3em; 
+    width : 9em; 
+    border-style: solid;
+    background-color : hsl(61, 98%, 60%);
+    border-radius: 0.7em;
+    box-shadow: inset 5px 5px 0px 5px;
+
+}
+
+.P16 {
+    height : 3em; 
+    width : 9em; 
+    border-style: solid;
+    background-color : hsl(61, 98%, 60%);
+    border-radius: 0.7em;
+    box-shadow: inset 5px 5px 5px 5px;
+}
+
+.P17 {
+    height : 3em; 
+    width : 9em; 
+    border-style: solid;
+    background-color : hsl(61, 98%, 60%);
+    border-radius: 0.7em;
+    box-shadow: inset 5px 5px 0px 5px maroon;
+
+}
+
+.P18 {
+    height : 3em; 
+    width : 9em; 
+    border-style: solid;
+    background-color : hsl(61, 98%, 60%);
+    border-radius: 0.7em;
+    box-shadow: inset 0px 0px 7px 0px maroon; 
+}
+
+.P19 {
+    height : 3em; 
+    width : 9em; 
+    border-style: solid;
+    background-color : hsl(61, 98%, 60%);
+    border-radius: 0.7em;
+    box-shadow: inset 5px 5px 8px 2px maroon;
+
+}
+
+.P20 {
+    height : 3em; 
+    width : 9em; 
+    border-style: solid;
+    background-color : hsl(61, 98%, 60%);
+    border-radius: 0.7em;
+    box-shadow: inset 0px 0px 9px 6px maroon;
+}
+
