@@ -1,0 +1,11 @@
+body {
+    background-image: url(imagen1.png),url(imagen2.png), url(fondo.jpg);
+    background-repeat: no-repeat;
+    background-position: 50 100, bottom right, 0 0;
+    background-size: 5%, 20%, 100%;
+}
+
+p {
+    color: white;
+    text-align: center;
+}
