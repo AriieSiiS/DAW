@@ -11,30 +11,27 @@ namespace Funciones01
     {
         static void Main(string[] args)
         {
-            int num;
+            decimal celcius;
             Console.WriteLine("Dime una temperatura en grados Celcius");
-            while (!(Int32.TryParse(Console.ReadLine(), out num) || num > 0))
+            while (!(Decimal.TryParse(Console.ReadLine(), out celcius) || celcius > 0))
                 Console.WriteLine("El número introducido no es válido");
-            Funciones.Fahrenheit(num);
-            Funciones.Kelvin(num);
+            Console.Clear();
+            Console.WriteLine("La temperatura en Fahrenheit sería: \n \t {0}ºF", Funciones.Fahrenheit(celcius));
+            Console.WriteLine("La temperatura en Kelvin sería: \n \t {0}ºK", Funciones.Kelvin(celcius));
+            Console.WriteLine();
         }
-
-        class Funciones
-        {
-            public static void Fahrenheit(int num)
-            {
-               
-                Console.WriteLine("La temperatura en Fahrenheit sería: \n \t {0}ºF", num * 1.8 + 32);
-            }
-
-            public static void Kelvin(int num)
-            {
-                Console.WriteLine("La temperatura en Kelvin sería: \n \t {0}ºK", num + 273.15);
-            }
-        }
-
     }
-
-
-
+    class Funciones
+    {
+        public static decimal Fahrenheit(decimal celcius)
+        {
+            return (celcius * 1.8m) + 32;
+            //Console.WriteLine("La temperatura en Fahrenheit sería: \n \t {0}ºF", celcius * 1.8 + 32);
+        }
+        public static decimal Kelvin (decimal celcius)
+        {
+            return (celcius + 273.15m);
+            //Console.WriteLine("La temperatura en Kelvin sería: \n \t {0}ºK", celcius + 273.15);
+        }
+    }
 }

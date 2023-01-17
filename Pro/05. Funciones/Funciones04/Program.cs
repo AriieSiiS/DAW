@@ -10,17 +10,15 @@ namespace Funciones04
     {
         static void Main(string[] args)
         {
-            
             Console.WriteLine("Dime una frase");
             string frase = Console.ReadLine();
             Console.WriteLine("Ahora dime una letra");
             char letra = Console.ReadLine()[0];
-            Program.Cantidad(frase,letra);
+            Cantidad(frase,letra);
         }
-
-        public static void Cantidad(string frase, char letra)
+        private static void Cantidad(string frase, char letra)
         {
-            int contador = 0;   
+            int contador = 0;
             foreach (char letra1 in frase)
             {
                 if (letra1 == letra) 

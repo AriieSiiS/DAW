@@ -32,19 +32,18 @@ namespace Funciones02
                 Console.ReadKey();
             }
         }
-        class Funciones
+    }
+    class Funciones
+    {
+        public static void Fahrenheit(int num)
         {
-            public static void Fahrenheit(int num)
-            {
-                Console.WriteLine("La temperatura en Fahrenheit sería: \n \t {0}ºF", num * 1.8 + 32);
-            }
-
-            public static void Kelvin(int num)
-            {
-                Console.WriteLine("La temperatura en Kelvin sería: \n \t {0}ºK", num + 273.15);
-            }
+            Console.WriteLine("La temperatura en Fahrenheit sería: \n \t {0}ºF", num * 1.8 + 32);
         }
 
+        public static void Kelvin(int num)
+        {
+            Console.WriteLine("La temperatura en Kelvin sería: \n \t {0}ºK", num + 273.15);
+        }
     }
 
 
