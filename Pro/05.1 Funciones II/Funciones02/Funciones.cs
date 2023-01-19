@@ -10,6 +10,7 @@ namespace Ejercicio
     {
         public static int PosicionMenorValor(int[] vector)
         {
+            
             int posicion = vector[0];
             for (int i = 0; i < vector.Length; i++)
             {

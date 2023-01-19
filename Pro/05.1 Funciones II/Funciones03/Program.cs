@@ -6,8 +6,8 @@ namespace Ejercicio
     {
         static void Main(String[] args)
         {
-            int tamaño = 10;
-            int[] Aleatorio = Funciones.ArrayAleatorio(tamaño);
+            const int Tamaño = 10;
+            int[] Aleatorio = Funciones.ArrayAleatorio(Tamaño);
             for (int i = 0; i < Aleatorio.Length; i++)
             {
                 Console.WriteLine("\t {0}", Aleatorio[i]);
