@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,11 +30,18 @@ namespace Funciones05
 
         public static string AñadirLetra(string frase)
         {
-            Console.WriteLine("Escribe una letra");
-            char letra;
-            Char.TryParse(Console.ReadLine(), out letra);
+            char letra = Funciones.ComprobarLetra();
             frase += letra;
             return frase;
+        }
+
+        public static char ComprobarLetra()
+        {
+            char letra;
+            Console.WriteLine("Escribe una letra");
+            while (!(Char.TryParse(Console.ReadLine(), out letra)) || (char.IsLetter(letra) == false))
+                Console.WriteLine("La letra introducida no es válida");
+            return letra;
         }
         public static string QuitarLetra(string frase)
         {
