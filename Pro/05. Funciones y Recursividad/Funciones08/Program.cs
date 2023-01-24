@@ -10,8 +10,9 @@ namespace Ejercicio
             string frase = Console.ReadLine();
             Console.WriteLine("Dime una letra");
             char letra;
-            while (!(Char.TryParse(Console.ReadLine(), out letra)))
+            while (!(Char.TryParse(Console.ReadLine(), out letra) || char.IsLetter(letra) == false))
                 Console.WriteLine("La letra introducida no es válida");
+
             Console.WriteLine(Funciones.ContadorLetra(frase,letra);
 
             

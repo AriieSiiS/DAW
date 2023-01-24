@@ -11,13 +11,16 @@ namespace Ejercicio
         public static bool NumPrimo(int num, int contador)
         {
             bool Primo = true;
-            if (num == 1)
-                return (1);
+            if (contador - 1 == 1)
+                return (true);
             else
             {
-                if (num % contador - 1 == 0)
-                    return (0);
-                return (NumPrimo(num-1));
+                if (num % (contador-1) == 0)
+                {
+                    
+                    return (false);
+                }
+                return (NumPrimo(num, (contador-1)));
             }
 
 

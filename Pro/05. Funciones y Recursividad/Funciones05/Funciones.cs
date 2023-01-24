@@ -25,7 +25,11 @@ namespace Funciones05
 
         public static void VerFrase(string frase)
         {
-            Console.WriteLine("La frase es {0}", frase);
+            for (int i = frase.Length-1; i >= 0; i--)
+            {
+                Console.WriteLine("|" + frase[i] + "|");
+                
+            } 
         }
 
         public static string AñadirLetra(string frase)
