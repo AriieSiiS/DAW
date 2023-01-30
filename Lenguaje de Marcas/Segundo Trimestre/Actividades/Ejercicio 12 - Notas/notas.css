@@ -1,0 +1,69 @@
+body {
+    background-color: gray;
+}
+
+li {
+    width: 150px;
+    height: 150px;
+    margin: 25px;
+    padding: 10px;
+    float: left;
+    list-style-type: none;
+    margin-top: 50px;
+    position: relative;
+}
+
+ul li:hover {
+    transform: scale(1.2);
+    box-shadow: 5px 5px 15px; 
+    z-index: 3;
+}
+
+/* Titulos amarillos */
+
+li:nth-child(odd) {
+    background-color: rgb(201, 162, 34);
+    box-shadow: 2px 2px 5px; 
+    transform:rotate(-10deg);
+}
+
+li:nth-child(5) {
+    background-color: rgb(201, 162, 34);
+    box-shadow: 2px 2px 5px; 
+    transform:rotate(10deg)
+}
+
+/* Titulos verdes */
+
+li:nth-child(even) {
+    background-color: rgb(73, 168, 81);
+    box-shadow: 2px 2px 5px; 
+    transform:rotate(15deg);
+}
+
+/* Titulos azules */
+
+li:nth-child(3n+3) {
+    background-color: rgb(79, 119, 206);
+    box-shadow: 2px 2px 5px; 
+    transform:rotate(-10deg)
+}
+
+/* links */
+
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+a:visited{
+    color: black;
+    text-decoration: none;
+}
+
+/* texto */
+
+p {
+    font-size: 1.5em;
+
+}

@@ -1,0 +1,11 @@
+
+
+div div.checkbox {
+    display: none;
+  }
+  
+#expand:checked + .checkbox {
+    display: block;
+  }
+
+

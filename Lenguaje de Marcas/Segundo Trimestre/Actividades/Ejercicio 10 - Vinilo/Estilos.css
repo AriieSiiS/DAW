@@ -20,35 +20,38 @@
   right: 0;
   height: 100%;
   width: 100%;
-  opacity: 0;
 }
 
-.Clase1 {
-    opacity: 0;
-}
 
-.Clase2 {
+
+.Contenedor .Clase2 {
+
     opacity: 0;
-    position: absolute;
-    transform:rotate(-55deg);
+    position: relative;
+    bottom: -150px;
+    right: -400px;
+    z-index: -1;
+    transition: all 2s;
 }
 
 .Contenedor:hover .Clase2 {
     opacity: 1;
-    transition: 2s;
-    transform:rotate(55deg);
-    bottom: 0;
-    right: -300px;
+    transform:translatex(200px)rotate(100deg) ;
+}
+
+
+.Clase1 {
+  opacity: 0;
+  transition: all 1.5s ease 0.1s;
 }
 
 .Contenedor:hover .Clase1 {
     opacity: 1;
-    transition: 1s;
+    transform: translate(-195px);
 }
   
 .Contenedor:hover .Clase {
     opacity: 1;
-    
 }
   
 

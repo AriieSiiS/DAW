@@ -1,0 +1,20 @@
+.yoyo {
+  position: relative;
+  bottom: 606px;
+  right: -243px;
+  overflow: hidden;
+}
+
+.Contenedor .Clase2 {
+    transition: all 1s;
+}
+
+.imagen:hover .Clase2 {
+    transform:translatey(-150px);
+}
+
+.imagen {
+  width: fit-content;
+}
+
+

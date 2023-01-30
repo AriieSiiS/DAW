@@ -1,0 +1,42 @@
+body {
+    background-image: url(Fondo.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: fit-content;
+}
+
+img {
+    width: 30%;
+    position: relative;
+    right: 0;
+    
+
+}
+
+div {
+    animation-duration: 5s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+
+   }
+   @keyframes slidein {
+    from {
+        margin-left: 0%;
+        width: 100%;
+        transform: scaleX(0);
+       
+    }
+
+    99% {
+        margin-left: 100%;
+        width: 100%;
+    }
+    1% {
+        transform: scaleX(-1);
+        margin-left: 100%;
+        width: 100%;
+    }
+   }
+   
