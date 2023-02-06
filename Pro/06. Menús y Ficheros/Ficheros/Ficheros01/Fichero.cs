@@ -24,7 +24,7 @@ namespace Ejercicio
             return (valor);
         }
 
-        public static string[] GuardarLineasFichero()
+        public static string[] GuardarContenidoFichero()
         {
             string[] lineasFichero = new string[0];
             StreamReader leer = null;
@@ -50,13 +50,16 @@ namespace Ejercicio
         public static bool ComprobarContenidoFichero()
         {
             bool valor = true;
-            string[] lineasFichero = Fichero.GuardarLineasFichero();
+            string[] lineasFichero = Fichero.GuardarContenidoFichero();
             string[] lineasSeparadas = new string[0];
             int nEntero;
+            //guardar todo en array de numeros enteros
+            //mejor usar un while
             for (int i = 0; i < lineasFichero.Length; i++)
             {
                 lineasSeparadas = lineasFichero[i].Split(';');
-                
+                if (int.TryParse())
+                //comprobar que su tamaño sea solo de dos y que sean numeros enteros
             }
             return (valor);
             
