@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Ejercicio
+﻿namespace Ejercicio
 {
     internal class Ejercicio
     {

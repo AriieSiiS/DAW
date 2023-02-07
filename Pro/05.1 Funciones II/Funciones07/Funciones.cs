@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ejercicio
+﻿namespace Ejercicio
 {
     internal class Funciones
     {
@@ -29,12 +23,12 @@ namespace Ejercicio
                 Console.WriteLine("La letra introducida no es correcta");
             return letra;
         }
-        public static (int[],int)  CantidadVeces()
+        public static (int[], int) CantidadVeces()
         {
-            string frase = Funciones.PedirString(); 
+            string frase = Funciones.PedirString();
             char letra = Funciones.PedirChar();
             int contador = 0;
-            int[] posición = new int[contador+1];
+            int[] posición = new int[contador + 1];
 
             for (int i = 0; i < frase.Length; i++)
             {

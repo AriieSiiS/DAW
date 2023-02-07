@@ -1,7 +1,4 @@
-﻿using System;
-using System.Numerics;
-
-namespace Ejercicio
+﻿namespace Ejercicio
 {
     internal class Ejercicio
     {
@@ -10,8 +7,8 @@ namespace Ejercicio
             //programa para buscar el valor mas pequeño en un array
             int[] vector = { 3, 2, 8, 9, -13, 12 };
             Funciones.MenorValor(vector);
-            Console.WriteLine("El valor menor del vector es: {0}",vector[0]);
-            
+            Console.WriteLine("El valor menor del vector es: {0}", vector[0]);
+
         }
     }
 }

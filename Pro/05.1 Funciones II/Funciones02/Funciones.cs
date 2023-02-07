@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ejercicio
+﻿namespace Ejercicio
 {
     internal class Funciones
     {
         public static int PosicionMenorValor(int[] vector)
         {
-            
+
             int posicion = vector[0];
             for (int i = 0; i < vector.Length; i++)
             {

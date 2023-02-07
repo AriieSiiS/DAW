@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Ejercicio
+﻿namespace Ejercicio
 {
     internal class Ejercicio
     {
@@ -12,7 +10,7 @@ namespace Ejercicio
                 Console.WriteLine("El número introducido no es válido");
 
             int NCifras = Funciones.NCifras(num);
-            Console.WriteLine("El número de cifras que tiene {0} es {1}",num,NCifras);
+            Console.WriteLine("El número de cifras que tiene {0} es {1}", num, NCifras);
         }
     }
 }
