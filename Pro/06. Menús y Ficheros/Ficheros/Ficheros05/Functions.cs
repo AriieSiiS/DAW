@@ -31,7 +31,9 @@ namespace Ejercicio
             bool keep = false;
             try
             {
-                File.Create(validation02).Dispose();
+
+                StreamWriter sw = File.CreateText(validation02);
+                sw.Close();
                 keep = true;    
             }
             catch (Exception ex)

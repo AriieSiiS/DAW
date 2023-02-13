@@ -16,19 +16,31 @@ namespace Ejercicio
 
         public static void CreateFile()
         {
-            File.Create(File03).Dispose();
+            try
+            {
+                File.Create(File03).Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
         }
 
-        public static void CheckFile()
+        public static bool CheckFile()
         {
+            bool exist = true;
             if (!File.Exists(File01))
             {
                 Console.WriteLine("El primer fichero no existe, asegurate de que exista y vuelva a ejecutar el programa");
+                exist = false;
             }
             else if (!File.Exists(File02))
             {
                 Console.WriteLine("El segundo fichero no existe, asegurate de que exista y vuelva a ejecutar el programa");
+                exist = false;
             }
+            return exist;
         }
 
         public static void FillFile()
