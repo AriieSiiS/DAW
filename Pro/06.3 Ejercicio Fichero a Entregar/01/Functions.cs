@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Linq.Expressions;
 using System.Collections;
+using System.ComponentModel;
 
 
 namespace Ejercicio
@@ -13,8 +14,10 @@ namespace Ejercicio
     internal class Functions
     {
         public const string CSV = "..\\..\\..\\edades.csv";
+        public const string log = "..\\..\\..\\errores.log";
+        public const string AvPopulation = "..\\..\\..\\media_poblacion.csv";
 
-        List<string> lineasRuta2 = new List<string>();
+
         public static bool ValidateFile()
         {
             bool keep = false;
@@ -28,6 +31,22 @@ namespace Ejercicio
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+            return keep;
+        }
+        public static bool CreateLog()
+        {
+            StreamWriter writer = null;
+            bool keep = true;
+            try
+            {
+                writer = File.CreateText(log);
+                writer.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Se produjo una excepción al crear el archivo de errores: " + ex.Message);
             }
             return keep;
         }
@@ -46,17 +65,88 @@ namespace Ejercicio
                 Console.WriteLine(e);
             }
         }
-        public static void TransformToDouble(List<string> TextFile)
+        public static bool TransformToDouble(List<string> textFile,List<double> averagePopulation,List<string> namePlaces)
         {
+            bool errors = false;
             string line;
             string[] lineSplit = new string[0];
-
-            for (int i = 1; i < TextFile.Count; i++)
+            double average;
+            double result;
+  
+            //cada iteracion de este bucle corresponde a una linea del fichero
+            for (int i = 1; i < textFile.Count; i++)
             {
-                line = TextFile[i];
+                line = textFile[i];
                 lineSplit = line.Split(';');
+                //le restamos dos al tamaño porque en este array no queremos guardar ni el primer dato ni el nombre de la provincia
+                double[] doubleList = new double[lineSplit.Length-2];
+                //dejamos vacia la primera posición porque no nos interesa ese dato y guardamos la segunda posición en una lista de strings
+                lineSplit[0] = "";
+                namePlaces.Add(lineSplit[1]);
+                //por cada interacion de este bucle, se genera un array de doubles que corresponden a una de las lineas del fichero
+                for (int x = 2; x < lineSplit.Length; x++)
+                {
+                    try
+                    {
+                        //comprobamos que el numero se pueda convertir y que sea mayor que 0
+                        if (Double.TryParse(lineSplit[x], out result) && result >= 0)
+                        {
+                            doubleList[x - 2] = result;
+                        }
+                        else
+                        {
+                            // manejar el caso de que la conversión no se haya realizado correctamente o el número sea negativo
+                            Functions.WriteErrors(i);
+                            errors = true;
+                            return errors;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // manejar cualquier otra excepción que pueda ocurrir
+                        Console.WriteLine($"Se produjo una excepción: {ex.Message}");
+                    }
+                }
+                //Si llegamos hasta aquí, sacamos la media y la guardamos en una lista 
+                average = doubleList.Average();
+                averagePopulation.Add(average);
+            }
+            return errors;
+        }
+
+        public static void WriteNewFile(List<double> averagePopulation, List<string> namePlaces)
+        {
+            StreamWriter writer = null;
+            string fields = "Municipios; Media";
+            try
+            {
+                writer = new StreamWriter(AvPopulation);
+                writer.WriteLine(fields);
+                for (int i = 0; i < averagePopulation.Count; i++)
+                {
+                    writer.WriteLine("{0}: {1:00}",namePlaces[i], averagePopulation[i]);
+                }
+                writer.Close(); 
 
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
+
+        public static void WriteErrors(int i)
+        {
+            StreamWriter writer = null;
+            try
+            {
+                writer = new StreamWriter(log);
+                writer.WriteLine("Linea {0}: Hay un valor que no es válido.", i+1);
+                writer.Close();
+            }
+            catch (Exception e)
+            { Console.WriteLine(e); }
+        }
+
     }
 }
