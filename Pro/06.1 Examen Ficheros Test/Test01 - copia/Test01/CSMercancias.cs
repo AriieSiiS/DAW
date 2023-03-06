@@ -39,6 +39,9 @@ namespace Ejercicio
             {
                 Console.WriteLine("El destino {0} lleva {1}kg de peso.", destinos[i], pesos[i]);
             }
+            Console.WriteLine("\tPulsa una tecla para continuar");
+            Console.ReadKey();
+            Console.Clear();
         }
     }
 }

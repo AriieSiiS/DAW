@@ -27,7 +27,29 @@ namespace Ejercicio
             }
             CSMercancias.MostrarDatos(destinos, pesos);
             //segunda parte
-            List<string> destinosContenedores = CSContenedores.DestinosContenedores(destinos);
+            List<decimal> SumaPesos = CSContenedores.PesosContenedores(destinos, pesos);
+            List<string> Contenedores = CSContenedores.DestinosContenedores(destinos, pesos);
+            decimal contenedorestotales;
+            int indexpeso = 0;
+            foreach (string contenedor in Contenedores) 
+            {
+                Console.WriteLine($"El destino {contenedor} lleva {SumaPesos[indexpeso]} kg");
+                contenedorestotales = SumaPesos[indexpeso] / 1200;
+                if  (contenedorestotales > 1)
+                {
+                    Console.WriteLine("\n Se necesitarán {0}", Math.Round(contenedorestotales));
+                }
+                else
+                    Console.WriteLine("Solo se necesitará un contenedor");
+                Console.WriteLine("");
+                indexpeso++;
+                
+            }
+                
+            
+            
+
+
         }
     }
 }
