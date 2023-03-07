@@ -36,7 +36,6 @@ namespace Ejercicio
                     {
                         //función que escribe el nuevo fichero con la media de población de cada provincia
                         Functions.WriteNewFile(averagePopulation, namePlaces);
-
                     }
 
                 }

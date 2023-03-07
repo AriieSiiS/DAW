@@ -42,7 +42,6 @@ namespace Ejercicio
             {
                 writer = File.CreateText(log);
                 writer.Close();
-
             }
             catch (Exception ex)
             {
