@@ -1,0 +1,128 @@
+#mundo {
+    border-style: solid;
+    height: 600px;
+    width: 1000px;
+    overflow: hidden;
+    background-color: rgb(184, 184, 184);
+
+    
+
+}
+
+
+.rueda {
+
+    width: 40px;
+    height: 40px;
+    animation-name: ruedas, coche;
+    animation: ruedas 3s linear infinite;
+    border-radius: 50%;
+    animation-direction: alternate;
+
+
+}
+@keyframes ruedas {
+    0% {
+        transform: rotate(360deg);
+        top: 255px;
+      }
+    
+      90% {
+        transform: rotate(0deg);
+        top: 255px;
+      }
+      100% {
+        transform: rotate(0deg);
+        top: 200px;
+      }
+    }
+    
+
+#rueda1 {
+    position: relative;
+    left: 180px;
+    top: 255px;
+}
+
+#rueda2 {
+    position: relative;
+    left: -16px;
+    top: 255px;
+}
+
+
+
+/* animacion del coche  */
+
+#coche {
+    width: 30%;
+    position: relative;
+    top: 260px;
+    left: 280px;
+    animation: coche 3s linear infinite;
+    animation-direction: alternate;
+
+}
+
+@keyframes coche {
+    0% {
+        top: 260px;
+      }
+      90% {
+        top: 260px;  
+      }
+      100% {
+        top: 200px;
+      }
+    }
+    
+
+
+
+
+/* animacion del árbol */
+
+#arbol {
+    position: relative;
+    width: 30%;
+    height: 40%;
+    top: 265px;
+    left: -500px;
+    animation-duration: 7s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+
+}
+
+#piedra {
+    position: relative;
+    width: 6%;
+    top: 265px;
+    left: 900px;
+    animation-duration: 6s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    animation-delay: 1.8s;
+
+}
+
+
+@keyframes slidein {
+0% {
+    left: -900px;
+  }
+  100% {
+    left: 100%;  
+  }
+}
+
+/* Suelo  */
+
+#suelo {
+    position: relative;
+    top: 250px;
+    height: 200px;
+    width: 1000px;
+    background-color: rgb(187, 105, 80);
+
+}

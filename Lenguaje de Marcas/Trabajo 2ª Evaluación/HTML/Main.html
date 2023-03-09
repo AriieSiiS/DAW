@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Main.css">
+    <!-- ICONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="../Imagenes/favicon.ico" type="image/x-icon">
+    <title>Main</title>
+</head>
+<body>
+    <!-- HEADER -->
+
+    <header>
+    </header>
+
+    <!-- SECTION -->
+
+    <section id="section">
+        <div id="form" class="container">
+            <form class="signUp">
+              <h3>Create Your Account</h3>
+              <p>Just enter your email address</br>
+              and your password to join.
+              </p>
+              <input class="w100" type="Email" placeholder="Insert email" reqired autocomplete='off' />
+              <input type="password" placeholder="Insert password" reqired />
+              <input type="password" placeholder="Verify password" reqired />
+              <button class="form-btn sx log-in" type="submit">Log In</button>
+              <button class="form-btn dx" type="submit">Sign Up</button>
+            </form>
+          </div>
+        <div class="section">
+            <!-- BOTONES DEL FILTRO -->
+            <div id="myBtnContainer">
+                <button class="btn active button-36" onclick="filterSelection('all')"> Show all</button>
+                <button class="btn button-36" onclick="filterSelection('Pop')"> Pop</button>
+                <button class="btn button-36" onclick="filterSelection('Rock')"> Rock</button>
+                <button class="btn button-36" onclick="filterSelection('HipHop')"> Hip Hop</button>
+            </div>
+            <!-- SECCIONES DEL FILTRO --> 
+            
+            <!-- SECCION POP --> 
+            <div class="row">
+                <div class="column Pop">
+                    <div class="content image-container">
+                        <img src="../Imagenes/Taylor.jpg" alt="Taylor Swift" style="width:100%">
+                        <div class="audio-container">
+                            <audio controls src="../Music/Taylor Swift.mp3" preload="none"></audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="column Pop">
+                <div class="content image-container">
+                    <img src="../Imagenes/Sour.jpg" alt="Olivia Rodrigo" style="width:100%">
+                    <div class="audio-container">
+                        <audio controls src="../Music/Olivia Rodrigo.mp3" preload="none"></audio>
+                    </div>
+                </div>
+                </div>
+                <div class="column Pop">
+                <div class="content image-container">
+                    <img src="../Imagenes/Harry.jpg" alt="Harry Styles" style="width:100%">
+                    <div class="audio-container">
+                        <audio controls src="../Music/Harry Styles - As It Was (Lyrics).mp3" preload="none"></audio>
+                    </div>
+                </div>
+                </div>
+
+                <!-- SECCION ROCK --> 
+                <div class="column Rock">
+                    <div class="content image-container">
+                        <img src="../Imagenes/Link.jpg" alt="Linkin Park" style="width:100%">
+                        <div class="audio-container">
+                            <audio controls src="../Music/Linkin Park -  Numb (Lyrics).mp3" preload="none"></audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="column Rock">
+                    <div class="content image-container">
+                        <img src="../Imagenes/pistols.jpg" alt="Pistols" style="width:100%">
+                        <div class="audio-container">
+                            <audio controls src="../Music/Sex Pistols - Anarchy In The UK.mp3" preload="none"></audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="column Rock">
+                    <div class="content image-container">
+                        <img src="../Imagenes/avenged.jpg" alt="Avenged" style="width:100%">
+                        <div class="audio-container">
+                            <audio controls src="../Music/Avenged Sevenfold - Hail to the King (Audio).mp3" preload="none"></audio>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECCION HIP HOP --> 
+                <div class="column HipHop">
+                    <div class="content image-container">
+                        <img src="../Imagenes/eminem.png" alt="Eminem" style="width:100%">
+                        <div class="audio-container">
+                            <audio controls src="../Music/Eminem.mp3" preload="none"></audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="column HipHop">
+                    <div class="content image-container">
+                        <img src="../Imagenes/icecube.jpg" alt="ice Cube" style="width:100%">
+                        <div class="audio-container">
+                            <audio controls src="../Music/It Was A Good Day.mp3" preload="none"></audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="column HipHop">
+                <div class="content image-container">
+                    <img src="../Imagenes/fifty.jpg" alt="Fifty Cent" style="width:100%">
+                    <div class="audio-container">
+                        <audio controls src="../Music/50 Cent - In Da Club (Lyrics).mp3" preload="none"></audio>
+                    </div>
+                </div>
+            </div> 
+        </div>        
+    </section>
+
+    <!-- BARRA LATERAL -->
+
+    <aside class="aside">
+        <p></p>
+        <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+        <button class="buton-toggle" id="account"> <i class="fa fa-id-badge "></i> Account </button>
+        <button class="buton-toggle" id="light-mode-btn" style="display:block"><i class="fa fa-lightbulb-o"></i> Light Mode</button>
+        <button class="buton-toggle" id="dark-mode-btn" style="display:none;"><i class="fa fa-lightbulb-o"></i> Dark Mode</button>
+        <a href="AboutUs.html"><i class="fa fa-wpforms"></i> About us</a>
+    </aside>
+
+    <!-- FOOTER -->
+    
+    <footer>
+        <div>
+            <div class="social">
+                <a href="#"><i class="fa fa-instagram" style="font-size:24px"></i></a>
+                <a href="#"><i class='fa fa-facebook-official' style="font-size:24px"></i></a>
+                <a href="#"><i class="fa fa-youtube-play" style="font-size:24px"></i></a>
+                <a href="#"><i class="fa fa-pinterest-square" style="font-size:24px"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <!-- SCRIPT FILTRO CON BOTONES -->
+    <script>
+        filterSelection("all")
+        function filterSelection(c) {
+          var x, i;
+          x = document.getElementsByClassName("column");
+          if (c == "all") c = "";
+          for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+          }
+        }
+        
+        function w3AddClass(element, name) {
+          var i, arr1, arr2;
+          arr1 = element.className.split(" ");
+          arr2 = name.split(" ");
+          for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+          }
+        }
+        
+        function w3RemoveClass(element, name) {
+          var i, arr1, arr2;
+          arr1 = element.className.split(" ");
+          arr2 = name.split(" ");
+          for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+              arr1.splice(arr1.indexOf(arr2[i]), 1);     
+            }
+          }
+          element.className = arr1.join(" ");
+        }
+        
+        // Add active class to the current button (highlight it)
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].addEventListener("click", function(){
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+          });
+        }
+    </script>
+
+    <!-- SCRIPT DARK-MODE / LIGHT-MODE -->
+
+    <script>
+        // Select the buttons
+        const lightModeBtn = document.querySelector("#light-mode-btn");
+        const darkModeBtn = document.querySelector("#dark-mode-btn");
+        const account = document.querySelector("#account");
+        const form = document.querySelector("#form");
+        const section = document.querySelector("#section");
+      
+        // Listen for a click on the buttons
+          lightModeBtn.addEventListener("click", function () {
+          // Toggle the .dark-theme class on the body
+          document.body.classList.toggle("dark-theme");
+      
+          // Store the current theme setting in local storage
+          localStorage.setItem("theme", "dark");
+      
+          // Toggle the buttons
+          lightModeBtn.style.display = "none";
+          darkModeBtn.style.display = "block";
+        });
+      
+        darkModeBtn.addEventListener("click", function () {
+          // Toggle the .dark-theme class on the body
+          document.body.classList.toggle("dark-theme");
+      
+          // Store the current theme setting in local storage
+          localStorage.setItem("theme", "light");
+      
+          // Toggle the buttons
+          darkModeBtn.style.display = "none";
+          lightModeBtn.style.display = "block";
+        });
+
+        account.addEventListener("click", function () {
+          // Toggle the .active-form class on the form
+          form.classList.toggle("active-form")
+          section.classList.toggle("active-section")
+        })
+      
+        // Check if there is a stored theme setting and apply it
+        const storedTheme = localStorage.getItem("theme");
+        if (storedTheme) {
+          document.body.classList.add(storedTheme + "-theme");
+          if (storedTheme === "dark") {
+            lightModeBtn.style.display = "none";
+            darkModeBtn.style.display = "block";
+          } else {
+            darkModeBtn.style.display = "none";
+            lightModeBtn.style.display = "block";
+          }
+        }
+      </script>
+
+<!-- <script>
+    // Select the buttons
+    const lightModeBtn = document.querySelector("#light-mode-btn");
+    const darkModeBtn = document.querySelector("#dark-mode-btn");
+    const account = document.querySelector("#account");
+    const form = document.querySelector("#form");
+    const section = document.querySelector("#section");
+  
+    // Listen for a click on the buttons
+      lightModeBtn.addEventListener("click", function () {
+      // Toggle the .dark-theme class on the body
+      document.body.classList.toggle("dark-theme");
+  
+      // Store the current theme setting in local storage
+      localStorage.setItem("theme", "dark");
+  
+      // Toggle the buttons
+      lightModeBtn.style.display = "none";
+      darkModeBtn.style.display = "block";
+    });
+  
+    darkModeBtn.addEventListener("click", function () {
+      // Toggle the .dark-theme class on the body
+      document.body.classList.toggle("dark-theme");
+  
+      // Store the current theme setting in local storage
+      localStorage.setItem("theme", "light");
+  
+      // Toggle the buttons
+      darkModeBtn.style.display = "none";
+      lightModeBtn.style.display = "block";
+    });
+
+    account.addEventListener("click", function () {
+      // Toggle the .active-form class on the form
+      form.classList.toggle("active-form")
+      section.classList.toggle("active-section")
+    })
+  
+    // Check if there is a stored theme setting and apply it
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      document.body.classList.add(storedTheme + "-theme");
+      if (storedTheme === "dark") {
+        lightModeBtn.style.display = "none";
+        darkModeBtn.style.display = "block";
+      } else {
+        darkModeBtn.style.display = "none";
+        lightModeBtn.style.display = "block";
+      }
+    }
+  </script> -->
+
+    <!-- SCRIPT PARA / REANUDAR MÚSICA -->
+
+    <script>
+        // Obtener todos los elementos de audio
+        const allAudios = document.getElementsByTagName("audio");
+
+        // Agregar un event listener para cada elemento de audio
+        for (let i = 0; i < allAudios.length; i++) {
+        let audio = allAudios[i];
+        audio.addEventListener("play", function() {
+            // Pausar todos los demás elementos de audio
+            for (let j = 0; j < allAudios.length; j++) {
+            if (allAudios[j] !== audio) {
+                allAudios[j].pause();
+            }
+            }
+        });
+        }
+    </script>
+</body>
+</html>

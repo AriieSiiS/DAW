@@ -34,6 +34,7 @@ namespace Ejercicio
             }
             return keep;
         }
+
         public static bool CreateLog()
         {
             StreamWriter writer = null;
@@ -71,6 +72,7 @@ namespace Ejercicio
             string[] lineSplit = new string[0];
             double average;
             double result;
+            string errorType = "";
   
             //cada iteracion de este bucle corresponde a una linea del fichero
             for (int i = 1; i < textFile.Count; i++)
@@ -85,25 +87,36 @@ namespace Ejercicio
                 //por cada interacion de este bucle, se genera un array de doubles que corresponden a una de las lineas del fichero
                 for (int x = 2; x < lineSplit.Length; x++)
                 {
-                    try
+                    if (lineSplit.Length <= 20)
                     {
-                        //comprobamos que el numero se pueda convertir y que sea mayor que 0
-                        if (Double.TryParse(lineSplit[x], out result) && result >= 0)
+                        try
                         {
-                            doubleList[x - 2] = result;
+                            //comprobamos que el numero se pueda convertir y que sea mayor que 0
+                            if (Double.TryParse(lineSplit[x], out result) && result >= 0)
+                            {
+                                doubleList[x - 2] = result;
+                            }
+                            else
+                            {
+                                // manejar el caso de que la conversión no se haya realizado correctamente o el número sea negativo
+                                errorType = "invalid_format";
+                                Functions.WriteErrors(i, errorType);
+                                errors = true;
+                                return errors;
+                            }
                         }
-                        else
+                        catch (Exception ex)
                         {
-                            // manejar el caso de que la conversión no se haya realizado correctamente o el número sea negativo
-                            Functions.WriteErrors(i);
-                            errors = true;
-                            return errors;
+                            // manejar cualquier otra excepción que pueda ocurrir
+                            Console.WriteLine($"Se produjo una excepción: {ex.Message}");
                         }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        // manejar cualquier otra excepción que pueda ocurrir
-                        Console.WriteLine($"Se produjo una excepción: {ex.Message}");
+                        errorType = "missing_data";
+                        Functions.WriteErrors(i, errorType);
+                        errors = true;
+                        return errors;
                     }
                 }
                 //Si llegamos hasta aquí, sacamos la media y la guardamos en una lista 
@@ -126,7 +139,6 @@ namespace Ejercicio
                     writer.WriteLine("{0}: {1:00}",namePlaces[i], averagePopulation[i]);
                 }
                 writer.Close(); 
-
             }
             catch (Exception e)
             {
@@ -134,13 +146,22 @@ namespace Ejercicio
             }
         }
 
-        public static void WriteErrors(int i)
+        public static void WriteErrors(int i, string errorType)
         {
             StreamWriter writer = null;
             try
             {
                 writer = new StreamWriter(log);
-                writer.WriteLine("Linea {0}: Hay un valor que no es válido.", i+1);
+
+                switch (errorType)
+                {
+                    case "invalid_format": writer.WriteLine("Linea {0}: Hay un valor que no es válido.", i + 1); 
+                        break;
+                    case "missing_data": writer.WriteLine("Linea {0}: Los datos no están en todos los años.", i + 1); 
+                        break;
+                    default: Console.WriteLine("Easter egg");
+                        break;
+                }
                 writer.Close();
             }
             catch (Exception e)

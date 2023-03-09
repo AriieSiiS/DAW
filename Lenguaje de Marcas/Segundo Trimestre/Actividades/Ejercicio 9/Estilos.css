@@ -1,0 +1,21 @@
+.dia {
+    color:red;
+    font-size: 10em;  
+    transform: translate(55px, 150px);
+}
+
+.mes {
+    text-shadow:3px 3px 9.5px red, 10px 10px 5.5px green, 21px 21px 10.5px rgba(0, 68, 255, 0.473);;
+    font-size: 7em;  
+    transform: translate(55px, -150px);
+
+}
+
+.anio {
+    font-size: 7em;  
+    transform: rotate(-90deg);
+    position: absolute;
+    right: 55%;
+    top: 100px;
+}
+

@@ -1,42 +1,65 @@
 body {
     background-image: url(Fondo.jpg);
-    background-size: 100%;
     background-repeat: no-repeat;
-    width: fit-content;
-}
-
-img {
-    width: 30%;
-    position: relative;
-    right: 0;
-    
+    width: 1500px;
 
 }
 
-div {
+
+
+.Tiburon {
+    position: absolute;
     animation-duration: 5s;
     animation-name: slidein;
     animation-iteration-count: infinite;
-    animation-direction: alternate;
+}
 
-
-   }
    @keyframes slidein {
-    from {
-        margin-left: 0%;
-        width: 100%;
-        transform: scaleX(0);
-       
+    0% {
+        left: 0;
+      }
+      48% {
+        transform: rotateY(0deg); 
+      }
+      50% { 
+        left: 50%;
+        transform: rotateY(180deg); 
+      }
+      98% {
+        transform: rotateY(180deg); 
+      }
+      100% {
+        left: 0;    
+        transform: rotateY(0deg);
+      }
     }
-
-    99% {
-        margin-left: 100%;
-        width: 100%;
-    }
-    1% {
-        transform: scaleX(-1);
-        margin-left: 100%;
-        width: 100%;
-    }
-   }
    
+   
+.Tiburon2 {
+    position: absolute;
+    left: 70%;
+    bottom: 10%;
+    transform: rotate(180deg);
+    animation-duration: 10s;
+    animation-name: slidein2;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes slidein2 {
+    0% {
+      width: 600px;
+      top: 10px;
+      scale: 0.1;
+  
+      }
+
+      100% {
+        width: 50px;
+        top: 200px;
+        filter:hue-rotate(90deg);
+        scale: 1;
+
+      }
+
+    }
