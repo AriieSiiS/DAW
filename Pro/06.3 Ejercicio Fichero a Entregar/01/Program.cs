@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Ejercicio
 {
@@ -37,6 +38,10 @@ namespace Ejercicio
                         //función que escribe el nuevo fichero con la media de población de cada provincia
                         Functions.WriteNewFile(averagePopulation, namePlaces);
                     }
+
+
+                    // Creamos un nuevo archivo vacío
+                    //File.Create(path);
                 }
             }
         }
