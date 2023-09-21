@@ -1,0 +1,45 @@
+header {
+    background-image: url('images/logo.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    width: 100%;
+    height: 150px;
+}
+
+nav {
+    background-image: linear-gradient(to right, #efdabf, #f6f1e5 40%);
+}
+
+ul {
+    list-style: none;
+    display: flex; /* Usa flexbox para alinear elementos horizontalmente */
+    justify-content: space-between; /* Distribuye los elementos de manera uniforme */
+    padding: 0; /* Elimina el relleno predeterminado de la lista */
+    margin: 0; /* Elimina el margen predeterminado de la lista */
+}
+
+li {
+    flex: 1; /* Los elementos se expanden para ocupar el espacio disponible */
+    text-align: center; /* Centra el texto horizontalmente */
+    padding: 10px; /* Añade un espacio uniforme alrededor de los elementos */
+    color: rgb(0, 0, 0); /* Color de texto opcional para los elementos de la lista */
+
+}
+
+
+
+
+
+
+
+main {
+    height: 1000px;
+    background-color: green;
+
+}
+
+footer {
+    height: 100px;
+    background-color: blueviolet;
+}

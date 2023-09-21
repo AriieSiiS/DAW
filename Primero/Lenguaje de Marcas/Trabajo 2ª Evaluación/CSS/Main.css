@@ -436,16 +436,12 @@ aside {
 }
 
 @media (max-width: 1370px) {
-  .dark-theme aside a{
+  .dark-theme aside a, button{
     background:  #fcdcdf;
   }
 }
 
-@media (max-width: 1370px) {
-  .dark-theme aside button{
-    background:  #fcdcdf;
-  }
-}
+
 
 @media (max-width: 390px) {
   .column {
