@@ -1,19 +1,53 @@
-header {
-    background-image: url('images/logo.png');
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
-    width: 100%;
-    height: 150px;
+/* FONTS -------------------------------------------------------------------------------- */
+@font-face {
+    font-family: 'QuixoteObsolete'; /* Nombre de la fuente */
+    src: url('fonts/Quixote/Quixote-Obsolete.woff2') format('woff2'); /* Formato de la fuente */
 }
 
+@font-face {
+    font-family: 'Test'; /* Nombre de la fuente */
+    src: url('fonts/OldNewspaperTypes.woff2') format('woff2'); /* Formato de la fuente */
+}
+/* FONTS -------------------------------------------------------------------------------- */
+
+
+
+/* BODY -------------------------------------------------------------------------------- */
+body {
+    margin: 0 auto; /* Configura los márgenes izquierdo y derecho automáticamente (centra la página horizontalmente) */
+    max-width: 1200px; /* Establece un ancho máximo para el contenido principal */
+    padding: 20px; /* Agrega relleno opcional para crear espacios adicionales entre el contenido y los márgenes */
+    background-image: linear-gradient(to right, #efdabf, #f6f1e5);
+}
+/* BODY -------------------------------------------------------------------------------- */
+
+
+/* HEADER -------------------------------------------------------------------------------- */
+header {
+    background-image: url('images/logo.png');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra para el main */
+    height: 150px;
+    position: relative;
+    z-index: 1;
+}
+/* HEADER -------------------------------------------------------------------------------- */
+
+
+/* NAV -------------------------------------------------------------------------------- */
 nav {
-    background-image: linear-gradient(to right, #efdabf, #f6f1e5 40%);
+    background-image: linear-gradient(to right, #efdabf, #f6f1e5 70%);
+    font-family: 'Test', Arial, sans-serif;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra para el main */
 }
 
 ul {
     list-style: none;
-    display: flex; /* Usa flexbox para alinear elementos horizontalmente */
+    display: flex; /* flexbox para alinear elementos horizontalmente */
     justify-content: space-between; /* Distribuye los elementos de manera uniforme */
     padding: 0; /* Elimina el relleno predeterminado de la lista */
     margin: 0; /* Elimina el margen predeterminado de la lista */
@@ -22,24 +56,55 @@ ul {
 li {
     flex: 1; /* Los elementos se expanden para ocupar el espacio disponible */
     text-align: center; /* Centra el texto horizontalmente */
-    padding: 10px; /* Añade un espacio uniforme alrededor de los elementos */
+    padding: 10px; 
     color: rgb(0, 0, 0); /* Color de texto opcional para los elementos de la lista */
-
 }
 
+a {
+    color: #000;
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out; /* Agrega una transición suave */
+}
 
+a:hover {
+    transform: scale(1.2); /* Escala el elemento a 1.2 veces su tamaño original */
+}
 
+li::before {
+    background: hsl(45, 82%, 78%);
+    content: "";
+    inset: 0;
+    position: absolute;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s ease-in-out;
+    z-index: -1;
+}
 
-
+li:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+/* NAV -------------------------------------------------------------------------------- */
 
 
 main {
     height: 1000px;
-    background-color: green;
-
+    background-image: linear-gradient(to right, #efdabf, #f6f1e5 70%);
+    position: relative;
+    z-index: 1;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra para el main */
 }
 
+
+/* FOOTER -------------------------------------------------------------------------------- */
 footer {
     height: 100px;
-    background-color: blueviolet;
+    background-image: linear-gradient(to right, #efdabf, #f6f1e5 70%);
+    position: relative;
+    z-index: 1;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra para el main */
 }
+/* FOOTER -------------------------------------------------------------------------------- */
