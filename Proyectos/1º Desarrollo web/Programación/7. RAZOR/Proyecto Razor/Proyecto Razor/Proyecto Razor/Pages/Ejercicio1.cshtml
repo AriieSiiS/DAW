@@ -1,0 +1,177 @@
+﻿@page "/Ejercicio1"
+@model Proyecto_Razor.Pages.SelecciónModel
+@{
+}
+
+@{
+    ViewData["Title"] = "Selección";
+}
+
+
+@section content {
+    <style>
+        form {
+            margin-bottom: 20px;
+            margin-left: 30px;
+            padding-top: 25px;
+            font-size: 18px;
+            width: fit-content;
+            font-family: Arial, sans-serif;
+        }
+        .boton {
+            margin-left: 15px;
+            font-size: 15px;
+        }
+        .contenido {
+            margin-bottom: 20px;
+            margin-left: 30px;
+            padding-top: 25px;
+            font-size: 18px;
+            width: fit-content;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <form name="form01" method="post" action="" >
+        <fieldset>
+            <legend>Selección</legend>
+            <div>
+                @{
+                    if (Request.Method == "POST")
+                    {
+                        bool checkbox1Checked = Request.Form.ContainsKey("1") && Request.Form["1"].ToString() == "on";
+                        bool checkbox2Checked = Request.Form.ContainsKey("2") && Request.Form["2"].ToString() == "on";
+                        bool checkbox3Checked = Request.Form.ContainsKey("3") && Request.Form["3"].ToString() == "on";
+
+
+                        <input type="checkbox"  name="1" @(checkbox1Checked ? "checked" : "") />
+                        <label>Pokemon de Tipo Fuego</label>
+
+                        <input type="checkbox"  name="2" @(checkbox2Checked ? "checked" : "") />
+                        <label>Pokemon de Tipo Planta</label>
+
+                        <input type="checkbox"  name="3" @(checkbox3Checked ? "checked" : "") />
+                        <label>Pokemon de Tipo Agua</label>
+
+                        <input type="radio" name="evolution" required value="evolution" @(Request.Form["evolution"] == "evolution" ? "checked" : "") />
+                        <label>Con evolución</label>
+
+                        <input type="radio" name="evolution" required value="noevolution" @(Request.Form["evolution"] == "noevolution" ? "checked" : "") />
+                        <label>Sin evolución</label>
+                    }
+                    else
+                    {
+                        <input type="checkbox"  name="1" />
+                        <label>Pokemon de Tipo Fuego</label>
+
+                        <input type="checkbox" name="2" />
+                        <label>Pokemon de Tipo Planta</label>
+
+                        <input type="checkbox"  name="3" />
+                        <label>Pokemon de Tipo Agua</label>
+
+                        <input type="radio" name="evolution"  required value="evolution"/>
+                        <label>Con evolución</label>
+
+                        <input type="radio" name="evolution"  required value="noevolution"/>
+                        <label>Sin evolución</label>
+
+                    }
+                }
+                <input class="boton" type="submit" value="Mostrar" />
+            </div>
+        </fieldset>
+    </form>
+
+
+    <div class="contenido">
+        @{
+            @if (Request.Method == "POST")
+            {
+                if (Request.Form.ContainsKey("1"))
+                {
+                    if (Request.Form["evolution"] == "evolution")
+                    {
+                        List<string> pokemonTipofuegoEvolucionados = (from pokemon in Model.Datos.Pokemon
+                                                                      join tipo in Model.Datos.Tipos on pokemon.IdTipo equals tipo.IdTipo
+                                                                      where tipo.Nombre == "fuego" && pokemon.EsEvolucion
+                                                                      select pokemon.Nombre).ToList();
+
+                        foreach (string nombre in pokemonTipofuegoEvolucionados)
+                        {
+                            <p>@nombre</p>
+                        }
+
+                    }
+
+                    else if (Request.Form["evolution"] == "noevolution")
+                    {
+                        List<string> pokemonTipofuegoNoEvolucionados = (from pokemon in Model.Datos.Pokemon
+                                                                      join tipo in Model.Datos.Tipos on pokemon.IdTipo equals tipo.IdTipo
+                                                                      where tipo.Nombre == "fuego" && !pokemon.EsEvolucion
+                                                                      select pokemon.Nombre).ToList();
+                        foreach (string nombre in pokemonTipofuegoNoEvolucionados)
+                        {
+                            <p>@nombre</p>
+                        }
+                    }
+                }
+                if (Request.Form.ContainsKey("2"))
+                {
+                    if (Request.Form["evolution"] == "evolution")
+                    {
+                        List<string> pokemonTipoPlantaEvolucionados = (from pokemon in Model.Datos.Pokemon
+                                                                     join tipo in Model.Datos.Tipos on pokemon.IdTipo equals tipo.IdTipo
+                                                                     where tipo.Nombre == "planta" && pokemon.EsEvolucion
+                                                                     select pokemon.Nombre).ToList();
+
+                        foreach (string nombre in pokemonTipoPlantaEvolucionados)
+                        {
+                            <p>@nombre</p>
+                        }
+                    }
+
+                    else if (Request.Form["evolution"] == "noevolution")
+                    {
+                        List<string> pokemonTipoPlantaNoEvolucionados = (from pokemon in Model.Datos.Pokemon
+                                                                     join tipo in Model.Datos.Tipos on pokemon.IdTipo equals tipo.IdTipo
+                                                                     where tipo.Nombre == "planta" && !pokemon.EsEvolucion
+                                                                     select pokemon.Nombre).ToList();
+
+                        foreach (string nombre in pokemonTipoPlantaNoEvolucionados)
+                        {
+                            <p>@nombre</p>
+                        }
+                    }
+                }
+                if (Request.Form.ContainsKey("3"))
+                {
+                    if (Request.Form["evolution"] == "evolution")
+                    {
+                        List<string> pokemonTipoAguaEvolucionados = (from pokemon in Model.Datos.Pokemon
+                                                                     join tipo in Model.Datos.Tipos on pokemon.IdTipo equals tipo.IdTipo
+                                                                     where tipo.Nombre == "agua" && pokemon.EsEvolucion
+                                                                     select pokemon.Nombre).ToList();
+
+                        foreach (string nombre in pokemonTipoAguaEvolucionados)
+                        {
+                            <p>@nombre</p>
+                        }
+                    }
+
+                    else if (Request.Form["evolution"] == "noevolution")
+                    {
+                        List<string> pokemonTipoAguaNoEvolucionados = (from pokemon in Model.Datos.Pokemon
+                                                                       join tipo in Model.Datos.Tipos on pokemon.IdTipo equals tipo.IdTipo
+                                                                       where tipo.Nombre == "agua" && !pokemon.EsEvolucion
+                                                                       select pokemon.Nombre).ToList();
+
+                        foreach (string nombre in pokemonTipoAguaNoEvolucionados)
+                        {
+                            <p>@nombre</p>
+                        }
+                    }
+                }
+            }
+        }
+    </div>
+}

@@ -1,0 +1,48 @@
+﻿@page "/Ejercicio3"
+@model WebApplication1.Pages.Ejercicio3Model
+
+
+@{
+    ViewData["Title"] = "Ejercicio 3";
+}
+
+@section content {
+    <form name="form03" method="post" action="">
+        <fieldset>
+            <legend>Calculadora de Fecha</legend>
+            <div>
+                <label>Fecha</label>
+                @if (Request.Method == "POST")
+                {
+                    <input type="date" name="fecha" value="@Request.Form["fecha"]" />
+                }
+                else
+                {
+                    <input type="date" name="fecha" value="" />
+                }
+                <input type="submit" value="Seguir" />
+            </div>
+        </fieldset>
+    </form>
+
+    <div>
+        @{
+            @if (Request.Method == "POST")
+            {
+                string fechaString = Request.Form["fecha"];
+                DateTime fecha;
+
+                if (DateTime.TryParse(fechaString, out fecha))
+                {
+                    int dias = Model.CalcularDiasHastaHoy(fecha);
+                    <p>La cantidad de días desde @fecha hasta hoy es: @dias</p>
+                }
+                else
+                {
+                    <p>Fecha inválida</p>
+                }
+            }
+        }
+    </div>
+}
+

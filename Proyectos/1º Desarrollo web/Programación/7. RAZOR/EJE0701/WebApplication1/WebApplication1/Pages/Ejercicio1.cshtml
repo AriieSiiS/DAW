@@ -1,0 +1,74 @@
+﻿@page "/Ejercicio1"
+@model WebApplication1.Pages.Ejercicio1Model
+@{
+    int num1;
+    int num2;
+    int suma;
+    int resta;
+    int multiplicacion;
+    int division;
+}
+
+@{
+    ViewData["Title"] = "Ejercicio 1";
+}
+
+
+@section content {
+    <form name="form01" method="post" action="">
+        <fieldset>
+            <legend>Calculadora</legend>
+            <div>
+                <label>Primer Número</label>
+                @if (Request.Method == "POST")
+                {
+                    <input type="number" name="num1" value="@Request.Form["num1"]" />
+                }
+                else
+                {
+                    <input type="number" name="num1" value="" />
+                }
+                <label>Segundo Número</label>
+                @if (Request.Method == "POST")
+                {
+                    <input type="number" name="num2" value="@Request.Form["num2"]" />
+                }
+                else
+                {
+                    <input type="number" name="num2" value="" />
+                }
+                <input type="submit" value="Operar" />
+            </div>
+        </fieldset>
+    </form>
+
+    <div>
+        @{
+            @if (Request.Method == "POST")
+            {
+                if (int.TryParse(Request.Form["num1"], out num1))
+                {
+                    if (int.TryParse(Request.Form["num2"], out num2))
+                    {
+                        suma = num1 + num2;
+                        resta = num1 - num2;
+                        multiplicacion = num1 * num2;
+                        division = num1 / num2;
+                        <div>
+                            <p>Suma: @num1 + @num2 = @suma</p>
+                            <p>Resta: @num1 - @num2 = @resta</p>
+                            <p>Multiplicación: @num1 * @num2 = @multiplicacion</p>
+                            <p>División: @num1 / @num2 = @division</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <p>Parametro Ausente</p>
+                    }
+                }
+            }
+        }
+    </div>
+
+
+}

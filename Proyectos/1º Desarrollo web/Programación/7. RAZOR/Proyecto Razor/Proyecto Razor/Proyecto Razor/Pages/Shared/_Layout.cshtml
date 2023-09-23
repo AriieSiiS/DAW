@@ -1,0 +1,44 @@
+﻿@using Microsoft.AspNetCore.Mvc.RazorPages
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"] - Proyecto Razor</title>
+    <link rel="stylesheet" href="~/css/StyleSheetv=1.8.css" />
+</head>
+<body>
+    <header>
+        <div>
+            <!-- Contenido de la cabecera -->
+        </div>
+    </header>
+    <nav>
+        <!-- Contenido del nav -->
+        <ul>
+            <li><a href="/Index"> Principal</a></li>
+            <li><a href="/Ejercicio1">Ejercicio 1</a></li>
+            <li><a href="/Ejercicio2">Ejercicio 2</a></li>
+            <li><a href="/Ejercicio3">Ejercicio 3</a></li>
+            <li><a href="/Ejercicio4">Ejercicio 4</a></li>
+            <li><a href="/Ejercicio5">Ejercicio 5</a></li>
+            <li><a href="/Ejercicio6">Ejercicio 6</a></li>
+        </ul>
+    </nav>
+  
+    <main>
+        <!-- Contenido principal -->
+        <div class="main">
+            @RenderSection("content", required: false)
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <!-- Contenido del pie de página -->
+        </div>
+    </footer>
+</body>
+</html>
+
+

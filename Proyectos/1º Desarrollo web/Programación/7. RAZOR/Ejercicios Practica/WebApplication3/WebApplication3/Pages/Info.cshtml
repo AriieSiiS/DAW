@@ -1,0 +1,75 @@
+﻿@page "/ShowInfo"
+@model WebApplication3.Pages.InfoModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="iso-8859-1" />
+    <title>Página de prueba</title>
+    <style>
+        /* Estilos para el cuerpo de la página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Estilos para los encabezados */
+        h1 {
+            color: #333;
+            font-size: 24px;
+        }
+
+        /* Estilos para los párrafos */
+        p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        span {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div>
+            @{
+                int id;
+                string name;
+                int age;
+
+                if (int.TryParse(Request.Form["id"], out id))
+                {
+                    if (int.TryParse(Request.Form["age"], out age))
+                    {
+                        if (!string.IsNullOrEmpty(Request.Form["name"]))
+                        {
+                            name = Request.Form["name"];
+                            <span>El usuario @name con id @id tiene @age años</span>
+                            <p></p>
+                            for (int i = 0; i < age; i++)
+                            {
+                                <p>Felicidades @name</p>
+                            }
+                        }
+                        else
+                        {
+                            <p>Parámetro ausente</p>
+                        }
+                    }
+                }
+            }
+        </div>
+    </section>
+
+</body>
+</html>

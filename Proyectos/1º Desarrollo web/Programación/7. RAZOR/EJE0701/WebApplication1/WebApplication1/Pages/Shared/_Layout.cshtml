@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNetCore.Mvc.RazorPages
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"] - Ejercicios Razor</title>
+    <link rel="stylesheet" href="~/css/site1.css" asp-append-version="true"/>
+</head>
+<body>
+    <header>
+        <div>
+            <!-- Contenido de la cabecera -->
+            <h1>Alejandro Afonso</h1>
+            <h2>1º DAW B </h2>
+            <img src="~/img/Ale.jpg" alt="Fotografía de Alejandro" width="200">
+        </div>
+    </header>
+
+    <aside>
+        <!-- Contenido de la barra lateral -->
+        <h2>Principal</h2>
+        <a href="/Ejercicio1">Prueba 1</a>
+        <a href="/Ejercicio2">Prueba 2</a>
+        <a href="/Ejercicio3">Prueba 3</a>
+        <a href="/Ejercicio4">Prueba 4</a>
+        <a href="/Ejercicio5">Prueba 5</a>
+    </aside>
+
+    <main>
+        <!-- Contenido principal -->
+        <div class="main">
+            @RenderSection("content", required: false)
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <!-- Contenido del pie de página -->
+            <h2>23/05/2023 - Alejandro Afonso - CIFP César Manrique</h2>
+
+        </div>
+    </footer>
+</body>
+</html>
+
+

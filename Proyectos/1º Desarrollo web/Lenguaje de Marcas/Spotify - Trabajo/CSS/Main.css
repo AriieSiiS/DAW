@@ -1,0 +1,637 @@
+
+body 
+{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #0e011f;
+}
+
+/* LIGHT MODE */ 
+
+body.dark-theme {
+  color: white;
+ background:  #fcdcdf;
+
+}
+
+.dark-theme aside a{
+  COLOR: #d2527f;
+  background:  #fcdcdf;
+}
+
+.dark-theme aside button{
+  COLOR: #d2527f;
+  background:  #fcdcdf;
+
+}
+
+.dark-theme .button-36  {
+  COLOR: #e72166;
+  background:  #fcdcdf;
+
+}
+
+.dark-theme .button-36:hover {
+  color: white;
+}
+
+.dark-theme .section {
+  color: white;
+  background: linear-gradient(to right top, #fcdcdf, #f4c9d4, #e9b7cc, #dba6c8, #c997c6);
+
+}
+
+.dark-theme footer {
+  background:  #db6e9c;
+}
+
+.dark-theme .btn.active {
+  background:  #e72166;
+
+}
+
+.dark-theme .btn.btn:hover {
+  background:  #db6e9c;
+}
+
+.dark-theme aside a:hover {
+  background:  #db6e9c;
+  color: white;
+}
+
+.dark-theme aside button:hover {
+  background:  #db6e9c;
+  color: white;
+
+}
+
+@font-face {
+    font-family: 'Anderson';
+    src: url('andersongrotesk-black-webfont.woff2') format('woff2');
+    font-style: normal;
+    font-weight: normal;
+}
+
+/* SECTION */ 
+
+section {
+  height: 100%;
+  transition: all .5s;
+}
+
+.section {
+    width:85%;
+    min-height: 100vh;
+    background-image: linear-gradient(to right top, #0e011f, #201448, #381f74, #5528a3, #782dd2);
+    float: right;
+    overflow: hidden;
+    transition: all .5s;
+  }
+
+.image-container {
+  position: relative;
+  border-radius: 5px;
+  transition: 2.5s;
+}
+
+.audio-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.image-container:hover .audio-container {
+  opacity: 1;
+}
+
+.audio-container audio {
+  width: 100%;
+  height: 30px;
+}
+
+.row {
+  margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column (if you want) */
+.row,
+.row > .column {
+  padding: 8px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 40px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  display: none; /* Hide columns by default */
+}
+
+@media (max-width: 1280px) {
+  .column {
+    width: 35%;
+    margin-left: 50px;
+  }
+}
+
+@media (max-width: 1020px) {
+  .column {
+    width: 70%;
+
+  }
+}
+
+
+
+.column:hover {
+  transform: scale(1.2);
+}
+
+/* Clear floats after rows */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+  margin-left: 100px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* MOSTRAR Y DEJAR DE MOSTRAR EL FORMULARIO */ 
+
+div form {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-in-out, visibility 2s ease-in-out;
+}
+.active-form form {
+  opacity: 1;
+  visibility: visible;
+}
+
+.active-section .section {
+
+  filter: blur(3px);
+
+}
+/* FORMULARIO! */ 
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  z-index: 1;
+  position: fixed;
+  bottom: 10%;
+  right: 50%;
+}
+
+form {
+  position: absolute;
+  z-index: 1;
+  top: 20%;
+  text-align: center;
+  background: #3e107a;
+  width: 310px;
+  height: 470px;
+  border-radius: 5px;
+  padding: 30px 20px 0 20px;
+  box-shadow: 0 10px 50px 0 rgba(255, 255, 255, 0.25);
+  box-sizing: border-box;
+}
+
+.dark-theme form {
+  background:  #fcdcdf;
+  box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.671);
+}
+
+
+
+form p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.dark-theme form p {
+color: #87613d;
+}
+
+h3 {
+  font-family: 'ANDERSON';
+  font-size: 35px;
+  text-transform: uppercase;
+  color: rgba(145,64,245,255);
+  letter-spacing: 0.5px;
+  margin-bottom: 30px;
+}
+
+.dark-theme h3 {
+  COLOR: #d2527f;
+}
+
+button.form-btn {
+  position: absolute;
+  width: 50%;
+  height: 60px;
+  bottom: 0;
+  border: 0;
+  font-family: 'Dosis';
+  font-size: 24px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'ANDERSON';
+}
+
+/* BOTON DE SIGN UP */
+
+button.form-btn.dx {
+  right: 0;
+  border-radius: 0 0 5px 0;
+  background: rgba(145,64,245,255);
+  color: #fff;
+}
+
+.dark-theme button.form-btn.dx  {
+  background-color: #d2527f;
+}
+
+button.form-btn.dx:hover {
+  background: #6e00fd;
+  color: #fff;
+}
+
+.dark-theme button.form-btn.dx:hover {
+  background-color: #69414f;
+}
+
+/* BOTON DE LOGIN  */
+
+button.form-btn.sx {
+  left: 0;
+  border-radius: 0 0 0 5px;
+  background: #9d6fda;
+  color: #fff;
+  transition:all 0.3s linear;
+}
+
+.dark-theme button.form-btn.sx {
+background-color: #d3839f;
+}
+button.form-btn.sx:hover {
+  background: #6e00fd;
+  color: #fff;
+}
+
+.dark-theme button.form-btn.sx:hover {
+  background-color: #69414f;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid #69414f;
+  width: 85%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  color:  #9d6fda;
+  text-align: center;
+  font-size: 19px;
+  margin-bottom:25px;
+}
+
+.dark-theme input {
+  COLOR: #d2527f;
+}
+
+::-webkit-input-placeholder {
+  color:  #9d6fda;
+font-family: 'Roboto', sans-serif;
+font-weight: 100;
+}
+
+.dark-theme ::-webkit-input-placeholder {
+  COLOR: #d2527f;
+}
+
+.signUp {
+z-index: 2;
+}
+/* FORMULARIO! */ 
+
+/* BARRA LATERAL */ 
+
+aside {
+  font-family: Anderson;
+  min-height: 100vh;
+  width: 15%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-image: url(../Imagenes/Logo.png);
+  background-size: 80%;
+  background-position: top;
+  background-position-y: 10px;
+  background-repeat: no-repeat; 
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  transition: all 0.5s;
+  position: fixed;
+  letter-spacing: 2px;
+}
+
+
+
+/* 390 PX */ 
+
+
+@media (max-width: 390px) {
+  .aside a {
+    min-width: 10%;
+    background: #0e011f;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 0px;
+  }
+}
+
+@media (max-width: 390px) {
+  .aside button {
+    font-size: 0px;
+  }
+}
+
+@media (max-width: 390px) {
+  .aside .fa {
+    font-size: 40px;
+  }
+}
+
+
+
+
+@media (max-width: 390px) {
+  .row {
+    width: 125%;
+    padding-right: 10px;
+    margin-top: 0px;
+  }
+}
+
+@media (max-width: 390px) {
+  .section {
+    width: 120%;
+    margin-left: 50px;
+  }
+}
+
+/* BARRA LATERAL RESPONSIVE*/ 
+@media (max-width: 1370px) {
+    aside {
+      min-width: 20%;
+      background: #0e011f;
+    }
+}
+
+@media (max-width: 1370px) {
+  aside p {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  footer {
+    z-index: -1;
+  }
+}
+
+@media (max-width: 1370px) {
+  .dark-theme aside {
+    background:  #fcdcdf;
+  }
+}
+
+@media (max-width: 1370px) {
+  .dark-theme aside a{
+    background:  #fcdcdf;
+  }
+}
+
+@media (max-width: 1370px) {
+  .dark-theme aside button{
+    background:  #fcdcdf;
+  }
+}
+
+@media (max-width: 390px) {
+  .column {
+    width: 60%;
+    position: relative;
+    margin-left: 50px;
+  }
+}
+
+@media (max-width: 390px) {
+  .column:hover {
+    transform: scale(1);
+  }
+}
+
+
+
+
+/* BARRA LATERAL RESPONSIVE*/ 
+
+aside a {
+  background: #0e011f;
+  COLOR: WHITE;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 26px;
+  transition: all 0.5s;
+}
+
+aside a:hover {
+  background: #ddd;
+  color: black;
+  box-shadow: rgba(221, 17, 221, 0.5) 0 5px 60px;
+  transition-duration: .1s;
+}
+
+aside button {
+  font-family: Anderson;
+  background: #0e011f;
+  COLOR: WHITE;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 26px;
+  border-style: none;
+  cursor: pointer;
+  transition: all .5s;
+  letter-spacing: 2px;
+}
+
+aside button:hover {
+  box-shadow: rgba(221, 17, 221, 0.5) 0 5px 60px;
+  transition-duration: .1s;
+  color: black;
+  background: #ddd;
+
+}
+
+/* FOOTER */ 
+
+footer {
+  background: rgba(145,64,245,255);
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: auto;
+  transition: all 1.5s;
+  position: fixed;
+  bottom: 0;
+}
+
+.social {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.social i {
+  padding-top: 5px;
+  color:white;
+}
+
+
+#myBtnContainer {
+  padding: 5px;
+  margin-left: 20px;
+  margin-top: 25px;
+}
+
+/* Filtro responsive */
+
+@media (max-width: 390px) {
+  #myBtnContainer  {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    padding: 10px;
+    margin-left: 175px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #myBtnContainer  {
+    margin-left: 75px;
+  }
+}
+
+
+
+
+@media (max-width: 390px) {
+  .button-36 {
+    margin: 3px;
+  }
+}
+
+
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Add a grey background color on mouse-over */
+.btn:hover {
+  background-color: rgb(165, 112, 112);
+}
+
+
+
+
+/* CSS */
+.button-36 {
+  background: rgba(145,64,245,255);
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: "Inter UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  height: 4rem;
+  padding: 0 1.6rem;
+  margin-left: 18px;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all .5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-36:hover {
+
+  box-shadow: rgba(221, 17, 221, 0.5) 0 5px 60px;
+  transition-duration: .1s;
+  background: #ddd;
+  color: black;
+}
+
+.btn.active {
+  background: #1c063a;
+  color: white;
+  transition: all .5s;
+}
+
+@media (min-width: 768px) {
+  .button-36 {
+    padding: 0 2.6rem;
+  }
+}
+

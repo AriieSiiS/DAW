@@ -1,0 +1,126 @@
+﻿@page "/Ejercicio3"
+@model Proyecto_Razor.Pages.Ejercicio3Model
+@{
+    List<string> tiposPokemon = new List<string>
+    {
+        "Fuego",
+        "Planta",
+        "Agua"
+    };
+}
+
+@{
+    ViewData["Title"] = "Ejercicio 3 - Listas Filtradas";
+}
+
+
+
+@section content {
+    <div>
+        <style>
+            form {
+                margin-bottom: 20px;
+                margin-left: 30px;
+                padding-top: 25px;
+                font-size: 18px;
+                width: fit-content;
+                font-family: Arial, sans-serif;
+            }
+            select {
+                font-size: 17px;
+                margin-bottom: 20px;
+                margin-top: 10px;
+            }
+            input {
+                font-size: 17px;
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+            h4 {
+                margin-top: 5px;
+            }
+        </style>
+        <form name="form03" method="post" action="">
+            <fieldset>
+                <legend></legend>
+                <div>
+                    @if (Request.Method == "POST")
+                    {
+                        <select id="cmbTipos" name="cmbTipos" onchange="this.form.submit()">
+                            <option value="" >-- Seleccionar Tipo --</option>
+                            @foreach (string tipo in tiposPokemon)
+                            {
+                                <option value="@tipo" @((Request.Form["cmbTipos"] == tipo) ? "selected" : "")>@tipo</option>
+                            }
+                        </select>
+                    }
+                    else
+                    {
+                        <select id="cmbTipos" name="cmbTipos" onchange="this.form.submit()">
+                            <option value="" selected>-- Seleccionar Tipo --</option>
+                            @foreach (string tipo in tiposPokemon)
+                            {
+                                <option>@tipo</option>
+                            }
+                        </select>
+                    }
+
+                </div>
+                @if (Request.Method == "POST")
+                {
+                    string tipoSeleccionado = Request.Form["cmbTipos"];
+                    if (!string.IsNullOrEmpty(tipoSeleccionado) && tipoSeleccionado != "-- Seleccionar Tipo --")
+                    {
+                        List<string> pokemonsTipoSeleccionado = (from pokemon in Model.Datos.Pokemon
+                                                                 join tipo in Model.Datos.Tipos on pokemon.IdTipo equals tipo.IdTipo
+                                                                 where tipo.Nombre == tipoSeleccionado
+                                                                 select pokemon.Nombre).ToList();
+                        if (pokemonsTipoSeleccionado.Count > 0)
+                        {
+                            <div>
+                                <select id="cmbPokemons" name="cmbPokemons">
+                                    @foreach (string pokemon in pokemonsTipoSeleccionado)
+                                    {
+                                        <option value="@pokemon" @(Request.Form["cmbPokemons"] == pokemon ? "selected" : "")>@pokemon</option>
+                                    }
+                                </select>
+                            </div>
+                        }
+                    }
+                }
+                <input type="submit" value="Enviar">
+
+                @if (Request.Method == "POST")
+                {
+                    string pokemonSeleccionado = Request.Form["cmbPokemons"];
+
+                    if (!string.IsNullOrEmpty(pokemonSeleccionado))
+                    {
+                        <h3>Nombre del Pokémon: @pokemonSeleccionado</h3>
+
+                        List<string> ataquesPokemon = (from pokemon in Model.Datos.Pokemon
+                                                       join ataques in Model.Datos.Ataques on pokemon.NumeroPokedex equals ataques.IdPokemon
+                                                       where pokemon.Nombre == pokemonSeleccionado
+                                                       select ataques.Nombre).ToList();
+                        if (ataquesPokemon.Count > 0)
+                        {
+                            <h4>Ataques:</h4>
+                            <ul>
+                                @foreach (string ataque in ataquesPokemon)
+                                {
+                                    <li>@ataque</li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            Console.WriteLine("No se encontraron ataques en la tabla 'Ataques'.");
+                        }
+                    }
+                }
+            </fieldset>
+        </form>
+    </div>
+   
+}
+

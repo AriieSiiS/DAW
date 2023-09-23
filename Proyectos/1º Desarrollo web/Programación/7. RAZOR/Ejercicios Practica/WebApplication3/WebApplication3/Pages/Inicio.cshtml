@@ -1,0 +1,84 @@
+﻿@page "/"
+@model WebApplication3.Pages.InicioModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <meta charset="iso-8859-1" />
+        <title>Página de prueba</title>
+    <style>
+        /* Estilos para el cuerpo de la página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Estilos para los encabezados */
+        h1 {
+            color: #333;
+            font-size: 24px;
+        }
+
+        /* Estilos para los párrafos */
+        p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        span {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+    </head>
+
+    <body>
+        <section>
+            <div>
+                <div>
+                <form name="form01" method="post" action="/ShowInfo">
+                        <fieldset>
+                            <legend>Formulario</legend>
+                            <div>
+                                <label>Nombre</label>
+                                @if (Request.Method == "POST")
+                                {
+                                    <input type="text" name="name" value="@Request.Form["name"]"/>
+                                }else{
+                                    <input type="text" name="name" value=""/>
+                                }
+                                <label>Edad</label>
+                                @if (Request.Method == "POST")
+                                {
+                                    <input type="text" name="age" value="@Request.Form["age"]"/>
+                                }else{
+                                    <input type="text" name="age" value=""/>
+                                }
+                                <label>ID</label>
+                                @if (Request.Method == "POST")
+                                {
+                                    <input type="text" name="id" value="@Request.Form["id"]"/>
+                                }else{
+                                    <input type="text" name="id" value=""/>
+                                }
+                                <input type="submit" value="send"/>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div>
+
+                </div>
+            </div>
+        </section>
+    
+    </body>
+</html>
+
+           

@@ -1,0 +1,63 @@
+﻿@page "/Ejercicio2/Datos"
+@model Proyecto_Razor.Pages.TestModel
+@{
+
+}
+
+@{
+    ViewData["Title"] = "Ejercicio 2 - Mostrar Datos";
+}
+
+
+@section content {
+    <style>
+        .contenido {
+            margin-bottom: 20px;
+            margin-left: 30px;
+            padding-top: 25px;
+            font-size: 18px;
+            width: fit-content;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            margin-top: 10px;
+            font-size: 15px;
+        }
+    </style>
+    <div class="contenido">
+        @{
+            string fechaString = "";
+            if (Request.Method == "POST" && !string.IsNullOrEmpty(Request.Form["fecha"]))
+            {
+                fechaString = Request.Form["fecha"];
+                DateTime fecha = DateTime.Parse(fechaString);
+                Model.FechaSeleccionada = fecha;
+                Model.OnGet(fecha);
+            }
+        }
+        @if (Model.JuegosValidos != null && Model.JuegosValidos.Count > 0)
+        {
+            <ul>
+                @foreach (var juego in Model.JuegosValidos)
+                {
+                    <li>
+                        <strong>@juego.Nombre</strong> - Plataforma: @juego.Plataforma, Fecha de Lanzamiento: @juego.FechaLanzamiento
+                    </li>
+                }
+            </ul>
+
+            <div>
+                @if (Model.CurrentPage > 1)
+                {
+                    <a href="/Ejercicio2/Datos?fecha=@Model.FechaSeleccionada&pagina=@(Model.CurrentPage - 1)"><button type="button">Anterior</button></a>
+                }
+
+                @if (Model.CurrentPage < Model.TotalPages)
+                {
+                    <a href="/Ejercicio2/Datos?fecha=@Model.FechaSeleccionada&pagina=@(Model.CurrentPage + 1)"><button type="button">Siguiente</button></a>
+                }
+
+            </div>
+    }
+
+}

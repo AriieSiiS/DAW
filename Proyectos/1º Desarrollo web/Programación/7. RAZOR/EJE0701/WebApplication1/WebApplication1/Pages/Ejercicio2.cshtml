@@ -1,0 +1,40 @@
+﻿@page "/Ejercicio2"
+@model WebApplication1.Pages.Ejercicio2Model
+@{
+}
+
+@{
+    ViewData["Title"] = "Ejercicio 2";
+}
+
+
+
+
+@section content {
+    <form name="form02" method="post" action="/Ejercicio2Resuelto">
+        <fieldset>
+            <legend>Contador de Palabras</legend>
+            <div>
+                <label>Frase</label>
+                @if (Request.Method == "POST")
+                {
+                    <input type="text" name="frase" value="@Request.Form["frase"]" />
+                }
+                else
+                {
+                    <input type="text" name="frase" value="" />
+                }
+                <label>Palabra</label>
+                @if (Request.Method == "POST")
+                {
+                    <input type="text" name="palabra" value="@Request.Form["palabra"]" />
+                }
+                else
+                {
+                    <input type="text" name="palabra" value="" />
+                }
+                <input type="submit" value="Cuenta" />
+            </div>
+        </fieldset>
+    </form>
+}

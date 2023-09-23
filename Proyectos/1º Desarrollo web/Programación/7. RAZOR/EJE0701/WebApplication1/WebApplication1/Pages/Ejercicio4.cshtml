@@ -1,0 +1,147 @@
+﻿@page "/Ejercicio4"
+@model WebApplication1.Pages.Ejercicio4Model
+
+
+@{
+    int? num1, num2, num3, num4;
+    ViewData["Title"] = "Ejercicio 4";
+}
+
+@section content {
+    <form name="form04" method="post" action="">
+        <fieldset>
+            <legend>Calculadora Avanzada</legend>
+            <div>
+                <label for="numero1">Numero 1:</label>
+                <br />
+                @if (Request.Method == "POST")
+                {
+                    <input type="number" name="numero1" id="numero1" value="" />
+                }
+                else
+                {
+                    <input type="number" name="numero1" id="numero1" value="" />
+                }
+                <input type="checkbox" name="chkNumero1" value="numero1" /> <label>Número 1</label>
+                <br />
+
+                <label for="numero2">Numero 2:</label>
+                <br />
+                @if (Request.Method == "POST")
+                {
+                    <input type="number" name="numero2" id="numero2" value="" />
+                }
+                else
+                {
+                    <input type="number" name="numero2" id="numero2" value="" />
+                }
+                <input type="checkbox" name="chkNumero2" value="numero2" /> <label>Número 2</label>
+                <br />
+
+                <label for="numero3">Numero 3:</label>
+                <br />
+                @if (Request.Method == "POST")
+                {
+                    <input type="number" name="numero3" id="numero3" value="" />
+                }
+                else
+                {
+                    <input type="number" name="numero3" id="numero3" value="" />
+                }
+                <input type="checkbox" name="chkNumero3" value="numero3" /> <label>Número 3</label>
+                <br />
+
+                <label for="numero4">Numero 4:</label>
+                <br />
+                @if (Request.Method == "POST")
+                {
+                    <input type="number" name="numero4" id="numero4" value="" />
+                }
+                else
+                {
+                    <input type="number" name="numero4" id="numero4" value="" />
+                }
+                <input type="checkbox" name="chkNumero4" value="numero4" /> <label>Número 4</label>
+                <br />
+                <br />
+                @if (Request.Method == "POST")
+                {
+                    <input type="radio" name="operacion" value="suma" /> <span>Suma</span>
+                    <input type="radio" name="operacion" value="multiplicacion" /> <span>Multiplicación</span>
+                }
+                else
+                {
+                    <input type="radio" name="operacion" value="suma" /> <span>Suma</span>
+                    <input type="radio" name="operacion" value="multiplicacion" /> <span>Multiplicación</span>
+                }
+                <br />
+                <br />
+                <input type="submit" value="Ejecutar" />
+                <input type="reset" value="Limpiar" />
+            </div>
+        </fieldset>
+    </form>
+    <div>
+        @{
+            @if (Request.Method == "POST")
+            {
+                if (Request.Method == "POST")
+                {
+                    if (int.TryParse(Request.Form["numero1"], out int n1) && Request.Form.ContainsKey("chkNumero1"))
+                    {
+                        num1 = n1;
+                    }
+                    else
+                    {
+                        num1 = null;
+                    }
+                    if (int.TryParse(Request.Form["numero2"], out int n2) && Request.Form.ContainsKey("chkNumero2"))
+                    {
+                        num2 = n2;
+                    }
+                    else
+                    {
+                        num2 = null;
+                    }
+                    if (int.TryParse(Request.Form["numero3"], out int n3) && Request.Form.ContainsKey("chkNumero3"))
+                    {
+                        num3 = n3;
+                    }
+                    else
+                    {
+                        num3 = null;
+                    }
+                    if (int.TryParse(Request.Form["numero4"], out int n4) && Request.Form.ContainsKey("chkNumero4"))
+                    {
+                        num4 = n4;
+                    }
+                    else
+                    {
+                        num4 = null;
+                    }
+
+                    string operacion = Request.Form["operacion"];
+                    List<int> numeros = new List<int>();
+                    if (num1.HasValue) numeros.Add(num1.Value);
+                    if (num2.HasValue) numeros.Add(num2.Value);
+                    if (num3.HasValue) numeros.Add(num3.Value);
+                    if (num4.HasValue) numeros.Add(num4.Value);
+
+                    if (operacion == "suma")
+                    {
+                        <p>La suma es @numeros.Sum();</p>
+                    }
+                    else if (operacion == "multiplicacion")
+                    {
+                        int resultado = numeros.Aggregate((x, y) => x * y);
+                        <p>La multiplicación es @resultado</p>
+                    }
+                    else
+                    {
+                        <p>Selecciona una opción válida.</p>
+                    }
+                }
+            }
+            }
+    </div>
+}

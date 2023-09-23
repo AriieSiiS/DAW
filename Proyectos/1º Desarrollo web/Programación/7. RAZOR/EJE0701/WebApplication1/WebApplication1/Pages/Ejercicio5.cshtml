@@ -1,0 +1,73 @@
+﻿@page
+@model WebApplication1.Pages.Ejercicio5Model
+@{
+    List<int> filas = new List<int> { 1, 3, 5 };
+    List<int> columnas = new List<int> { 1, 3, 5 };
+}
+
+@{
+    ViewData["Title"] = "Ejercicio 5";
+}
+
+@section content {
+    <div>
+        <form name="form05" method="post" action="">
+            <p>
+                Filas
+                <select name="filas">
+                    <option value="" selected>Seleccione un número</option>
+                    @foreach (var fila in filas)
+                    {
+                        <option value="@fila">@fila</option>
+                    }
+                </select>
+            </p>
+
+            <p>
+                Columnas
+                <select name="columnas" multiple="multiple">
+                    @foreach (var columna in columnas)
+                    {
+                        <option value="@columna">@columna</option>
+                    }
+                </select>
+            </p>
+            <button type="submit">Rellenar</button>
+        </form>
+    </div>
+    <div>
+        @{
+            if (Request.Method == "POST")
+            {
+                int entero_filas;
+                int entero_columnas;
+                int contador = 1;
+                if (int.TryParse(Request.Form["filas"], out entero_filas))
+                {
+                    if (int.TryParse(Request.Form["columnas"], out entero_columnas))
+                    {
+                        <table>
+                            @for (int i = 0; i < entero_filas; i++)
+                            {
+                                <tr>
+                                    @for (int j = 0; j < entero_columnas; j++)
+                                    {
+                                        <td>@(contador++)</td>
+                                    }
+                                </tr>
+                            }
+                        </table>
+                    }
+                    else
+                    {
+                        <p>No has seleccionado las columnas.</p>
+                    }
+                }
+                else
+                {
+                    <p>No has seleccionado las filas.</p>
+                }
+            }
+        }
+    </div>
+}

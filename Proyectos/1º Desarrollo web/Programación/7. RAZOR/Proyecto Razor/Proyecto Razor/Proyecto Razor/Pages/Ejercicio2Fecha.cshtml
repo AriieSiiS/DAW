@@ -1,0 +1,41 @@
+﻿@page "/Ejercicio2"
+@model Proyecto_Razor.Pages.Ejercicio2FechaModel
+@{
+}
+
+@{
+    ViewData["Title"] = "Ejercicio 2 - Pedir Fecha";
+}
+
+@section content {
+    <style>
+        form {
+            margin-bottom: 20px;
+            margin-left: 30px;
+            padding-top: 25px;
+            font-size: 18px;
+            width: fit-content;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <form name="form01" method="post" action="/Ejercicio2/Datos">
+        <fieldset>
+            <legend></legend>
+            <div>
+                @{
+                    if (Request.Method == "POST")
+                    {
+                        <label for="fecha">Introduce una fecha:</label>
+                        <input type="date" id="fecha" name="fecha" required value="@((Request.Method == "POST") ? Request.Form["fecha"] : string.Empty)" />
+                    }
+                    else
+                    {
+                        <label for="fecha">Introduce una fecha:</label>
+                        <input type="date" id="fecha" required name="fecha" />
+                    }
+                    <button type="submit">Buscar juegos anteriores</button>
+                }
+            </div>
+        </fieldset>
+    </form>
+}

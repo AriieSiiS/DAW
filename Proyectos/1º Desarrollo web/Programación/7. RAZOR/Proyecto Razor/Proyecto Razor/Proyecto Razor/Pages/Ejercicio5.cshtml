@@ -1,0 +1,85 @@
+﻿@page "/Ejercicio5"
+@model Proyecto_Razor.Pages.Ejercicio5Model
+
+
+
+@{
+    ViewData["Title"] = "Ejercicio 5 ";
+}
+
+
+
+@section content {
+    <div>
+        <style>
+            form {
+                margin-bottom: 20px;
+                margin-left: 30px;
+                padding-top: 25px;
+                font-size: 18px;
+                width: fit-content;
+                font-family: Arial, sans-serif;
+            }
+
+            select {
+                font-size: 17px;
+                margin-bottom: 20px;
+                margin-top: 10px;
+            }
+
+            li{
+                font-size: 21px;
+                font-family: system-ui;
+            }
+
+        </style>
+        <form name="form05" method="post" action="">
+            <fieldset>
+                <legend></legend>
+                <div>
+                    <p>Introduce un peso y te mostraremos los pokemons que pesen eso o más.</p>
+                    @if (Request.Method == "POST")
+                    {
+                            int peso = Convert.ToInt32(Request.Form["Peso"]);
+
+                            <label for="Peso">Introduce un número:</label>
+                            <input type="number" id="Peso" name="Peso" value="@peso" required>
+                            <button type="submit">Buscar</button>
+                    }
+                    else
+                    {
+                            <label for="Peso"></label>
+                            <input type="number" id="Peso" name="Peso" required>
+                            <button type="submit">Buscar</button>
+                    }
+                </div>
+            </fieldset>
+        </form>
+        <div>
+            @if (Request.Method == "POST")
+            {
+                decimal peso = Convert.ToDecimal(Request.Form["Peso"]);
+
+                if (peso > 0)
+                {
+                    List<string> listaPokemon = (from pokemon in Model.Datos.Pokemon
+                                                   where pokemon.Peso >= peso
+                                                   select pokemon.Nombre).ToList();
+
+                    @foreach (string poke in listaPokemon)
+                    {
+                        <ul>
+                                <li>@poke</li>
+                        </ul>
+                    }
+                }
+                else
+                {
+                    <p>Introduce un número positivo para poder mostrar los Pokémons que superen ese peso.</p>
+                }
+            }
+        </div>
+
+    </div>
+
+}

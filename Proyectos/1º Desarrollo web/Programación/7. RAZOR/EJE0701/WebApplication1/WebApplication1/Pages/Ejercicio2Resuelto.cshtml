@@ -1,0 +1,41 @@
+﻿@page
+@namespace WebApplication1.Pages
+@model WebApplication1.Pages.Ejercicio2ResueltoModel
+@{
+    string frase;
+    string palabra;
+}
+
+@{
+    ViewData["Title"] = "Ejercicio 2 Resuelto";
+}
+
+@section content {
+    <div>
+        @{
+            @if (Request.Method == "POST")
+            {
+                if (!string.IsNullOrEmpty(Request.Form["frase"]))
+                {
+                    frase = Request.Form["frase"];
+                    if (!string.IsNullOrEmpty(Request.Form["palabra"]))
+                    {
+                        palabra = Request.Form["palabra"];
+                        int contador = Model.ContarPalabras(frase, palabra);
+                        <p>Frase: @frase </p>
+                        <p>Palabra: @palabra</p>
+                        <p>La palabra @palabra aparece @contador</p>
+                    }
+                    else
+                    {
+                        <p>Dato no valido</p>
+                    }
+                }
+            }
+        }
+        <div class="volver">
+            <a href="/Ejercicio2">Volver al ejercicio 2</a>
+        </div>
+    </div>
+}
+
