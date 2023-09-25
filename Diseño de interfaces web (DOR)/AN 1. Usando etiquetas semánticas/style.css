@@ -14,20 +14,20 @@
 
 /* BODY -------------------------------------------------------------------------------- */
 body {
+    background: #e5e5e1;
     margin: 0 auto; /* Configura los márgenes izquierdo y derecho automáticamente (centra la página horizontalmente) */
     max-width: 1200px; /* Establece un ancho máximo para el contenido principal */
     padding: 20px; /* Agrega relleno opcional para crear espacios adicionales entre el contenido y los márgenes */
-    background-image: linear-gradient(to right, #efdabf, #f6f1e5);
 }
 /* BODY -------------------------------------------------------------------------------- */
 
 
 /* HEADER -------------------------------------------------------------------------------- */
 header {
+    background-color: white;
     background-image: url('images/logo.png');
-    background-position: center top;
+    background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra para el main */
     height: 150px;
     position: relative;
@@ -38,7 +38,7 @@ header {
 
 /* NAV -------------------------------------------------------------------------------- */
 nav {
-    background-image: linear-gradient(to right, #efdabf, #f6f1e5 70%);
+    background-color: rgba(0, 0, 0, 0.912);
     font-family: 'Test', Arial, sans-serif;
     position: relative;
     z-index: 1;
@@ -57,11 +57,11 @@ li {
     flex: 1; /* Los elementos se expanden para ocupar el espacio disponible */
     text-align: center; /* Centra el texto horizontalmente */
     padding: 10px; 
-    color: rgb(0, 0, 0); /* Color de texto opcional para los elementos de la lista */
+    color: white;
 }
 
 a {
-    color: #000;
+    color: white;
     position: relative;
     text-decoration: none;
     display: inline-block;
@@ -73,7 +73,7 @@ a:hover {
 }
 
 li::before {
-    background: hsl(45, 82%, 78%);
+    background: rgb(92, 92, 92);
     content: "";
     inset: 0;
     position: absolute;
@@ -89,22 +89,114 @@ li:hover::before {
 }
 /* NAV -------------------------------------------------------------------------------- */
 
-
+/* MAIN -------------------------------------------------------------------------------- */
 main {
     height: 1000px;
-    background-image: linear-gradient(to right, #efdabf, #f6f1e5 70%);
+    background-color: whitesmoke;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra para el main */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Divide el main en dos columnas iguales */
+    gap: 10px; /* Espacio entre las columnas */
+}
+
+section {
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.principal {
+    grid-column: span 1; /* Ocupa una columna */
+    margin-top: 10px;
+}
+.otro {
+    display: grid;
+    gap: 10px; /* Espacio entre las columnas */
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.otro article {
+    grid-column: span 1; /* Cada article ocupa una columna */
+    max-height: fit-content;
+    overflow: hidden;
+    
+}
+
+.otro article img {
+    max-width: 550px;
+}
+
+.secundario {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Divide el section secundario en dos columnas iguales */
+    gap: 10px; /* Espacio entre las columnas */
+
+}
+
+.secundario article {
+    grid-column: span 1; /* Cada article ocupa una columna */
+}
+
+h3 {
+    background-color: black;
+    color: white;
+    display: block;
+    margin: 0;
+    padding: 5px;
+    padding-left: 50px;
+}
+
+article {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+
+.principal img {
+    height: 100px;
+    width: auto;
+    padding-top: 10px;
+    display: block; /* Elimina cualquier espacio en blanco alrededor de la imagen */
+    margin: 0 auto; /* Centra la imagen horizontalmente en el artículo */
+}
+
+
+
+
+
+
+
+/* MAIN -------------------------------------------------------------------------------- */
+
+/* FOOTER -------------------------------------------------------------------------------- */
+footer {
+    height: 60px;
     position: relative;
     z-index: 1;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra para el main */
 }
 
+.newspaper-footer {
+    background-color: rgba(0, 0, 0, 0.912);
+    font-family: 'Test', Arial, sans-serif;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    
+}
 
-/* FOOTER -------------------------------------------------------------------------------- */
-footer {
-    height: 100px;
-    background-image: linear-gradient(to right, #efdabf, #f6f1e5 70%);
-    position: relative;
-    z-index: 1;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra para el main */
+.newspaper-info p {
+    margin: 5px 0;
+}
+
+.newspaper-info p:first-child {
+    font-weight: bold;
+}
+
+.newspaper-info p:last-child {
+    font-style: italic;
 }
 /* FOOTER -------------------------------------------------------------------------------- */
