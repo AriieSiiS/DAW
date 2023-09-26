@@ -22,6 +22,7 @@ body {
 /* BODY -------------------------------------------------------------------------------- */
 
 
+
 /* HEADER -------------------------------------------------------------------------------- */
 header {
     background-color: white;
@@ -36,26 +37,27 @@ header {
 /* HEADER -------------------------------------------------------------------------------- */
 
 
+
 /* NAV -------------------------------------------------------------------------------- */
 nav {
     background-color: rgba(0, 0, 0, 0.912);
     font-family: 'Test', Arial, sans-serif;
     position: relative;
     z-index: 1;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra para el main */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
 }
 
 ul {
     list-style: none;
     display: flex; /* flexbox para alinear elementos horizontalmente */
     justify-content: space-between; /* Distribuye los elementos de manera uniforme */
-    padding: 0; /* Elimina el relleno predeterminado de la lista */
-    margin: 0; /* Elimina el margen predeterminado de la lista */
+    padding: 0; 
+    margin: 0; 
 }
 
 li {
     flex: 1; /* Los elementos se expanden para ocupar el espacio disponible */
-    text-align: center; /* Centra el texto horizontalmente */
+    text-align: center; 
     padding: 10px; 
     color: white;
 }
@@ -88,6 +90,8 @@ li:hover::before {
     transform: scaleX(1);
 }
 /* NAV -------------------------------------------------------------------------------- */
+
+
 
 /* MAIN -------------------------------------------------------------------------------- */
 main {
@@ -124,15 +128,10 @@ section {
     
 }
 
-.otro article img {
-    max-width: 550px;
-}
-
 .secundario {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Divide el section secundario en dos columnas iguales */
-    gap: 10px; /* Espacio entre las columnas */
-
+    gap: 10px; 
 }
 
 .secundario article {
@@ -155,28 +154,20 @@ article {
     margin-left: 15px;
 }
 
-.principal img {
-    height: 100px;
-    width: auto;
+img {
+    max-width: 550px;
     padding-top: 10px;
-    display: block; /* Elimina cualquier espacio en blanco alrededor de la imagen */
-    margin: 0 auto; /* Centra la imagen horizontalmente en el artículo */
 }
-
-
-
-
-
-
-
 /* MAIN -------------------------------------------------------------------------------- */
+
+
 
 /* FOOTER -------------------------------------------------------------------------------- */
 footer {
     height: 60px;
     position: relative;
     z-index: 1;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra para el main */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
 }
 
 .newspaper-footer {
@@ -185,7 +176,6 @@ footer {
     color: #fff;
     padding: 20px;
     text-align: center;
-    
 }
 
 .newspaper-info p {
