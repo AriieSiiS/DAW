@@ -1,0 +1,37 @@
+
+form {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+
+div {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to bottom, #007bff, #0056b3); 
+    padding: 20px;
+    border-radius: 15px; 
+    margin: 0 auto; 
+    box-shadow: 20px 15px 15px rgba(255, 102, 153); /* Sombra rosa grande */
+}
+
+
+
+input[type="button"] {
+    margin: 5px;
+    border: none;
+    border-radius: 2px; 
+}
+
+
+label {
+    color: white; 
+    padding: 5px;
+}
+
+input {
+    margin: 5px;
+}
+
