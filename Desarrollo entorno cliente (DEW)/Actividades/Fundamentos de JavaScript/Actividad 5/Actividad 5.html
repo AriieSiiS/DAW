@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Actividad 5.css">
+    <script src="Actividad 5.js"></script>
+    <title>Actividad 5</title>
+</head>
+<body>
+    <form>
+        <div class="principal">
+            <h2>Estación correspondiente al mes</h2>
+            <h4>NOTA: algunos meses pertecenen a dos estaciones, a estos se les asigna al que mayor parte del tiempo pertenecen</h4>
+
+            <label for="mes">Mes del año</label>
+            <select id="mes" name="mes" onchange="showEstacion()" required>
+                <option value="--">--</option>
+                <option value="enero">Enero</option>
+                <option value="febrero">Febrero</option>
+                <option value="marzo">Marzo</option>
+                <option value="abril">Abril</option>
+                <option value="mayo">Mayo</option>
+                <option value="junio">Junio</option>
+                <option value="julio">Julio</option>
+                <option value="agosto">Agosto</option>
+                <option value="septiembre">Septiembre</option>
+                <option value="octubre">Octubre</option>
+                <option value="noviembre">Noviembre</option>
+                <option value="diciembre">Diciembre</option>
+            </select>
+            <input type="text" id="estaciones">
+            
+        </div>
+    </form>
+</body>
+</html>
