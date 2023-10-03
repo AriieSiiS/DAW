@@ -1,6 +1,3 @@
-function contar() {
-    
-}
 
 function test() {
     let texto = document.querySelector("#texto").value;
