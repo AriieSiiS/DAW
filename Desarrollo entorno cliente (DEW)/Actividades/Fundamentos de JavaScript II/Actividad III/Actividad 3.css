@@ -1,0 +1,54 @@
+/* Estilos para el contenedor de la calculadora */
+.calculator-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Toma toda la altura de la ventana */
+    background-color: #f0f0f0; /* Color de fondo de la página */
+}
+
+/* Estilos para la tabla de la calculadora */
+.calculator-table {
+    border-collapse: collapse; /* Combinar bordes de celdas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    background: linear-gradient(to bottom, #ffaa00, #ff6600);
+}
+
+.calculator-table td {
+    padding: 10px; /* Espacio entre celdas */
+    text-align: center; /* Centrar contenido de celdas */
+}
+
+/* Estilos para los botones de la calculadora (similar a los anteriores) */
+.calculator-table input {
+    font-size: 24px;
+    width: 100%; /* El botón ocupa todo el ancho del td */
+    height: 48px; /* El botón ocupa todo el alto del td */
+    padding: 10px 20px;
+    border: none;
+    background: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.calculator-table button:hover {
+    background: linear-gradient(to bottom, #e6e6e6, #ffffff);
+}
+
+/* Estilos para el span de resultado */
+#resultado {
+    
+    border: 1px solid #333; 
+    display: inline-block; 
+    width: 90%; 
+    height: 48px; 
+    text-align: right; 
+    vertical-align: middle; 
+    line-height: 50px; 
+    background: white;
+    color: black;
+    font-size: 24px;
+    padding-right: 10px; /* Agregar padding alrededor del texto */
+    padding-left: 10px;
+}
