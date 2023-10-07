@@ -51,4 +51,5 @@
     font-size: 24px;
     padding-right: 10px; /* Agregar padding alrededor del texto */
     padding-left: 10px;
+    overflow: hidden;
 }
