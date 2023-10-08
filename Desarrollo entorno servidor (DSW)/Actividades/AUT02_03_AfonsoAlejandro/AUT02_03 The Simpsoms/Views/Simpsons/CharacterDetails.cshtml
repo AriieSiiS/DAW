@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Descripción de Personaje";
+}
+@model AUT02_03_The_Simpsoms.Models.Character
+
+<div>
+    <h2 class="display-4">Descripción de Personaje</h2>
+    <div>
+        <dl>
+            <dt>@Html.DisplayNameFor(model => model.ID):</dt>
+            <dd>@Model.ID</dd>
+            <dt>@Html.DisplayNameFor(model => model.Name):</dt>
+            <dd>@Model.Name</dd>
+            <dt>@Html.DisplayNameFor(model => model.Age):</dt>
+            <dd>@Model.Age</dd>
+            <dt>@Html.DisplayNameFor(model => model.Job):</dt>
+            <dd>@Model.Job</dd>
+        </dl>
+    </div>
+    <a href="@Url.Action("CharacterCreation")" class="btn btn-primary">Editar Personaje</a></>
+    <a href="@Url.Action("CharacterList")" class="btn btn-secondary">Volver</a></>
+   
+</div>

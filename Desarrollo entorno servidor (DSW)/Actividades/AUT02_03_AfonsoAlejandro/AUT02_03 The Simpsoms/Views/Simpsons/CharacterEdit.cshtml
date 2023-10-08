@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Edición de personajes";
+}
+
+@model Character
+
+
+<h1 class="display-4">Editor de Personajes</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CharacterEdit">
+            <div>
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Job" class="control-label"></label>
+                <input asp-for="Job" class="form-control" />
+                <span asp-validation-for="Job" class="text-danger"></span>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Editar</button>
+            <a href="@Url.Action("CharacterList")" class="btn btn-secondary">Volver</a></>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Lista de personajes";
+}
+
+@model List<Character>
+
+<div class="text-center">
+    <h1 class="display-4">Lista de personajes</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model[0].ID)</th>
+                <th>@Html.DisplayNameFor(model => model[0].Name)</th>
+                <th>@Html.DisplayNameFor(model => model[0].Age)</th>
+                <th>@Html.DisplayNameFor(model => model[0].Job)</th>
+                <th colspan="3">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var character in Model)
+            {
+                <tr>
+                    <td>@character.ID</td>
+                    <td>@character.Name</td>
+                    <td>@character.Age</td>
+                    <td>@character.Job</td>
+                    <td>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Simpsons" asp-action="CharacterDetails" asp-route-id="@character.ID">
+                            <i class="fas fa-info-circle"></i> 
+                        </a>
+                    </td>
+                    <td>
+                        <a class="nav-link text-primary" asp-area="" asp-controller="Simpsons" asp-action="CharacterEdit" asp-route-id="@character.ID">
+                            <i class="fas fa-edit"></i> 
+                        </a>
+                    </td>
+                    <td>
+                        <a class="nav-link text-danger" asp-area="" asp-controller="Simpsons" asp-action="CharacterDelete" asp-route-id="@character.ID">
+                            <i class="fas fa-trash"></i> 
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="@Url.Action("CharacterCreation")" class="btn btn-primary">Crear Personaje</a>
+</div>
