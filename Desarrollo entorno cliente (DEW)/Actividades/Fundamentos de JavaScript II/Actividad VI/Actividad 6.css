@@ -35,6 +35,6 @@ label {
     padding: 5px;
 }
 
-#boton:hover {
-    cursor: pointer; /* Cambia el cursor a una mano cuando pasas por encima del botón */
-}
+#fecha {
+    text-transform: capitalize;
+  }

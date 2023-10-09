@@ -8,6 +8,8 @@ form {
 
 .principal {
     text-align: center;
+    width: 350px;
+    height: 100px;
     background: linear-gradient(to bottom, #007bff, #0056b3); 
     padding: 20px;
     border-radius: 15px; 
@@ -35,6 +37,6 @@ label {
     padding: 5px;
 }
 
-#boton:hover {
-    cursor: pointer; /* Cambia el cursor a una mano cuando pasas por encima del botón */
-}
+#fecha {
+    text-transform: capitalize;
+  }
