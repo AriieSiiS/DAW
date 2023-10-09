@@ -1,0 +1,40 @@
+form {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px;
+    color: white;
+}
+
+.principal {
+    text-align: center;
+    background: linear-gradient(to bottom, #007bff, #0056b3); 
+    padding: 20px;
+    border-radius: 15px; 
+    margin: 0 auto; 
+    box-shadow: 20px 15px 15px rgb(63, 63, 63); /* Sombra */
+}
+
+h2 {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+input[type="number"] {
+    width: 10%;
+}
+
+input[type="button"] {
+    margin: 5px;
+    border: none;
+    border-radius: 2px; 
+}
+
+label {
+    padding: 5px;
+}
+
+#fibonacci:hover {
+    cursor: pointer; /* Cambia el cursor a una mano cuando pasas por encima del botón */
+}
