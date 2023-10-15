@@ -1,0 +1,146 @@
+body {
+    background-color: #FFF5DF;
+    margin: 0px;    
+    padding: 0px;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+}
+
+@font-face {
+    src: url("/PR1.1/fonts/Morion\ Bold.ttf") format("ttf");
+    font-family: "Morion";
+}
+
+/* ----------------------------HEADER---------------------------- */
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    align-items: center;
+    display: flex;
+    height: 48px;
+    justify-content: space-between; 
+    z-index: 999;
+}
+
+nav {
+    align-items: center; 
+    display: flex;
+    flex: 1; 
+    justify-content: space-between; 
+}
+
+svg.logo {
+    margin-left: 24px;
+}
+
+/* ------MENÚ HEADER------ */
+
+input[type="checkbox"] {
+    position: absolute;
+    width: 33px; 
+    height: 33px; 
+    right: -1px;
+    margin-right: 24px;
+    opacity: 0;
+    cursor: pointer;
+    outline: none; 
+    z-index: 2; 
+}
+
+input[type="checkbox"]:checked + .span span:nth-child(1) {
+    transform: rotate(45deg) translateX(6px); 
+}
+
+input[type="checkbox"]:checked + .span span:nth-child(2) {
+    display: none; 
+}
+
+input[type="checkbox"]:checked + .span span:nth-child(3) {
+    transform: rotate(-45deg) translateX(6px); 
+}
+
+span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    margin-right: 24px;
+    background-color: #8A733E;
+    transition:transform 0.3s ease; 
+}
+
+#menu
+{
+    background: url("/PR1.1/images/Header1.png");
+    background-position: center bottom; 
+    background-size: 115%;
+    background-repeat: no-repeat;  
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 32px;
+    height: fit-content;
+    width: 100%;
+    transform-origin: 0% 0%;
+    list-style-type: none;
+    padding-bottom: 148px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s, opacity 0.5s;
+    z-index: -999;
+    background-color: #FFF5DF;
+}
+
+#menuToggle:checked ~ #menu {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.5s, opacity 0.5s;
+    z-index: 999; 
+}
+
+#menu a {
+    text-transform: uppercase;
+    margin-top: 32px;
+    text-decoration: none;
+    color:  #8A733E;
+    font-family: 'Morion', sans-serif;
+    z-index: 100;
+}
+
+#menu li
+{
+    padding: 10px 0;
+    font-size: 24px;
+}
+/* ------FIN DEL MENÚ HEADER------ */
+
+.barra {
+    position: absolute;
+    bottom: 0;
+    margin-left: 24px;
+}
+
+/* ---------------------------- FIN DEL HEADER---------------------------- */
+ 
+main {
+    min-height: 544px; 
+    flex: 1;
+}
+
+.landing {
+    min-height: 592px; 
+    background-color: red;
+    background: url("/PR1.1/images/Background Flores.svg");
+    background-position: center bottom; 
+    background-size: 115%;
+    background-repeat: no-repeat;  
+}
+
+footer {
+    background-color: red;
+    height: 48px;
+}
