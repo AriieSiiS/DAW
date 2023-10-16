@@ -8,7 +8,7 @@ body {
 }
 
 @font-face {
-    src: url("/PR1.1/fonts/Morion\ Bold.ttf") format("ttf");
+    src: url("../fonts/Morion\ Bold.ttf") format("ttf");
     font-family: "Morion";
 }
 
@@ -22,6 +22,7 @@ header {
     height: 48px;
     justify-content: space-between; 
     z-index: 999;
+    background-color: #FFF5DF;
 }
 
 nav {
@@ -73,7 +74,7 @@ span {
 
 #menu
 {
-    background: url("/PR1.1/images/Header1.png");
+    background: url("../images/Header1.png");
     background-position: center bottom; 
     background-size: 115%;
     background-repeat: no-repeat;  
@@ -134,10 +135,10 @@ main {
 .landing {
     min-height: 592px; 
     background-color: red;
-    background: url("/PR1.1/images/Background Flores.svg");
     background-position: center bottom; 
     background-size: 115%;
     background-repeat: no-repeat;  
+    background-color: #FFF5DF;
 }
 
 footer {
