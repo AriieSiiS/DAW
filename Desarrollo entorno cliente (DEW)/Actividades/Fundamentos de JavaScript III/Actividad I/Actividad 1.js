@@ -3,10 +3,10 @@
 function obtenerInformacion() {
     if ('geolocation' in navigator && 'hardwareConcurrency' in navigator && 'deviceMemory' in navigator) {
       navigator.geolocation.getCurrentPosition(function(position) {
-        var latitude = position.coords.latitude;
-        var longitude = position.coords.longitude;
-        var numProcesadores = navigator.hardwareConcurrency;
-        var gbOfRAM = navigator.deviceMemory;
+        let latitude = position.coords.latitude;
+        let longitude = position.coords.longitude;
+        let numProcesadores = navigator.hardwareConcurrency;
+        let gbOfRAM = navigator.deviceMemory;
   
         // Actualiza los elementos HTML con los valores de esos datos
         document.getElementById('numCores').textContent = numProcesadores;
@@ -38,14 +38,23 @@ function obtenerInformacionII() {
         .then(function(stream) {
             document.getElementById('audio').textContent = "Tienes microfono";
         })
-          .catch(function(error) {
+        .catch(function(error) {
             document.getElementById('audio').textContent = "No se puede acceder o no tienes micrófono";
         });
     }
+}
+
+
+// ACTIVIDAD 4  ---------------------------------------------------------------------------------------
+
+function obtenerInformacionIII() {
+  document.getElementById('IE7').textContent = "<!--[if (IE 5) | (IE 7)]> <link rel='stylesheet' type='text/css' href='ESTILO1.css'> <![endif]>"
+  document.getElementById('IE9').textContent = "<!--[if (IE 9)]> <link rel='stylesheet' type='text/css' href='ESTILO2.css'> <![endif]>"
 }
 
 // Llama a las funciones cuando se cargue la página
 window.onload = function() {
     obtenerInformacion();
     obtenerInformacionII();
+    obtenerInformacionIII();
   };
