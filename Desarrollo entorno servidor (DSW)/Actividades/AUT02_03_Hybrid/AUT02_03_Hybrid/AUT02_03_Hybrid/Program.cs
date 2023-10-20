@@ -1,4 +1,10 @@
+using AUT02_03_Hybrid.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<NorthwindContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AUT02_03_Hybrid") ?? throw new InvalidOperationException("Connection string 'AUT02_03_Hybrid' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

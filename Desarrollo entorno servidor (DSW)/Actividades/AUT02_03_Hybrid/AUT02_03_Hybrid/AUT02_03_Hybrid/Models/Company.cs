@@ -8,16 +8,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AUT02_03_Hybrid.Models
 {
-    public partial class Shipper
+    [Table("Company")]
+    public partial class Company
     {
         [Key]
-        public int ShipperID { get; set; }
-        [Required]
-        [StringLength(40)]
-        public string CompanyName { get; set; }
-        [StringLength(24)]
-        public string Phone { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
 
-        public List<Company> Company { get; set; }
+        public int ShipperID { get; set; }
+
+        public Shipper? Shipper { get; set; }
     }
 }
