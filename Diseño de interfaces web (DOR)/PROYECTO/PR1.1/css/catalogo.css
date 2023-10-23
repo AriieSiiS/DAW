@@ -30,6 +30,7 @@ header {
     justify-content: space-between; 
     z-index: 999;
     background-color: #FFF5DF;
+    
 }
 
 nav {
@@ -135,209 +136,73 @@ span {
 header .barra {
     bottom: 0;
     position: absolute;
+    
 }
 
 /* ---------------------------- FIN DEL HEADER---------------------------- */
- 
-main {
-    min-height: 592px; 
-    flex: 1;
+
+
+h1 {
+    margin-left: 24px;
+    
 }
 
-.landing {
-    background-color: #FFF5DF;
-}
-
-.landing div:nth-child(1) {
-    min-height: 592px; 
-    background: url("../images/Painter.png");
-    background-position: left center;
-    background-size: 115%;
-    background-repeat: no-repeat;  
-    background-color: #FFF5DF;
-}
-
-.landing div:nth-child(1) h1 {
-    padding-top: 20px;
-}
-
-.portada h1 {
-    text-align: left;
-    font-size: 2.7em;
-    padding-left: 24px;
-}
-
-.carrousel {
-    height: 680px; 
-    background: url("../images/Carrousel1.png");
-    background-repeat: no-repeat;  
-    background-position: left 125px;
-    background-size: 115%;
-}
-
-.carrousel p {
-    font-size: 2em;
-    text-align: center;
-    position: relative;
-    bottom: -470px;
-    right: 180px;
-}
-
-#carrouseldiv1 {
-    position: relative;
-    bottom: -360px;
-}
-
-#carrouseldiv2 {
-    position: relative;
-    bottom: -450px;
-}
-
-.carrousel button {
-    position: relative;
-    bottom: -440px;
-}
-
-button {
-    width: 100px;
-    height: 24px;
-    background-color:#FDF7E9 ;
-    border: 1px solid #8A733E;
-    color: #8A733E;
-    font-family: "Morion";
-}
-.button {
+.OnSale {
     display: flex;
-    flex-direction: column;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+.card {
+    display: flex;
     justify-content: center;
     align-items: center;
-}
-.landing div:nth-child(2) h1 {
-    text-align: right;
-    padding-right: 24px;
-    margin: 10px;
-}
-
-
-
-.aboutme {
-    background: url("../images/Portrait1.png");
-    background-repeat: no-repeat;  
-    background-position: right 240px;
-    background-size: 65%;
+    flex-wrap: wrap;
+    width: 136px;
+    height: auto;
+    margin: 8px;
 }
 
-.aboutme p {
-    text-align: left;
-    margin-left: 24px;
-    margin-right: 24px;
-    font-size: 1em;
+.card h3 {
+    font-size: 15px;
+    
 }
 
-.aboutme p:nth-child(4){
-    width: 123px;
-    height: 235px;
+.card img {
+    width: 100%;
+    height: auto;
+    border:1px solid #8A733E;
 }
 
-.aboutme .button {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start; 
-    margin-left: 24px;
+.card h3 {
+    margin: 8px 0;
+    width: 100%;
+    text-align: center; /* Centrar el texto horizontalmente */
 }
 
-
-.aboutme h1 {
-    margin-left: 24px;
-}
-.services h1 {
-    text-align: right;
-    margin-right: 24px;
-} 
-
-
-.services .barra {
-    margin-left: 24px;
+.card i.fa-star {
+    color: gold;
+    font-size: 10px;
 }
 
-.servicesCard {
-    margin-left: 24px;
-    margin-right: 24px;
-    padding-top: 8px;
-    display: grid;
-    grid-template-columns: 168px auto;
-    grid-template-rows: 88px;
-    overflow: hidden;
-}
-
-.servicesCard img:last-of-type {
-    padding-top: 16px;
-    padding-bottom: 16px;
-}
-
-.servicesCard p:nth-child(odd) {
-    padding-right: 16px;
-}
-
-.contact h1{
-    margin-left: 24px;
-}
-
-.contact p {
-    margin-left: 24px;
-    margin-right: 24px;
-}
-
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-left: 24px;
-    margin-right: 24px;
-    margin-bottom: 16px;
-
-}
-
-input {
-    border: 1px solid #8A733E;
-}
-
-footer img:nth-child(3) {
-    margin-left: 24px;
-    margin-right: 24px;
-}
-
-.socialMedia {
+main div:nth-child(4) {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    margin-top: 16px;
+    justify-content: center;
+    margin-top: 8px;
 }
 
-footer p {
-    margin-left: 24px;
-    margin-right: 24px;
+main div:nth-child(5) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
 }
 
-footer h5 {
-    margin-left: 24px;
-    margin-right: 24px;
-    text-align: center;
+main div:nth-child(6) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

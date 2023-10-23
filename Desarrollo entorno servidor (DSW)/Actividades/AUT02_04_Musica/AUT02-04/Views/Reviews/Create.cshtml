@@ -1,0 +1,57 @@
+﻿@model AUT02_04.Models.Review
+
+@{
+    ViewData["Title"] = "Crear Review";
+}
+
+<h1>Crear</h1>
+
+<h4>Comentario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            </script>
+            <div class="form-group">
+                <label asp-for="Value" class="control-label"></label>
+                    <select asp-for="Value" class="form-control">
+                        <option value="1">★</option>
+                        <option value="2">★★</option>
+                        <option value="3">★★★</option>
+                        <option value="4">★★★★</option>
+                        <option value="5">★★★★★</option>
+                    </select>
+                <span asp-validation-for="Value" class="text-danger"></span>
+            </div>
+            <div class="form-group margin">
+                <input type="submit" value="Crear" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+<div class="margin">
+    <a class="btn btn-primary" asp-controller="Artists" asp-action="Details" asp-route-id="@Model?.ArtistId">Volver</a>
+</div>
+
+
+
+<style>
+    .margin {
+        margin-top: 10px;
+    }
+</style>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

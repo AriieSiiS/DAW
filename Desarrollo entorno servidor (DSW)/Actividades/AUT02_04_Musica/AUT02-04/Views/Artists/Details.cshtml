@@ -1,0 +1,57 @@
+﻿@model AUT02_04.Models.Artist
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <h4>Artistas</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Comentarios
+        </dt>
+        <dd class="col-sm-10">
+            <a asp-controller="Reviews" asp-action="Create" asp-route-id="@Model?.ArtistId" class="btn btn-success">Nuevo</a>
+        </dd>
+        <dt class="col-sm-2">
+            Lista de comentarios
+        </dt>
+        <dd class="col-sm-10">
+            <div class="row">
+                @foreach (var review in Model.Reviews)
+                {
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">@review.Title</h5>
+                                    <p class="card-text">@review.Description</p>
+                                    <span class="star">@Html.Raw(new string('★', review.Value ?? 0))</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                    <style>
+                        .star {
+                            color: gold;
+                            font-size: 20px;
+                        }
+                    </style>
+            </div>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-success" asp-action="Edit" asp-route-id="@Model?.ArtistId">Editar</a>
+    <a class="btn btn-primary" asp-action="Index">Volver</a>
+</div>

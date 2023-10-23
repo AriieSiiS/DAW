@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div>
+    <h1 class="display-4">La discográfica</h1>
+    <div class="d-flex">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="/images/Disco.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Discos</h5>
+                <p class="card-text">Consula la colección de albums de nuestro catálogo.</p>
+                <a class="btn btn-primary" asp-area="" asp-controller="Albums" asp-action="Index">Ver Albums</a>
+            </div>
+        </div>
+        <div class="card " style="width: 18rem;">
+            <img class="card-img-top" src="/images/Singer.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Artistas</h5>
+                <p class="card-text">Conoce a los artistas más punteros del paronama musical.</p>
+                <a class="btn btn-primary" asp-area="" asp-controller="Artists" asp-action="Index">Ver Artistas</a>
+            </div>
+        </div>
+    </div>
+    <style>
+        .card {
+            margin-right: 10px; 
+        }
+        img {
+            height: 200px;
+        }
+    </style>
+</div>

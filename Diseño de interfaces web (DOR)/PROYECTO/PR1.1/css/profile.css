@@ -138,64 +138,42 @@ header .barra {
 }
 
 /* ---------------------------- FIN DEL HEADER---------------------------- */
- 
-main {
-    min-height: 592px; 
-    flex: 1;
+
+.profile {
+    display: flex;
+    margin-right: 24px;
+    margin-left: 24px;
+    margin-top: 24px;
+    flex-direction: column;
 }
 
-.landing {
-    background-color: #FFF5DF;
+.profile div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
 }
 
-.landing div:nth-child(1) {
-    min-height: 592px; 
-    background: url("../images/Painter.png");
-    background-position: left center;
-    background-size: 115%;
-    background-repeat: no-repeat;  
-    background-color: #FFF5DF;
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: "Morion";
 }
 
-.landing div:nth-child(1) h1 {
-    padding-top: 20px;
+label, input {
+    padding: 4px;
+
 }
 
-.portada h1 {
-    text-align: left;
-    font-size: 2.7em;
-    padding-left: 24px;
+input {
+    background-color:#FDF7E9 ;
+    border: 1px solid #8A733E;
+    width: 80%;
 }
 
-.carrousel {
-    height: 680px; 
-    background: url("../images/Carrousel1.png");
-    background-repeat: no-repeat;  
-    background-position: left 125px;
-    background-size: 115%;
-}
-
-.carrousel p {
-    font-size: 2em;
-    text-align: center;
-    position: relative;
-    bottom: -470px;
-    right: 180px;
-}
-
-#carrouseldiv1 {
-    position: relative;
-    bottom: -360px;
-}
-
-#carrouseldiv2 {
-    position: relative;
-    bottom: -450px;
-}
-
-.carrousel button {
-    position: relative;
-    bottom: -440px;
+input:invalid {
+    background-color: #ff4631;
 }
 
 button {
@@ -206,138 +184,21 @@ button {
     color: #8A733E;
     font-family: "Morion";
 }
+
 .button {
+    margin-top: 36px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.landing div:nth-child(2) h1 {
-    text-align: right;
-    padding-right: 24px;
-    margin: 10px;
-}
 
-
-
-.aboutme {
-    background: url("../images/Portrait1.png");
-    background-repeat: no-repeat;  
-    background-position: right 240px;
-    background-size: 65%;
-}
-
-.aboutme p {
-    text-align: left;
+#background {
+    position: fixed;
+    width: 90%;
+    bottom: 8px;
     margin-left: 24px;
     margin-right: 24px;
-    font-size: 1em;
-}
-
-.aboutme p:nth-child(4){
-    width: 123px;
-    height: 235px;
-}
-
-.aboutme .button {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start; 
-    margin-left: 24px;
-}
-
-
-.aboutme h1 {
-    margin-left: 24px;
-}
-.services h1 {
-    text-align: right;
-    margin-right: 24px;
-} 
-
-
-.services .barra {
-    margin-left: 24px;
-}
-
-.servicesCard {
-    margin-left: 24px;
-    margin-right: 24px;
-    padding-top: 8px;
-    display: grid;
-    grid-template-columns: 168px auto;
-    grid-template-rows: 88px;
-    overflow: hidden;
-}
-
-.servicesCard img:last-of-type {
-    padding-top: 16px;
-    padding-bottom: 16px;
-}
-
-.servicesCard p:nth-child(odd) {
-    padding-right: 16px;
-}
-
-.contact h1{
-    margin-left: 24px;
-}
-
-.contact p {
-    margin-left: 24px;
-    margin-right: 24px;
-}
-
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-left: 24px;
-    margin-right: 24px;
-    margin-bottom: 16px;
+    z-index: -1;
 
 }
-
-input {
-    border: 1px solid #8A733E;
-}
-
-footer img:nth-child(3) {
-    margin-left: 24px;
-    margin-right: 24px;
-}
-
-.socialMedia {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: 16px;
-}
-
-footer p {
-    margin-left: 24px;
-    margin-right: 24px;
-}
-
-footer h5 {
-    margin-left: 24px;
-    margin-right: 24px;
-    text-align: center;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

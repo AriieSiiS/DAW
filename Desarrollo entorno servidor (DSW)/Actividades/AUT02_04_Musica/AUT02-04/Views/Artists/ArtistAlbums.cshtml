@@ -1,0 +1,20 @@
+﻿@model AUT02_04.Models.Artist
+
+@{
+    ViewData["Title"] = "Albums del Artista";
+}
+
+<h1>Albums del artista</h1>
+<div>
+    <ul>
+        @foreach (var album in Model.Albums)
+        {
+            <li>@album.Title</li>
+        }
+    </ul>
+
+    <a class="btn btn-primary" asp-controller="Home" asp-action="Index">Home</a>
+    <a class="btn btn-success" asp-controller="Albums" asp-action="Create" asp-route-artistId="@Model?.ArtistId">Crear Album</a>
+    <a class="btn btn-secondary" asp-action="Index">Volver</a>
+
+</div>
