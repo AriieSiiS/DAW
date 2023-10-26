@@ -8,14 +8,12 @@ function obtenerInformacion() {
         let numProcesadores = navigator.hardwareConcurrency;
         let gbOfRAM = navigator.deviceMemory;
   
-        // Actualiza los elementos HTML con los valores de esos datos
         document.getElementById('numCores').textContent = numProcesadores;
         document.getElementById('latitude').textContent = latitude;
         document.getElementById('longitude').textContent = longitude;
         document.getElementById('ramInfo').textContent = gbOfRAM + ' GB';
       });
     } else {
-      // En caso de que no tengamos esos datos en nuestro navegador ponemos un mensaje de error
       document.getElementById('latitude').textContent = 'Esta información no está disponible en este navegador.';
       document.getElementById('longitude').textContent = 'Esta información no está disponible en este navegador.';
       document.getElementById('numCores').textContent = 'Esta información no está disponible en este navegador.';
@@ -44,7 +42,6 @@ function obtenerInformacionII() {
     }
 }
 
-
 // ACTIVIDAD 4  ---------------------------------------------------------------------------------------
 
 function obtenerInformacionIII() {
@@ -52,9 +49,6 @@ function obtenerInformacionIII() {
   document.getElementById('IE9').textContent = "<!--[if (IE 9)]> <link rel='stylesheet' type='text/css' href='ESTILO2.css'> <![endif]>"
 }
 
-// Llama a las funciones cuando se cargue la página
-window.onload = function() {
-    obtenerInformacion();
-    obtenerInformacionII();
-    obtenerInformacionIII();
-  };
+obtenerInformacion();
+obtenerInformacionII();
+obtenerInformacionIII();

@@ -1,6 +1,6 @@
 // Variables
 const results = document.querySelector("#resultado");
-//pillamos todos los botones
+//Pillamos todos los botones
 const buttons = document.querySelectorAll("input[type='button']");
 
 
@@ -36,7 +36,7 @@ buttons.forEach(button => {
             result = 0;
             updateScreen();
         } else {
-            // Agrega el valor del botón a la entrada actual
+            // Agrega el valor del botón 
             currentInput += buttonValue;
             updateScreen();
         }
