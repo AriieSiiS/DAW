@@ -1,0 +1,39 @@
+
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+      "div1 div2"
+      "div3 div3";
+    gap: 10px; /* Espacio entre los divs */
+}
+
+div {
+    padding: 10px;
+}
+
+.pantalla {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    grid-area: div1;
+    background: linear-gradient(to bottom, #ff5733, #33a2ff);
+}
+
+.ventana {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    grid-area: div2;
+    background: radial-gradient(circle, #a58c3f, #5c5d5d);
+}
+
+.despedida {
+    color: white;
+    grid-area: div3;
+    background: linear-gradient(to bottom right, #ff3366, #3366ff);
+}
