@@ -22,6 +22,10 @@ public partial class NorthwindContext : IdentityDbContext
         OnModelCreatingPartial(modelBuilder);
         base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<Supplier>().ToTable("Suppliers", t => t.ExcludeFromMigrations());
+        modelBuilder.Entity<Characters>().HasData(
+
+
+);
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

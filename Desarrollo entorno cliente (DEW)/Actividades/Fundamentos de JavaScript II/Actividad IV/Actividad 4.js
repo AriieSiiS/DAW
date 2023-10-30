@@ -4,12 +4,12 @@ const divider = () => {
     //hacemos split, convirtiendolo en una array de elementos separados por el espacio y cambiando las comas por puntos 
     const contenidoDividido = textarea.replace(/,/g, '.').split(" ");
     //validamos que el textarea solo tenga números
-    for (let i = 0; i < contenidoDividido.length; i++) {
-      if (isNaN(parseFloat(contenidoDividido[i]))) {
-        //si hay alguna cosa que no sea un número, devolvemos un mensaje de error y salimos de la función
-        return "Error: El contenido no es un número válido.";
-      }
+
+    const esNumero = contenidoDividido.every((elemento) => !isNaN(parseFloat(elemento)));
+    if (!esNumero) {
+      return "Error: El contenido no es un número válido.";
     }
+
     //si llega hasta aquí, significa que todo son números, así que podemos empezar a hacer las divisiones
     //primero le asignamos a resultadoFinal el valor del primer número del array 
     let resultadoFinal = contenidoDividido[0];

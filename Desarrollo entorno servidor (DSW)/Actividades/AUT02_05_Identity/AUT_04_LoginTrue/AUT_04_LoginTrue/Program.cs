@@ -14,10 +14,14 @@ builder.Services.AddDbContext<NorthwindContext>(options =>
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
-    options.SignIn.RequireConfirmedAccount = true;
-    options.Password.RequireDigit = true;
+    options.SignIn.RequireConfirmedAccount = false;
+    options.Password.RequireDigit = false;
+    options.Password.RequiredLength = 5;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
 })
-
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<NorthwindContext>();
 var app = builder.Build();
 

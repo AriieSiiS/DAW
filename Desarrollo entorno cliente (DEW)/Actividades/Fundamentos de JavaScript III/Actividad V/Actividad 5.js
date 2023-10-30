@@ -69,7 +69,6 @@ const updateCart = () => {
     totalAmount.textContent = totalPrice + " USD";
 };
 
-
 updateCart();
 
 // quitar un producto del carrito 
@@ -100,7 +99,6 @@ const clearCart = () => {
     saveCartToLocalStorage();
 };
 
-
 document.querySelector("#clear-cart").addEventListener("click", clearCart);
 
 // guardamos el carrito en la localstorage 
@@ -108,8 +106,6 @@ const saveCartToLocalStorage = () => {
     console.log("El carrito se ha guardado");
     localStorage.setItem("cart", JSON.stringify(cart));
 };
-
-
 
 // cargamos el carrito en la local storage
 const loadCartFromLocalStorage = () => {
