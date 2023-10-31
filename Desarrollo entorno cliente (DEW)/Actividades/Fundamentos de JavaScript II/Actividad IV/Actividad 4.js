@@ -25,14 +25,14 @@ const divider = () => {
     return null;
   };
 
-  //aquí llamamos a la función y válidamos si trae un mensaje de error, y si lo trae lo mandamos como alerta
-  //antes de llamarla, buscamos el botón y le ponemos un evento listener para que cuando haga click sea cuando llame a la función divider
-  const button = document.getElementById("boton");
-  button.addEventListener("click", function() {
-    const error = divider();
-    if (error !== null) {
-      alert(error);
-    }
-  });
+//aquí llamamos a la función y válidamos si trae un mensaje de error, y si lo trae lo mandamos como alerta
+//antes de llamarla, buscamos el botón y le ponemos un evento listener para que cuando haga click sea cuando llame a la función divider
+const button = document.getElementById("boton");
+button.addEventListener("click", function() {
+  const error = divider();
+  if (error !== null) {
+    alert(error);
+  }
+});
 
   

@@ -1,4 +1,4 @@
-const mostrarDatos =()=>{
+const mostrarDatos =() => {
     let availHeight = window.screen.availHeight;
     let availWidth = window.screen.availWidth;
     let colorDepth = window.screen.colorDepth;

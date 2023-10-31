@@ -1,11 +1,10 @@
 const isFirexox = () => {
-    let firefox = typeof InstallTrigger !== 'undefined';
+    let firefox = userAgent.includes("Firefox");
     if (firefox) {
         var link = document.querySelector("link[rel='stylesheet']");
         link.href = "Firefox.css";
       }
 }
-
 
 const mostrarDatos = () => {
     //pantalla
