@@ -1,0 +1,60 @@
+﻿@model AUT02_05.Models.Espeng
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ing)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ing)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.esp)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.esp)
+        </dd>
+    </dl>
+</div>
+
+<h3>Frases de ejemplo:</h3>
+@foreach (var item in Model.Frases)
+{
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><b>English: </b> @Html.DisplayFor(modelItem => item.Eng)</h5>
+                <h5 class="card-text"><b>Spanish: </b>@Html.DisplayFor(modelItem => item.Esp)</h5>
+                <h5 class="card-text"><b>Usuario: </b> @Html.DisplayFor(modelItem => item.UserId)</h5>
+                @if (User.IsInRole("admin")) {
+                    <a asp-controller="Frases" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info">Editar</a>
+                    <a asp-controller="Frases" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-warning">Borrar</a>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+
+<div>
+    <hr />
+    <a asp-controller="Frases" asp-action="Create" asp-route-id="@Model?.id" class="btn btn-primary">Añadir Ejemplo</a>
+@*     <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model?.id">Edit</a> *@
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</div>
+
+<style>
+    .btn {
+        padding-right: 6px;
+        padding-left: 6px;
+    }
+</style>
+
+

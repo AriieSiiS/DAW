@@ -1,0 +1,121 @@
+﻿
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model PaginatedList<AUT02_05.Models.Espeng>
+
+@{
+    ViewData["Title"] = "Términos";
+}
+
+<h1>Términos</h1>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Buscar palabra: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Buscar" class="btn btn-primary" /> 
+            <a class="btn btn-secondary" asp-action="Index">Volver a la vista completa</a>
+        </p>
+    </div>
+</form>
+
+
+
+@if (User.IsInRole("admin"))
+{
+    <p>
+        <a asp-action="Create">Añadir término</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["IngSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Inglés</a>
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["EspSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Español</a>
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["FrasesSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]"> Frases de Ejemplo</a>
+                </th>
+                <th>
+                    Acciones
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ing)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.esp)
+                    </td>
+                    <td>
+                        @(item.Frases != null ? item.Frases.Count : 0)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.id">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.id">Detalles</a> |
+                        <a asp-action="Delete" asp-route-id="@item.id">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.ing)</h5>
+                    <h6 class="card-text">@Html.DisplayFor(modelItem => item.esp)</h6>
+                    @if (User.IsInRole("basic") && !User.IsInRole("admin") && !User.IsInRole("premium"))
+                    {
+                        <a class="btn btn-success disabled" aria-disabled="true">Frases de Ejemplo (@(item.Frases != null ? item.Frases.Count : 0))</a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-success" asp-action="Details" asp-route-id="@item.id">Frases de Ejemplo (@(item.Frases != null ? item.Frases.Count : 0))</a>
+                    }
+
+                    @if (User.IsInRole("admin"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.id">Edit</a>
+
+                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+}
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Anterior
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Siguiente
+</a>
+
+

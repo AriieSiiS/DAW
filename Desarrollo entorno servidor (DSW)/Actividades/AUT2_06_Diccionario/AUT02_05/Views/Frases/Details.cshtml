@@ -1,0 +1,42 @@
+﻿@model AUT02_05.Models.Frases
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Frases</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Eng)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Eng)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Esp)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Esp)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Espeng)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Espeng.id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Editar</a> |
+    <a asp-action="Index">Volver</a>
+</div>

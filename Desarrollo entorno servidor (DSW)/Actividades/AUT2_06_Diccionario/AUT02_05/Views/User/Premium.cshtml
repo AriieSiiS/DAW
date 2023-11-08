@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Get Premium";
+}
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<div class="text-center">
+    <h1 class="display-4">Hazte premium</h1>
+    <h3>Consulta los ejemplos y crea los tuyos propios por un módico precio</h3>
+    <a class="btn btn-success" asp-area="" asp-controller="User" asp-action="AssignPremiumRole">¡Hazte premium!</a>
+</div>
+

@@ -1,0 +1,42 @@
+﻿@model AUT02_05.Models.Frases
+
+@{
+    ViewData["Title"] = "Create";
+    var espeng = ViewBag.Name;
+}
+
+<h1>Añadir nuevo ejemplo</h1>
+<h4>Término: "@espeng.ing</h4>
+<h5>Significado: "@espeng.esp"</h5>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Eng" class="control-label">Frase en Inglés</label>
+                <input asp-for="Eng" class="form-control" />
+                <span asp-validation-for="Eng" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Esp" class="control-label">Frase en Español</label>
+                <input asp-for="Esp" class="form-control" />
+                <span asp-validation-for="Esp" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <br />
+    <a class="btn btn-danger" asp-controller="Espengs" asp-action="Index">Cancelar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
