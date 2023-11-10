@@ -16,6 +16,8 @@ namespace WebApplication1.Controllers
             new Videogame { Id = 3, Title = "Juego Acción", Genre = "Acción" }
         };
 
+        static int id = 4;
+
         // GET: api/<VideogamesController>
         [HttpGet]
         public IEnumerable<Videogame> Get()
@@ -42,7 +44,6 @@ namespace WebApplication1.Controllers
         public ActionResult<Videogame> Post([FromBody] Videogame videogame)
         {
             videogamesList.Add(videogame);
-
             return CreatedAtAction("Get", new { id = videogame.Id }, videogame);
         }
 
