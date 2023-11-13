@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using AUT03_02.Models;
+using AUT03_02.Seeders;
 
 namespace AUT03_02.Data
 {
@@ -24,14 +25,10 @@ namespace AUT03_02.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Game>(entity =>
-            {
-                entity.HasOne(d => d.Genre)
-                    .WithOne(p => p.Game)
-                    .HasForeignKey<Genre>(d => d.GenreId);
-            });
+
 
             OnModelCreatingPartial(modelBuilder);
+            Seeder.MainSeeder(modelBuilder);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

@@ -55,7 +55,7 @@ namespace AUT03_02.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutGenre(int id, Genre genre)
         {
-            if (id != genre.GenreId)
+            if (id != genre.Id)
             {
                 return BadRequest();
             }
@@ -91,23 +91,9 @@ namespace AUT03_02.Controllers
               return Problem("Entity set 'VideogamesContext.Genres'  is null.");
           }
             _context.Genres.Add(genre);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (GenreExists(genre.GenreId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetGenre", new { id = genre.GenreId }, genre);
+            return CreatedAtAction("GetGenre", new { id = genre.Id }, genre);
         }
 
         // DELETE: api/Genres/5
@@ -132,7 +118,7 @@ namespace AUT03_02.Controllers
 
         private bool GenreExists(int id)
         {
-            return (_context.Genres?.Any(e => e.GenreId == id)).GetValueOrDefault();
+            return (_context.Genres?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
