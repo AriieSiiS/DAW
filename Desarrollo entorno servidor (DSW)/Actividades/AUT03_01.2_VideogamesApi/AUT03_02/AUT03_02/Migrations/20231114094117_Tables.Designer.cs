@@ -3,6 +3,7 @@ using AUT03_02.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AUT03_02.Migrations
 {
     [DbContext(typeof(VideogamesContext))]
-    partial class VideogamesContextModelSnapshot : ModelSnapshot
+    [Migration("20231114094117_Tables")]
+    partial class Tables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,44 +44,6 @@ namespace AUT03_02.Migrations
                     b.HasIndex("GenreId");
 
                     b.ToTable("Games");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            GenreId = 1,
-                            Name = "The Last of Us"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            GenreId = 1,
-                            Name = "God of War"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            GenreId = 2,
-                            Name = "Zelda"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            GenreId = 2,
-                            Name = "Uncharted 4"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            GenreId = 3,
-                            Name = "The Witcher 3"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            GenreId = 3,
-                            Name = "Elder Scrolls"
-                        });
                 });
 
             modelBuilder.Entity("AUT03_02.Models.Genre", b =>
@@ -92,29 +56,12 @@ namespace AUT03_02.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(35)
-                        .HasColumnType("nvarchar(35)");
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Genres");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Acción"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Aventuras"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "RPG"
-                        });
                 });
 
             modelBuilder.Entity("AUT03_02.Models.Game", b =>

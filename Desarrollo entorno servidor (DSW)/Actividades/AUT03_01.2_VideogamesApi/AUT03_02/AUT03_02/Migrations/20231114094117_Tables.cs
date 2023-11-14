@@ -4,7 +4,7 @@
 
 namespace AUT03_02.Migrations
 {
-    public partial class _1 : Migration
+    public partial class Tables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -39,34 +39,6 @@ namespace AUT03_02.Migrations
                         principalTable: "Genres",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.InsertData(
-                table: "Genres",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 1, "Acción" });
-
-            migrationBuilder.InsertData(
-                table: "Genres",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 2, "Aventuras" });
-
-            migrationBuilder.InsertData(
-                table: "Genres",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 3, "RPG" });
-
-            migrationBuilder.InsertData(
-                table: "Games",
-                columns: new[] { "Id", "GenreId", "Name" },
-                values: new object[,]
-                {
-                    { 1, 1, "The Last of Us" },
-                    { 2, 1, "God of War" },
-                    { 3, 2, "The Legend of" },
-                    { 4, 2, "Uncharted 4" },
-                    { 5, 3, "The Witcher 3" },
-                    { 6, 3, "Elder Scrolls" }
                 });
 
             migrationBuilder.CreateIndex(

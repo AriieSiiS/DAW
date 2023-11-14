@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AUT03_02.Migrations
 {
     [DbContext(typeof(VideogamesContext))]
-    [Migration("20231113210118_1")]
-    partial class _1
+    [Migration("20231114095357_Seder")]
+    partial class Seder
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -62,25 +62,25 @@ namespace AUT03_02.Migrations
                         {
                             Id = 3,
                             GenreId = 2,
-                            Name = "The Legend of Zelda: Breath of the Wild"
+                            Name = "Zelda"
                         },
                         new
                         {
                             Id = 4,
                             GenreId = 2,
-                            Name = "Uncharted 4: A Thief's End"
+                            Name = "Uncharted 4"
                         },
                         new
                         {
                             Id = 5,
                             GenreId = 3,
-                            Name = "The Witcher 3: Wild Hunt"
+                            Name = "The Witcher 3"
                         },
                         new
                         {
                             Id = 6,
                             GenreId = 3,
-                            Name = "Elder Scrolls V: Skyrim"
+                            Name = "Elder Scrolls"
                         });
                 });
 
@@ -94,8 +94,8 @@ namespace AUT03_02.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasMaxLength(35)
+                        .HasColumnType("nvarchar(35)");
 
                     b.HasKey("Id");
 

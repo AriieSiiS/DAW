@@ -25,8 +25,6 @@ namespace AUT03_02.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
-
             OnModelCreatingPartial(modelBuilder);
             Seeder.MainSeeder(modelBuilder);
         }

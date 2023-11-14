@@ -42,8 +42,9 @@ window.addEventListener("load", () => {
         if (nodo.nodeType === Node.TEXT_NODE && /^[\n\s]+$/.test(nodo.textContent)) {
             DOM.filas.removeChild(nodo);
         }
-    }    
+    }
+    
+    alert(DOM.primeraFila.childNodes.length)
 });
 
 
-alert(DOM.primeraFila.childNodes.length)

@@ -15,6 +15,6 @@ namespace AUT03_02.Models
  
         public int GenreId { get; set; }
 
-        public Genre Genre { get; set; }
+        public Genre? Genre { get; set; }
     }
 }
