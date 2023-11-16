@@ -82,21 +82,40 @@ window.addEventListener("load", () => {
             tr.children[4].textContent = "";
         }
         if (idTd.textContent === "8") {
-            console.log("hola")
             tr.lastElementChild.previousElementSibling.previousElementSibling.textContent = "jaqueline.power@yahoo.com";
         }
-
-
     });
-
-
 
     DOM.escudo.setAttribute('src' , 'img/objeto_dom.gif');
     DOM.escudo.setAttribute ('alt' , 'Logotipo del Gobierno');
 
+    Array.from(DOM.tabla.rows).forEach((row, index) => {
+        // Verifica si es la primera o última fila
+        if (index === 0 || index === DOM.tabla.rows.length - 1) {
+            // Si es la primera o última fila, inserta una nueva celda en la posición 2 o 3
+            let nuevaCelda = document.createElement("th");
+            let textoCelda = document.createTextNode("Edad");
+            nuevaCelda.appendChild(textoCelda);
+            row.insertBefore(nuevaCelda, index === 0 ? row.cells[3] : row.cells[3]);
+            nuevaCelda.classList.add("cabecera");
+        } else {
+            // Si no es la primera ni la última fila, inserta una nueva celda en la posición 3
+            let nuevaCelda = row.insertCell(3);
+            let textoCelda = document.createTextNode("13");
+            nuevaCelda.appendChild(textoCelda);
 
+            // COMENTADO PARA QUE NO ME PIDA INGRESAR LAS EDADES CADA VEZ QUE HAGO F5
+            // let edad = prompt("Ingrese la edad:");
+            // let nuevaCelda = row.insertCell(3);
+            // let textoCelda = document.createTextNode(edad);
+            // nuevaCelda.appendChild(textoCelda);
+        }
 
+    });
+    
+    
 
+    //COMENTADO PARA QUE NO ME SALTE EL ALERT CADA VEZ QUE HAGO F5
     //alert(DOM.primeraFila.childNodes.length)
 });
 
