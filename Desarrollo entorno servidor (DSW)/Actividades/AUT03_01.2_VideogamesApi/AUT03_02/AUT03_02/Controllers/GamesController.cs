@@ -29,7 +29,9 @@ namespace AUT03_02.Controllers
           {
               return NotFound();
           }
-            return await _context.Games.ToListAsync();
+            return await _context.Games
+                .Include(e => e.Genre)
+                .ToListAsync();
         }
 
         // GET: api/Games/5
@@ -40,7 +42,10 @@ namespace AUT03_02.Controllers
           {
               return NotFound();
           }
-            var game = await _context.Games.FindAsync(id);
+            var game = await _context.Games
+                .Include(e => e.Genre)
+                .Where(g => g.Id == id)
+                .FirstOrDefaultAsync();
 
             if (game == null)
             {
@@ -51,7 +56,6 @@ namespace AUT03_02.Controllers
         }
 
         // PUT: api/Games/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutGame(int id, Game game)
         {
