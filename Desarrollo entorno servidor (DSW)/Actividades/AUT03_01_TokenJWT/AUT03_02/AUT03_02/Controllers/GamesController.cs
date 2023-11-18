@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AUT03_02.Data;
 using AUT03_02.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AUT03_02.Controllers
 {
+    [Authorize]
+    //[Authorize(Roles = "admin, basic")]
     [Route("api/[controller]")]
     [ApiController]
     public class GamesController : ControllerBase
@@ -23,6 +26,10 @@ namespace AUT03_02.Controllers
 
         // GET: api/Games
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<IEnumerable<Game>>> GetGames()
         {
           if (_context.Games == null)
@@ -35,6 +42,9 @@ namespace AUT03_02.Controllers
         }
 
         // GET: api/Games/5
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpGet("{id}")]
         public async Task<ActionResult<Game>> GetGame(int id)
         {
@@ -56,6 +66,10 @@ namespace AUT03_02.Controllers
         }
 
         // PUT: api/Games/5
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutGame(int id, Game game)
         {
@@ -81,13 +95,14 @@ namespace AUT03_02.Controllers
                     throw;
                 }
             }
-
             return NoContent();
         }
 
         // POST: api/Games
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Game>> PostGame(Game game)
         {
           if (_context.Games == null)
@@ -102,6 +117,9 @@ namespace AUT03_02.Controllers
 
         // DELETE: api/Games/5
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> DeleteGame(int id)
         {
             if (_context.Games == null)

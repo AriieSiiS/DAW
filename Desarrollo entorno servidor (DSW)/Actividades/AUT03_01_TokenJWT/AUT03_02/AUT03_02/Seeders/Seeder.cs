@@ -15,6 +15,7 @@ namespace AUT03_02.Seeders
             modelBuilder.Entity<Game>().HasData(gamesList);
 
         }
+
         public static List<Genre> GenreSeeder()
         {
             List<Genre> genreList = new List<Genre>

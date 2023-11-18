@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AUT03_02.Data;
 using AUT03_02.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AUT03_02.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class GenresController : ControllerBase
@@ -23,24 +25,37 @@ namespace AUT03_02.Controllers
 
         // GET: api/Genres
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<IEnumerable<Genre>>> GetGenres()
         {
           if (_context.Genres == null)
           {
               return NotFound();
           }
-            return await _context.Genres.ToListAsync();
+            return await _context.Genres
+                .Include(e => e.Game)
+                .ToListAsync();
         }
 
         // GET: api/Genres/5
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Genre>> GetGenre(int id)
         {
           if (_context.Genres == null)
           {
               return NotFound();
           }
-            var genre = await _context.Genres.FindAsync(id);
+
+            var genre = await _context.Genres
+                .Include(e => e.Game)
+                .Where(g => g.Id == id)
+                .FirstOrDefaultAsync();
 
             if (genre == null)
             {
@@ -51,8 +66,11 @@ namespace AUT03_02.Controllers
         }
 
         // PUT: api/Genres/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> PutGenre(int id, Genre genre)
         {
             if (id != genre.Id)
@@ -82,8 +100,10 @@ namespace AUT03_02.Controllers
         }
 
         // POST: api/Genres
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Genre>> PostGenre(Genre genre)
         {
           if (_context.Genres == null)
@@ -98,6 +118,9 @@ namespace AUT03_02.Controllers
 
         // DELETE: api/Genres/5
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> DeleteGenre(int id)
         {
             if (_context.Genres == null)
