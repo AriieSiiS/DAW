@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/profile/profile.css">
+    <link rel="stylesheet" href="css/producto/producto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-    <title>Profile</title>
+    <title>Producto</title>
 </head>
+
 <body>
     <header>
         <nav>
@@ -43,7 +44,7 @@
                 <h1><a href="">ABOUT</a></h1>
                 <h1><a href="">SERVICES</a></h1>
                 <h1><a href="">CONTACT</a></h1>
-                <h1>PERSONAL PROFILE</h1>
+                <h1>PRODUCT</h1>
             </div>
             <input type="checkbox" id="menuToggle" />
             <div class="span">
@@ -77,40 +78,111 @@
                 <line opacity="1" y1="0.5" x2="100%" y2="0.5" stroke="#8A733E" />
             </svg>
         </div>
-        
     </header>
+
     <main>
-        <div class="profile">
-            <div>
-                <img id="ProfilePic" src="images/Profile Pic.png">
-            </div>
-            <form id="Formulario">
-                <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" id="nombre" required/>
-            
-                <label for="correo">Correo electrónico</label>
-                <input type="email" name="correo" id="correo" required/>
-
-                <label for="pass">Contraseña</label>
-                <input type="password" name="pass" id="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mínimo 8 letras, con una mayuscula y un número incluido" required/>
-
-                <label for="address">Dirección:</label>
-                <input type="text" id="address" name="address" placeholder="Calle Principal" >
-            
-                <label for="apt">Apartamento:</label>
-                <input type="text" id="apt" name="apt" placeholder="Apt 123">
-            
-                <label for="city">Ciudad:</label>
-                <input type="text" id="city" name="city">
-            
-                <label for="zip">Código Postal:</label>
-                <input type="text" id="zip" name="zip">
-            </form>
-            <div class="button">
-                <button type="submit" form="Formulario">CREATE</button>
+        <h1>TITULO DE LA OBRA</h1>
+        <div>
+            <img src="images/Test1.png" alt="test1">
+            <div class="imagenesPequeñas">
+                <img src="images/Test1.png" alt="test1">
+                <img src="images/Test1.png" alt="test1">
+                <img src="images/Test1.png" alt="test1">
             </div>
         </div>
-        <img id="background" src="images/BackgroundMovile.png">
+
+        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus error, maiores repudiandae eum
+            ratione optio facilis suscipit, cumque ullam quia vero rerum obcaecati voluptates ducimus, nesciunt laborum
+            adipisci debitis quisquam.
+        </h3>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <h4>Precio: 12€</h4>
+        <h5>Gastos de envio: 2,50€</h5>
+        <button>Agregar al carrito</button>
+        <button>Comprar</button>
+        <select>
+          <option value="1">1 unidad</option>
+          <option value="2">2 unidades</option>
+          <option value="3">3 unidades</option>
+        </select>
+        <div class="barra">
+            <svg width="100%" height="1" viewBox="0 0 3000 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line opacity="1" y1="0.5" x2="100%" y2="0.5" stroke="#8A733E" />
+            </svg>
+        </div>
+        <div class="caracteristicas">
+            <div>
+                <h4>Tipo de proyecto:</h4>
+                <p>Personal</p>
+            </div>
+            <div>
+                <h4>Herramientas usadas:</h4>
+                <p>Photoshop e Illustrator</p>
+            </div>
+            <div>
+                <h4>Año:</h4>
+                <p>2023</p>
+            </div>
+        </div>
+        <div class="barra">
+            <svg width="100%" height="1" viewBox="0 0 3000 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line opacity="1" y1="0.5" x2="100%" y2="0.5" stroke="#8A733E" />
+            </svg>
+        </div>
+        <h3>¿Tienes alguna duda?</h3>
+        <button onclick="window.location.href='preguntas_frecuentes.html'">Contactanos</button>
+        <div class="area-reseñas">
+            <h2>Reseñas de Usuarios</h2>
+            <form action="#" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            
+                <label for="valoracion">Valoración:</label>
+                <select id="valoracion" name="valoracion" required>
+                <option value="5">5 estrellas</option>
+                <option value="4">4 estrellas</option>
+                <option value="3">3 estrellas</option>
+                <option value="2">2 estrellas</option>
+                <option value="1">1 estrella</option>
+                </select>
+            
+                <label for="comentario">Comentario:</label>
+                <textarea id="comentario" name="comentario" rows="4" required></textarea>
+            
+                <button type="submit">Agregar Reseña</button>
+            </form>
+            
+            <!-- Lista de reseñas existentes -->
+            <div class="lista-reseñas">
+                <div class="resena">
+                <h3>Usuario1</h3>
+                <p class="valoracion">Valoración: 4 estrellas</p>
+                <p class="comentario">¡Excelente producto! Lo recomendaría a todos.</p>
+                </div>
+            
+                <div class="resena">
+                <h3>Usuario2</h3>
+                <p class="valoracion">Valoración: 5 estrellas</p>
+                <p class="comentario">Muy satisfecho con mi compra. ¡Definitivamente compraré de nuevo!</p>
+                </div>
+            </div>
+        </div>
     </main>
+    <footer>
+
+        <div class="barra">
+            <svg width="100%" height="1" viewBox="0 0 3000 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line opacity="1" y1="0.5" x2="100%" y2="0.5" stroke="#8A733E" />
+            </svg>
+        </div>
+        <div class="socialMedia">
+            <img src="images/socialMedia.png" alt="socialMedia">
+        </div>
+        <h5>©2023 AlejandroDesign. All Rights Reserved</h5>
+    </footer>
 </body>
+
 </html>

@@ -1,4 +1,4 @@
-@charset "UTF-8";
+
 body {
   background-color: #FFF5DF;
   margin: 0px;
@@ -242,4 +242,4 @@ header h1 {
   a:hover {
     color: orange;
   }
-}/*# sourceMappingURL=catalogo.css.map */
+}

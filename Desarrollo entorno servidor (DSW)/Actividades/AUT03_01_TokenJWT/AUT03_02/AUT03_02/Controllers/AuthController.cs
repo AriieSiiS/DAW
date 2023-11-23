@@ -93,9 +93,7 @@ namespace AUT03_02.Controllers
                     expires: DateTime.UtcNow.AddMinutes(60),
                     signingCredentials: credentials);
 
-                var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-
-                return Ok(new { Token = tokenString });
+                return Ok(new JwtSecurityTokenHandler().WriteToken(token));
             }
 
             return Unauthorized("Invalid email or password.");

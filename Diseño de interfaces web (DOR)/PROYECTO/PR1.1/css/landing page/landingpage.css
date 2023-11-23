@@ -1,4 +1,3 @@
-@charset "UTF-8";
 body {
   background-color: #FFF5DF;
   margin: 0px;
@@ -405,8 +404,15 @@ header h1 {
     display: none;
   }
   .carrousel {
+    max-width: 1200px; 
+    margin: 0 auto;
     margin-top: 48px;
   }
+  .card img {
+      max-width: 100%;
+    height: auto;
+  }
+
   .landing div:nth-child(2) h1 {
     text-align: left;
   }
@@ -428,4 +434,4 @@ header h1 {
   footer img:first-child {
     width: 20%;
   }
-}/*# sourceMappingURL=landingpage.css.map */
+}

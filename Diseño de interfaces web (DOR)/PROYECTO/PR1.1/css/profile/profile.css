@@ -1,4 +1,4 @@
-@charset "UTF-8";
+
 body {
   background-color: #FFF5DF;
   margin: 0px;
@@ -11,11 +11,11 @@ body {
 }
 
 @font-face {
-  src: url("../fonts/Morion Bold.ttf") format("ttf");
+  src: url("../../fonts/Morion Bold.ttf") format("ttf");
   font-family: "Morion";
 }
 @font-face {
-  src: url("../fonts/Hackney.ttf") format("ttf");
+  src: url("../../fonts/Hackney.ttf") format("ttf");
   font-family: "Hackney";
 }
 /* ----------------------------HEADER---------------------------- */
@@ -82,7 +82,7 @@ span {
 }
 
 #menu {
-  background: url("../images/Header1.png");
+  background: url("../../images/Header1.png");
   background-position: center bottom;
   background-size: 105%;
   background-repeat: no-repeat;
@@ -207,10 +207,10 @@ h1 {
 /* -------------TABLET--------------------------- */
 @media screen and (min-width: 768px) and (min-height: 924px) {
   #background {
-    content: url("../images/BackgroundTablet.png");
+    content: url("../../images/BackgroundTablet.png");
   }
   #ProfilePic {
-    content: url("../images/Profile PicTablet.png");
+    content: url("../../images/Profile PicTablet.png");
     margin-top: 16px;
   }
   Header h1:last-child {
@@ -274,10 +274,10 @@ h1 {
     height: 64px;
   }
   #background {
-    content: url("../images/BackgroundDesktop.png");
+    content: url("../../images/BackgroundDesktop.png");
   }
   form {
     margin-left: 172px;
     margin-right: 172px;
   }
-}/*# sourceMappingURL=profile.css.map */
+}
