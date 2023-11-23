@@ -18,6 +18,45 @@ body {
   src: url("../../fonts/Hackney.ttf") format("ttf");
   font-family: "Hackney";
 }
+
+/* ----------------------------DARK THEME---------------------------- */
+
+body.dark-theme {
+  background-color: #76502D;
+  color: #FFC909;
+}
+
+.dark-theme header {
+  background-color: #76502D;
+}
+
+.dark-theme svg path {
+  fill: #FFC909 ;
+}
+.dark-theme svg line {
+  stroke: #FFC909 ;
+}
+
+.dark-theme button {
+  color: #FFC909;
+  background-color:  #945a24;
+  border: 1px solid  #c9a932;
+}
+
+.dark-theme #menu {
+  background-color: #76502D;
+}
+.dark-theme #menu a {
+  color: #FFC909;
+}
+
+.dark-theme span {
+  background-color:#FFC909;
+}
+
+/* ----------------------------DARK THEME---------------------------- */
+
+
 /* ----------------------------HEADER---------------------------- */
 header {
   position: sticky;

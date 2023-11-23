@@ -16,6 +16,56 @@ body {
   src: url("../fonts/Hackney.ttf") format("ttf");
   font-family: "Hackney";
 }
+
+
+/* ----------------------------DARK THEME---------------------------- */
+
+body.dark-theme {
+  background-color: #76502D;
+  color: #FFC909;
+}
+
+.dark-theme header {
+  background-color: #76502D;
+}
+
+.dark-theme svg path {
+  fill: #FFC909 ;
+}
+.dark-theme svg line {
+  stroke: #FFC909 ;
+}
+
+.dark-theme button {
+  color: #FFC909;
+  background-color:  #945a24;
+  border: 1px solid  #c9a932;
+}
+
+.dark-theme #menu {
+  background-color: #76502D;
+}
+.dark-theme #menu a {
+  color: #FFC909;
+}
+
+.dark-theme span {
+  background-color:#FFC909;
+}
+
+/* ----------------------------DARK THEME---------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
 /* ----------------------------HEADER---------------------------- */
 header {
   position: sticky;
@@ -153,35 +203,18 @@ header h1 {
   padding-left: 24px;
 }
 
-.carrousel img:nth-child(3) {
-  margin-top: 16px;
+/* Ajusta el tamaño del contenedor del carrusel */
+.slider-container {
+  width: 80%; /* Puedes cambiar esto a un valor específico o usar otros valores relativos */
+  margin: 0 auto; /* Centra el contenedor en la página */
 }
 
-.carrousel {
-  overflow: hidden;
+/* Ajusta el tamaño de los slides si es necesario */
+.your-class div {
+  width: 100%; /* Esto hace que cada slide ocupe el 100% del ancho del contenedor */
+
 }
 
-.card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 980px;
-  height: auto;
-  margin: 8px;
-}
-
-.card img {
-  width: 100%;
-  height: auto;
-}
-
-.card h3 {
-  font-size: 1em;
-  margin: 8px 0;
-  width: 100%;
-  text-align: center;
-}
 
 button {
   display: flex;
@@ -194,6 +227,7 @@ button {
   color: #8A733E;
   font-family: "Morion";
   margin-top: 8px;
+  cursor: pointer;
 }
 
 .button {
@@ -338,6 +372,9 @@ header h1 {
     width: 200px;
     height: 48px;
     font-size: 1.8em;
+  }
+  .buton-toggle {
+    margin-top: 0px;
   }
   .aboutme p {
     font-size: 1.6em;
