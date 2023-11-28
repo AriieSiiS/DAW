@@ -1,0 +1,1159 @@
+{
+	"info": {
+		"_postman_id": "25d4b5fb-a7b2-4a0b-b90f-4fb2ab004d2c",
+		"name": "Testing PO03_01",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31027032"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Create New User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"userEmailTest\", pm.variables.replaceIn('{{$randomEmail}}'));\r",
+									"pm.collectionVariables.set(\"userFullNameTest\", pm.variables.replaceIn('{{$randomFullName}}'))\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"El código de respuesta es 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"{{userEmailTest}}\",\r\n  \"password\": \"{{userPassTest}}\",\r\n  \"fullName\": \"{{userFullNameTest}}\",\r\n  \"isActive\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Auth/register",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login New User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"newUserToken\", pm.response.text());\r",
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that the response contains a valid JWT token\", function () {\r",
+									"  const responseData = pm.response.text();\r",
+									"  \r",
+									"  pm.expect(responseData).to.include(\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Token structure is valid\", function () {\r",
+									"    const token = pm.response.text();\r",
+									"    const parts = token.split(\".\");\r",
+									"    \r",
+									"    pm.expect(parts).to.have.lengthOf(3, \"Token should have 3 parts\");\r",
+									"    pm.expect(parts[0]).to.exist.and.to.not.be.empty;\r",
+									"    pm.expect(parts[1]).to.exist.and.to.not.be.empty;\r",
+									"    pm.expect(parts[2]).to.exist.and.to.not.be.empty;\r",
+									"});\r",
+									"\r",
+									"var payload =\"\";\r",
+									"\r",
+									"pm.test(\"Verify that the access token contains the expected claims\", function () {\r",
+									"    const responseData = pm.response.text();\r",
+									"    const token = responseData.split('.')[1];\r",
+									"    payload = JSON.parse(atob(token));\r",
+									"  \r",
+									"    pm.expect(payload).to.have.property(\"jti\");\r",
+									"    pm.expect(payload).to.have.property(\"iat\");\r",
+									"    pm.expect(payload).to.have.property(\"sub\");\r",
+									"    pm.expect(payload).to.have.property(\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\");\r",
+									"    pm.expect(payload).to.have.property(\"exp\");\r",
+									"    pm.expect(payload).to.have.property(\"iat\");\r",
+									"    pm.expect(payload).to.have.property(\"aud\");\r",
+									"});\r",
+									"\r",
+									"console.log(payload[\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\"]);\r",
+									"\r",
+									"pm.test(\"New user Role is 'Comercial'\", function () {\r",
+									"    const responseData = pm.response.text();\r",
+									"    const token = responseData.split('.')[1];\r",
+									"    payload = JSON.parse(atob(token));\r",
+									"  \r",
+									"    pm.expect(payload[\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\"]).to.equal(\"Comercial\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Sub claim contains user email\", function () {\r",
+									"    const responseData = pm.response.text();\r",
+									"    const token = responseData.split('.')[1];\r",
+									"    payload = JSON.parse(atob(token));\r",
+									"  \r",
+									"    pm.expect(payload[\"sub\"]).to.equal(pm.collectionVariables.get(\"userEmailTest\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Token Audience is 'MusicStore'\", function () {\r",
+									"    const responseData = pm.response.text();\r",
+									"    const token = responseData.split('.')[1];\r",
+									"    payload = JSON.parse(atob(token));\r",
+									"  \r",
+									"    pm.expect(payload[\"aud\"]).to.equal(\"MusicStore\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"{{userEmailTest}}\",\r\n  \"password\": \"Asdf1234!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Auth/login",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Comercial1 User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"comercial1UserToken\", pm.response.text());\r",
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"comercial1@musicstore.com\",\r\n  \"password\": \"Asdf1234!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Auth/login",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Comercial2 User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"comercial2UserToken\", pm.response.text());\r",
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"comercial2@musicstore.com\",\r\n  \"password\": \"Asdf1234!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Auth/login",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Admin User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"adminUserToken\", pm.response.text());\r",
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@musicstore.com\",\r\n  \"password\": \"Asdf1234!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Auth/login",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedidos",
+			"item": [
+				{
+					"name": "New Pedido C1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"bearer-token\", pm.collectionVariables.get(\"comercial1UserToken\"));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 201\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate the 'id' field is a non-negative integer\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"\r",
+									"  pm.expect(responseData).to.be.an('object');\r",
+									"  pm.expect(responseData.id).to.exist.and.to.be.a('number', \"Value should be a number\");\r",
+									"  pm.expect(responseData.id).to.be.at.least(1, \"Value should be non-negative\");\r",
+									"\r",
+									"  pm.collectionVariables.set(\"newPedidoId\", responseData.id);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"The 'amount' field is a non-negative number\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    pm.expect(responseData.amount).to.be.a('number');\r",
+									"    pm.expect(responseData.amount).to.be.at.least(1, \"Value should be non-negative\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that the 'address' field is a non-empty string\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData.address).to.be.a('string').and.to.have.lengthOf.at.least(5, \"Value should not be empty\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Album ID is a non-negative integer\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData.albumId).to.be.a('number').and.to.be.at.least(1, \"Album ID should be a non-negative integer\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Comercial Id is not empty\", function (){\r",
+									"    const responseData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseData.comercialId).is.not.null;\r",
+									"    \r",
+									"    pm.collectionVariables.set(\"comercial1Id\", responseData.comercialId);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 5,\r\n  \"address\": \"Calle Mayor 7\",\r\n  \"albumId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Pedidos",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Pedido C2",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"bearer-token\", pm.collectionVariables.get(\"comercial2UserToken\"));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 201\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 3,\r\n  \"address\": \"Calle Morería 2\",\r\n  \"albumId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Pedidos",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Comercial Pedidos",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"bearer-token\", pm.collectionVariables.get(\"comercial1UserToken\"));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response is an array with at least one element\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('array');\r",
+									"    pm.expect(responseData).to.have.lengthOf.at.least(1);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Each element in the response has the required fields\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseData).to.be.an('array');\r",
+									"    responseData.forEach(function (element) {\r",
+									"        pm.expect(element).to.have.property('id');\r",
+									"        pm.expect(element).to.have.property('amount');\r",
+									"        pm.expect(element).to.have.property('address');\r",
+									"        pm.expect(element).to.have.property('albumId');\r",
+									"        pm.expect(element).to.have.property('comercialId');\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"All Pedidos are from the Comercial1 user\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"\r",
+									"    responseData.forEach(function (element) {\r",
+									"        pm.expect(element.comercialId).to.be.equal(pm.collectionVariables.get(\"comercial1Id\"));\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7049/api/Pedidos/ComercialPedidos/:comercialEmail",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7049",
+							"path": [
+								"api",
+								"Pedidos",
+								"ComercialPedidos",
+								":comercialEmail"
+							],
+							"variable": [
+								{
+									"key": "comercialEmail",
+									"value": "comercial1@musicstore.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Pedido",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"bearer-token\", pm.collectionVariables.get(\"adminUserToken\"));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"  pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate the 'id' is the required\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"  \r",
+									"  pm.expect(responseData).to.be.an('object');\r",
+									"  pm.expect(responseData.id).to.exist.and.to.be.a('number');\r",
+									"  pm.expect(responseData.id).to.be.equal(pm.collectionVariables.get(\"newPedidoId\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate the 'album' field\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData.album).to.be.an('object');\r",
+									"    pm.expect(responseData.album).to.be.not.null;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate the address field\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    pm.expect(responseData.address).to.exist.and.to.be.a('string');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate the albumId field\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData.albumId).to.exist.and.to.be.a('number');\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7049/api/Pedidos/:id",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7049",
+							"path": [
+								"api",
+								"Pedidos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{newPedidoId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Pedido",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomAddres\", pm.variables.replaceIn('{{$randomStreetAddress}}'));\r",
+									"pm.collectionVariables.set(\"bearer-token\", pm.collectionVariables.get(\"adminUserToken\"));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"var url = \"https://\"+pm.collectionVariables.get(\"Host\")+\":\"+pm.collectionVariables.get(\"Port\")+\"/api/Pedidos/\"+pm.collectionVariables.get(\"newPedidoId\");\r",
+									"\r",
+									"const requestData = {\r",
+									"  url: url,\r",
+									"  method: 'GET',\r",
+									"  header: {\r",
+									"      'Authorization' : 'Bearer '+pm.collectionVariables.get(\"adminUserToken\")\r",
+									"  }\r",
+									"};\r",
+									"\r",
+									"pm.sendRequest(requestData, (error, response) => {\r",
+									"  if(error){\r",
+									"      console.log(\"hay error\");\r",
+									"  }else{\r",
+									"        console.log(response.json());\r",
+									"        pm.test(\"The 'Address' field has new value\", function () {\r",
+									"            const responseData = response.json();\r",
+									"\r",
+									"            pm.expect(responseData.address).to.be.equal(pm.collectionVariables.get(\"randomAddres\"));\r",
+									"        });\r",
+									"  }\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": {{newPedidoId}},\r\n  \"amount\": 5,\r\n  \"address\": \"{{randomAddres}}\",\r\n  \"albumId\": 1,\r\n    \"comercialId\": \"{{comercial1Id}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7049/api/Pedidos/:id",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7049",
+							"path": [
+								"api",
+								"Pedidos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{newPedidoId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Pedido",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7049/api/Pedidos/:id",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7049",
+							"path": [
+								"api",
+								"Pedidos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{newPedidoId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Pedido Non User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"bearer-token\", pm.collectionVariables.get(\"newUserToken\"));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Innactive comercial obtain 403 when try to create a pedido\", function () {\r",
+									"  pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 2,\r\n  \"address\": \"Calle Cañas 33\",\r\n  \"albumId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Pedidos",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Comercial State",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"bearer-token\", pm.collectionVariables.get(\"adminUserToken\"));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									"\r",
+									"var url = \"https://\"+pm.collectionVariables.get(\"Host\")+\":\"+pm.collectionVariables.get(\"Port\")+\"/api/Auth/changeState/comercial3@musicstore.com\";\r",
+									"\r",
+									"const requestData = {\r",
+									"  url: url,\r",
+									"  method: 'GET',\r",
+									"  header: {\r",
+									"      'Authorization' : 'Bearer '+pm.collectionVariables.get(\"comercial1UserToken\")\r",
+									"  }\r",
+									"};\r",
+									"\r",
+									"pm.sendRequest(requestData, (error, response) => {\r",
+									"  if(error){\r",
+									"      console.log(\"hay error\");\r",
+									"  }else{\r",
+									"        console.log(response);\r",
+									"        pm.test(\"No Admin User can not change user state\", function () {\r",
+									"            pm.expect(response.code).to.equal(403);\r",
+									"        });\r",
+									"  }\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Auth/changeState/:comercialEmail",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Auth",
+								"changeState",
+								":comercialEmail"
+							],
+							"variable": [
+								{
+									"key": "comercialEmail",
+									"value": "{{userEmailTest}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Pedido Active User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"bearer-token\", pm.collectionVariables.get(\"newUserToken\"));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Active comercial obtain 201 when try to create a pedido\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 2,\r\n  \"address\": \"Calle Cañas 33\",\r\n  \"albumId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Pedidos",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Pedidos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Albums",
+			"item": [
+				{
+					"name": "Get Albums",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"bearer-token\", pm.collectionVariables.get(\"comercial1UserToken\"));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that the response is an array with at least one element\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('array');\r",
+									"    pm.expect(responseData.length).to.equal(15);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify orther is correct\", function(){\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('array');\r",
+									"    pm.expect(responseData[0].albumId).to.equal(156);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that 'artist' and 'pedidos' properties are present in the response\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseData).to.be.an('array');\r",
+									"    responseData.forEach(function (item) {\r",
+									"        pm.expect(item).to.have.property('artist');\r",
+									"        pm.expect(item.artist).is.not.null;\r",
+									"        pm.expect(item).to.have.property('pedidos');\r",
+									"        pm.expect(item.pedidos).is.not.null;\r",
+									"        pm.expect(item.pedidos.length).is.equal(0);\r",
+									"\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Albums",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Album",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate the pedidos field\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData.pedidos).to.be.an('array');\r",
+									"    pm.expect(responseData.pedidos).to.have.lengthOf.at.least(1);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Albums/:id",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Albums",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{bearer-token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "Host",
+			"value": "localhost"
+		},
+		{
+			"key": "Port",
+			"value": "7049"
+		},
+		{
+			"key": "userEmailTest",
+			"value": "new@musicstore.com",
+			"type": "string"
+		},
+		{
+			"key": "userPassTest",
+			"value": "Asdf1234!",
+			"type": "string"
+		},
+		{
+			"key": "userFullNameTest",
+			"value": "Luis Cabrera",
+			"type": "string"
+		},
+		{
+			"key": "bearer-token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "newUserToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "comercial1UserToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "comercial2UserToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "adminUserToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "newPedidoId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "comercialUser1Token",
+			"value": ""
+		},
+		{
+			"key": "comercial1Id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "randomAddres",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
