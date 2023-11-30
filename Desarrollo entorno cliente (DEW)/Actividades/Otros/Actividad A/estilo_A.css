@@ -1,9 +1,0 @@
-table {
-    background-color: rgb(91, 171, 224);
-    border-collapse: collapse;
-}
-
-th, td {
-    border: 1px solid darkred; 
-    padding: 15px;
-}

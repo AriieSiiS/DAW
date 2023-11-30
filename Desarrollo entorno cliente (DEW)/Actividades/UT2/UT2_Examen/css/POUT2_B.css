@@ -1,0 +1,60 @@
+.container {
+	width: 100%;
+	background:#F781F3;
+	border-radius: 15px;
+	/*color: white;*/
+	padding: 10px;
+}
+/* input[type="text"] {
+	width: 8em;
+	margin-bottom: 10px;
+	margin: 1em;
+
+}*/
+.resultado {
+	background-color: white;
+}
+
+.texto{
+	display: inline-block;
+	text-align: right;
+}
+
+#campo{
+	width:1200px;
+	height:300px;
+	border:1px orange solid;
+	background-color:#D8F6CE;
+}
+#campo2{
+	background-color:gray;
+	color:white;
+	padding:10px;
+	width:1190px; 
+	height:150px;
+}
+
+#meta {
+	background-color:red;
+	position:absolute;
+	top:10px;
+	left:1150px;
+	width:10px; 
+	height:300px;
+}
+
+#chica{
+	position:absolute;
+	top:150px;
+	left:0px;
+	width:50px;
+	height:100px;
+}
+
+#chico{
+	position:absolute;
+	top:10px;
+	left:0px;
+	width:50px;
+	height:100px;
+}
