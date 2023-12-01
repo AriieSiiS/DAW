@@ -9,11 +9,13 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        //escribe por consola hola mundo
-        HelloWorld.PrintHelloWorld();
-        //pide un numero y lo multiplica por 10
-        Multiply.x10();
-        //crea un programa y visualiza un saludo
+        Persona persona = new Persona();
+
+        persona.nombre = "Ale";
+        persona.apellido = "Afonso";
+        persona.edad = 25;
+
+        System.out.println(persona);
 
     }
 }
