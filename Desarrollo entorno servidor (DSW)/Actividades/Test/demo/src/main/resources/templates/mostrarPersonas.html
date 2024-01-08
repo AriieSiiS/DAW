@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mostrar Personas</title>
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+
+    <!-- Enlace a la creación de personas -->
+    <a th:href="@{/persona/crear}">Crear Nueva Persona</a>
+
+    <h2>Personas Creadas</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Iterar sobre la lista de personas y mostrar los datos en la tabla -->
+        <tr th:each="persona : ${personas}">
+            <td th:text="${persona.id}"></td>
+            <td th:text="${persona.name}"></td>
+            <td th:text="${persona.age}"></td>
+            <td th:text="${persona.email}"></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

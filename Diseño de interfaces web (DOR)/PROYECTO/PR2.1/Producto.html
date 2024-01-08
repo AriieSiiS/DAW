@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/producto/producto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Producto</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <svg class="logo" width="64" height="32" viewBox="0 0 64 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_18_1253)">
+                    <path
+                        d="M25.7573 26.802V27.1352H17.1275V26.802L18.8724 23.7225L16.4603 17.6772H8.56481L6.27115 23.7225L8.26478 26.7614V27.1311H2.03125V26.7614L4.41965 23.7184L11.4704 5.57858L9.86757 1.54434L14.4272 -0.178241L23.7598 23.7225L25.7573 26.802ZM15.8879 16.1984L12.4336 7.59367L9.15697 16.1984H15.8879Z"
+                        fill="#8A733E" />
+                    <path d="M24.6104 5.0946L20.8995 4.5502L18.5742 7.58909L22.297 8.12943L24.6104 5.0946Z"
+                        fill="#8A733E" />
+                    <path d="M22.5299 9.21822L18.8032 8.67789L20.2126 12.2855L23.9472 12.769L22.5299 9.21822Z"
+                        fill="#8A733E" />
+                    <path d="M18.9688 0L16.5923 3.00638L17.9977 6.61811L20.3269 3.57516L18.9688 0Z" fill="#8A733E" />
+                    <path d="M0 15.3122L2.31734 18.3389L6.04008 17.7905L3.70695 14.7557L0 15.3122Z" fill="#8A733E" />
+                    <path d="M4.26758 13.805L6.6086 16.8398L8.00217 13.2281L5.62166 10.2298L4.26758 13.805Z"
+                        fill="#8A733E" />
+                    <path d="M0.670898 23.007L4.40154 22.5154L5.80694 18.9077L2.08025 19.4521L0.670898 23.007Z"
+                        fill="#8A733E" />
+                </g>
+                <path
+                    d="M27.1695 27.1233V26.8833L28.3215 25.0593V20.2113C28.3215 18.6113 27.9775 17.5953 27.2895 17.1633L30.7455 15.8913H31.1535V17.4753C31.4255 16.9313 31.8255 16.5073 32.3535 16.2033C32.8975 15.8993 33.4895 15.7473 34.1295 15.7473C35.4255 15.7473 36.4495 16.2513 37.2015 17.2593L35.2575 19.8753L34.8975 19.6593C34.9135 18.8433 34.7695 18.2033 34.4655 17.7393C34.1775 17.2593 33.7615 17.0193 33.2175 17.0193C32.7375 17.0193 32.2815 17.2833 31.8495 17.8113C31.4175 18.3233 31.2015 19.0113 31.2015 19.8753V25.0593L32.4015 26.8833V27.1233H27.1695ZM42.8138 27.4593C41.7258 27.4593 40.8618 27.1633 40.2218 26.5713C39.5978 25.9793 39.2858 25.1713 39.2858 24.1473V16.8993H37.8938V16.4673L41.8778 12.5313H42.1658V16.0833H45.3818V16.8993H42.1658V24.9633C42.1658 25.9073 42.6858 26.3793 43.7258 26.3793C44.5258 26.3793 45.1898 25.9793 45.7178 25.1793L46.2458 25.5393C45.5258 26.8193 44.3818 27.4593 42.8138 27.4593Z"
+                    fill="#8A733E" />
+                <defs>
+                    <clipPath id="clip0_18_1253">
+                        <rect width="26" height="28" fill="white" />
+                    </clipPath>
+                </defs>
+            </svg>
+            <div>
+                <h1><a href="Index.html">HOME</a></h1>
+                <h1><a href="Catalogo.html">WORK</a></h1>
+                <h1><a href="Profile.html">PROFILE</a></h1>
+                <h1><a href="">ABOUT</a></h1>
+                <h1><a href="">SERVICES</a></h1>
+                <h1><a href="">CONTACT</a></h1>
+                <h1>PRODUCT</h1>
+            </div>
+            <button class="buton-toggle" id="light-mode-btn" style="display:block"><i class="fa fa-lightbulb-o"></i> Light Mode</button>
+            <button class="buton-toggle" id="dark-mode-btn" style="display:none;"><i class="fa fa-lightbulb-o"></i> Dark Mode</button>
+            <input type="checkbox" id="menuToggle" />
+            <div class="span">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="menu">
+                <a href="Index.html">
+                    <li>Home</li>
+                </a>
+                <a href="Catalogo.html">
+                    <li>Work</li>
+                </a>
+                <a href="Profile.html">
+                    <li>Profile</li>
+                </a>
+                <a href="#">
+                    <li>About</li>
+                </a>
+                <a href="#">
+                    <li>Services</li>
+                </a>
+                <a href="#">
+                    <li>Contact</li>
+                </a>
+            </ul>
+        </nav>
+        <div class="barra">
+            <svg width="100%" height="1" viewBox="0 0 3000 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line opacity="1" y1="0.5" x2="100%" y2="0.5" stroke="#8A733E" />
+            </svg>
+        </div>
+    </header>
+
+    <main>
+        <h1>TITULO DE LA OBRA</h1>
+        <div class="contenedor">
+            <img src="images/Test1.png" alt="test1">
+            <div class="imagenesPequeñas">
+                <img src="images/Test1.png" alt="test1">
+                <img src="images/Test1.png" alt="test1">
+                <img src="images/Test1.png" alt="test1">
+            </div>
+        </div>
+
+        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus error, maiores repudiandae eum
+            ratione optio facilis suscipit, cumque ullam quia vero rerum obcaecati voluptates ducimus, nesciunt laborum
+            adipisci debitis quisquam.
+        </h4>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"> (3)</i>
+        <h4>Precio: 12€</h4>
+        <h5>Gastos de envio: 2,50€</h5>
+        <button>Agregar al carrito</button>
+        <button>Comprar</button>
+        <select>
+          <option value="1">1 unidad</option>
+          <option value="2">2 unidades</option>
+          <option value="3">3 unidades</option>
+        </select>
+        <div class="barra">
+            <svg width="100%" height="1" viewBox="0 0 3000 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line opacity="1" y1="0.5" x2="100%" y2="0.5" stroke="#8A733E" />
+            </svg>
+        </div>
+        <div class="caracteristicas">
+            <div>
+                <h4>Tipo de proyecto:</h4>
+                <p>Personal</p>
+            </div>
+            <div>
+                <h4>Herramientas usadas:</h4>
+                <p>Photoshop e Illustrator</p>
+            </div>
+            <div>
+                <h4>Año:</h4>
+                <p>2023</p>
+            </div>
+        </div>
+        <div class="barra">
+            <svg width="100%" height="1" viewBox="0 0 3000 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line opacity="1" y1="0.5" x2="100%" y2="0.5" stroke="#8A733E" />
+            </svg>
+        </div>
+        <h3>¿Tienes alguna duda?</h3>
+        <button onclick="window.location.href='preguntas_frecuentes.html'">Contactanos</button>
+        <div class="area-reseñas">
+            <h2>Reseñas de Usuarios</h2>
+            <form action="#" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            
+                <label for="valoracion">Valoración:</label>
+                <select id="valoracion" name="valoracion" required>
+                <option value="5">5 estrellas</option>
+                <option value="4">4 estrellas</option>
+                <option value="3">3 estrellas</option>
+                <option value="2">2 estrellas</option>
+                <option value="1">1 estrella</option>
+                </select>
+            
+                <label for="comentario">Comentario:</label>
+                <textarea id="comentario" name="comentario" rows="4" required></textarea>
+            
+                <button type="submit">Agregar Reseña</button>
+            </form>
+            
+        </div>
+    </main>
+    <footer>
+
+        <div class="barra">
+            <svg width="100%" height="1" viewBox="0 0 3000 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line opacity="1" y1="0.5" x2="100%" y2="0.5" stroke="#8A733E" />
+            </svg>
+        </div>
+        <div class="socialMedia">
+            <div class="social">
+                <a href="#"><i class="fa fa-instagram" style="font-size:24px"></i></a>
+                <a href="#"><i class='fa fa-facebook-official' style="font-size:24px"></i></a>
+                <a href="#"><i class="fa fa-youtube-play" style="font-size:24px"></i></a>
+                <a href="#"><i class="fa fa-pinterest-square" style="font-size:24px"></i></a>
+            </div>
+        </div>
+        <h5>©2023 AlejandroDesign. All Rights Reserved</h5>
+    </footer>
+    <script>
+        // Select the buttons
+        const lightModeBtn = document.querySelector("#light-mode-btn");
+        const darkModeBtn = document.querySelector("#dark-mode-btn");
+        const account = document.querySelector("#account");
+        const form = document.querySelector("#form");
+        const section = document.querySelector("#section");
+      
+        // Listen for a click on the buttons
+          lightModeBtn.addEventListener("click", function () {
+          // Toggle the .dark-theme class on the body
+          document.body.classList.toggle("dark-theme");
+      
+          // Store the current theme setting in local storage
+          localStorage.setItem("theme", "dark");
+      
+          // Toggle the buttons
+          lightModeBtn.style.display = "none";
+          darkModeBtn.style.display = "block";
+        });
+      
+        darkModeBtn.addEventListener("click", function () {
+          // Toggle the .dark-theme class on the body
+          document.body.classList.toggle("dark-theme");
+      
+          // Store the current theme setting in local storage
+          localStorage.setItem("theme", "light");
+      
+          // Toggle the buttons
+          darkModeBtn.style.display = "none";
+          lightModeBtn.style.display = "block";
+        });
+
+      
+        // Check if there is a stored theme setting and apply it
+        const storedTheme = localStorage.getItem("theme");
+        if (storedTheme) {
+          document.body.classList.add(storedTheme + "-theme");
+          if (storedTheme === "dark") {
+            lightModeBtn.style.display = "none";
+            darkModeBtn.style.display = "block";
+          } else {
+            darkModeBtn.style.display = "none";
+            lightModeBtn.style.display = "block";
+          }
+        }
+      </script>
+</body>
+
+</html>

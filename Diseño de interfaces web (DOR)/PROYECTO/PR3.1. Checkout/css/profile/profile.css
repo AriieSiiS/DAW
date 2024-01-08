@@ -1,0 +1,322 @@
+
+body {
+  background-color: #FFF5DF;
+  margin: 0px;
+  padding: 0px;
+  min-height: 1024px;
+  display: flex;
+  flex-direction: column;
+  font-family: "Morion";
+  color: #8A733E;
+}
+
+@font-face {
+  src: url("../../fonts/Morion Bold.ttf") format("ttf");
+  font-family: "Morion";
+}
+@font-face {
+  src: url("../../fonts/Hackney.ttf") format("ttf");
+  font-family: "Hackney";
+}
+
+/* ----------------------------DARK THEME---------------------------- */
+
+body.dark-theme {
+  background-color: #76502D;
+  color: #FFC909;
+}
+
+.dark-theme header {
+  background-color: #76502D;
+}
+
+.dark-theme svg path {
+  fill: #FFC909 ;
+}
+.dark-theme svg line {
+  stroke: #FFC909 ;
+}
+
+.dark-theme button {
+  color: #FFC909;
+  background-color:  #945a24;
+  border: 1px solid  #c9a932;
+}
+
+.dark-theme #menu {
+  background-color: #76502D;
+}
+.dark-theme #menu a {
+  color: #FFC909;
+}
+
+.dark-theme span {
+  background-color:#FFC909;
+}
+
+/* ----------------------------DARK THEME---------------------------- */
+
+
+/* ----------------------------HEADER---------------------------- */
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  align-items: center;
+  display: flex;
+  height: 64px;
+  justify-content: space-between;
+  z-index: 999;
+  background-color: #FFF5DF;
+}
+
+header h1 {
+  display: none;
+}
+
+nav {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+
+svg.logo {
+  margin-left: 24px;
+}
+
+/* ------MENÚ HEADER------ */
+input[type=checkbox] {
+  position: absolute;
+  width: 33px;
+  height: 33px;
+  right: -1px;
+  margin-right: 24px;
+  opacity: 0;
+  cursor: pointer;
+  outline: none;
+  z-index: 2;
+}
+
+input[type=checkbox]:checked + .span span:nth-child(1) {
+  transform: rotate(45deg) translateX(6px);
+}
+
+input[type=checkbox]:checked + .span span:nth-child(2) {
+  display: none;
+}
+
+input[type=checkbox]:checked + .span span:nth-child(3) {
+  transform: rotate(-45deg) translateX(6px);
+}
+
+span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  margin-right: 24px;
+  background-color: #8A733E;
+  transition: transform 0.3s ease;
+}
+
+#menu {
+  background: url("../../images/Header1.png");
+  background-position: center bottom;
+  background-size: 105%;
+  background-repeat: no-repeat;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 32px;
+  width: 100%;
+  transform-origin: 0% 0%;
+  list-style-type: none;
+  padding-bottom: 148px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s;
+  z-index: -999;
+  background-color: #FFF5DF;
+}
+
+#menuToggle:checked ~ #menu {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.5s, opacity 0.5s;
+  z-index: 999;
+}
+
+#menu a {
+  text-transform: uppercase;
+  margin-top: 32px;
+  text-decoration: none;
+  color: #8A733E;
+  font-family: "Morion", sans-serif;
+  z-index: 100;
+}
+
+#menu li {
+  padding: 10px 0;
+  font-size: 24px;
+}
+
+/* ------FIN DEL MENÚ HEADER------ */
+.barra {
+  margin-left: 24px;
+  overflow: hidden;
+  margin-right: 24px;
+}
+
+header .barra {
+  bottom: 0;
+  position: absolute;
+}
+
+/* ---------------------------- FIN DEL HEADER---------------------------- */
+.profile {
+  display: flex;
+  margin-right: 24px;
+  margin-left: 24px;
+  margin-top: 24px;
+  flex-direction: column;
+}
+
+.profile div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: "Morion";
+}
+
+label, input {
+  padding: 4px;
+}
+
+input {
+  background-color: #FDF7E9;
+  border: 1px solid #8A733E;
+  width: 80%;
+}
+
+input:invalid {
+  background-color: #ff4631;
+}
+
+button {
+  width: 100px;
+  height: 24px;
+  background-color: #FDF7E9;
+  border: 1px solid #8A733E;
+  color: #8A733E;
+  font-family: "Morion";
+}
+
+.button {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#background {
+  position: fixed;
+  width: 90%;
+  bottom: 8px;
+  margin-left: 24px;
+  margin-right: 24px;
+  z-index: -1;
+}
+
+h1 {
+  margin-left: 24px;
+}
+
+/* -------------TABLET--------------------------- */
+@media screen and (min-width: 768px) and (min-height: 924px) {
+  #background {
+    content: url("../../images/BackgroundTablet.png");
+  }
+  #ProfilePic {
+    content: url("../../images/Profile PicTablet.png");
+    margin-top: 16px;
+  }
+  Header h1:last-child {
+    display: contents;
+  }
+  .logo {
+    width: 80px;
+    height: 48px;
+  }
+  span {
+    width: 38px;
+    height: 3px;
+    margin-bottom: 8px;
+    margin-top: 10px;
+  }
+  #menu li {
+    font-size: 2.5em;
+    margin-top: 50px;
+  }
+  form {
+    font-size: 2em;
+  }
+  label, input {
+    padding: 8px;
+  }
+  form input:last-child {
+    width: 70%;
+  }
+  button {
+    margin-top: 24px;
+    width: 250px;
+    height: 48px;
+    font-size: 2em;
+  }
+}
+/* -------------FIN DE TABLET--------------------------- */
+@media screen and (min-width: 1440px) and (min-height: 924px) {
+  #menu {
+    display: none;
+  }
+  span {
+    display: none;
+  }
+  header h1 {
+    display: inline;
+    padding-left: 64px;
+    font-size: 1.5em;
+  }
+  Header h1:last-child {
+    display: none;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  a:hover {
+    color: orange;
+  }
+  .logo {
+    width: 96px;
+    height: 64px;
+  }
+  #background {
+    content: url("../../images/BackgroundDesktop.png");
+  }
+  form {
+    margin-left: 172px;
+    margin-right: 172px;
+  }
+}

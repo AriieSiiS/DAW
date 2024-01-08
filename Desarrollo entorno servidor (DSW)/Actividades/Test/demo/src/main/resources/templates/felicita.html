@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th='http://www.thymeleaf.org'>
+<head>
+    <meta charset="UTF-8">
+    <title>Felicitacion</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <!-- Utiliza th:text para mostrar el ID junto con el nombre -->
+    <h1>Felicitaciones, <span th:text="${id}"></span> - <span th:text="${name}"></span>!</h1>
+
+    <p>¡Te felicitamos <span th:text="${age}"></span> veces!</p>
+
+    <!-- Bucle para felicitar al usuario según su edad -->
+    <ul>
+        <li th:each="i : ${#numbers.sequence(1, age)}">
+            <p>Felicitación número <span th:text="${i}"></span>:
+                <a th:href="@{/saludos}">¡Feliz cumpleaños, <span th:text="${name}"></span>!</a>
+            </p>
+        </li>
+    </ul>
+</body>
+</html>

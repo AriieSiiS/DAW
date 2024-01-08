@@ -1,0 +1,10 @@
+/* styles.css */
+header {
+    background-color: cyan; /* Fondo azul */
+    color: white; /* Texto blanco */
+    padding: 10px; /* Espaciado interior para mayor legibilidad */
+}
+
+a {
+    color: white;
+}
