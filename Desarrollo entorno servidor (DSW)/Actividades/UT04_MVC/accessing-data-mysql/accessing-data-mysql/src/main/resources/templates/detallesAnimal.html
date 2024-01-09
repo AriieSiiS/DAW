@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles del Animal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        dl {
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        dt {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        dd {
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Detalles del Animal</h1>
+        <div th:if="${animal}">
+            <p>ID: <span th:text="${animal.id}"></span></p>
+            <p>Nombre: <span th:text="${animal.nombre}"></span></p>
+            <p>Vida Media: <span th:text="${animal.vidaMedia}"></span></p>
+            <p>Extinto: <span th:text="${animal.extinto} ? 'Sí' : 'No'"></span></p>
+        </div>
+        <div th:unless="${animal}">
+            <p>Animal no encontrado.</p>
+        </div>
+    <a th:href="@{/Animales/Listar}">Volver a la Lista de Animales</a>
+</body>
+</html>

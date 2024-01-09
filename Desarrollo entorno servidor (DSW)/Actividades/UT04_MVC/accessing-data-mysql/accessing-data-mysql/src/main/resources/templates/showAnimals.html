@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Animales</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        a.delete {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Lista de Animales</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Vida Media</th>
+        <th>Extinto</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterar sobre la lista de animales -->
+    <!-- Iterar sobre la lista de animales -->
+    <tr th:each="animal : ${animal}">
+        <td th:text="${animal.id}"></td>
+        <td th:text="${animal.nombre}"></td>
+        <td th:text="${animal.vidaMedia}"></td>
+        <td th:text="${animal.extinto} ? 'Sí' : 'No'"></td>
+        <td>
+            <!-- Enlaces para ver, actualizar y eliminar el animal -->
+            <a th:href="@{/Animales/Detalles/{id}(id=${animal.id})}">Detalles</a>
+            |
+            <a th:href="@{/Animales/Actualizar/{id}(id=${animal.id})}">Actualizar</a>
+            |
+            <!-- Enlace para eliminar el animal -->
+            <form th:action="@{/Animales/Eliminar/{id}(id=${animal.id})}" method="post">
+                <input type="hidden" name="_method" value="delete" />
+                <button type="submit" class="delete">Eliminar</button>
+            </form>
+        </td>
+    </tr>
+
+    </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Enlace para crear un nuevo animal -->
+<a th:href="@{/Animales/Crear}">Crear Nuevo Animal</a>
+
+</body>
+</html>
