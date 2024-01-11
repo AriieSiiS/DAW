@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Actualizar Animal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .error {
+      color: #e74c3c;
+      margin-top: 5px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    a {
+      text-decoration: none;
+      color: #3498db;
+      margin-right: 10px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Actualizar Animal</h1>
+
+<form th:action="@{'/Animales/Actualizar/' + ${animal.id}}" th:object="${animal}" method="post">
+
+  <!-- Campos del formulario -->
+  <input type="hidden" th:field="*{id}">
+
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre" th:field="*{nombre}" required>
+  <span class="error" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+
+  <label for="vidaMedia">Vida Media:</label>
+  <input type="number" id="vidaMedia" name="vidaMedia" th:field="*{vidaMedia}" required>
+  <span class="error" th:if="${#fields.hasErrors('vidaMedia')}" th:errors="*{vidaMedia}"></span>
+
+  <label for="extinto">Extinto:</label>
+  <select id="extinto" name="extinto" th:field="*{extinto}" required>
+    <option value="true">Sí</option>
+    <option value="false">No</option>
+  </select>
+  <span class="error" th:if="${#fields.hasErrors('extinto')}" th:errors="*{extinto}"></span>
+
+  <!-- Botón de enviar -->
+  <button type="submit">Actualizar Animal</button>
+</form>
+
+<!-- Enlace para volver a la lista de animales -->
+<a th:href="@{/Animales/Listar}">Volver a la Lista de Animales</a>
+
+</body>
+</html>
