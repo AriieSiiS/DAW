@@ -1,0 +1,16 @@
+Utiliza la interfaz provista por los archivos new_user_dialog.html, new_user_dialog.css y Peinot.ttf  (ubicándolos ambos en la misma carpeta) y elabora el código necesario para asegurar que los datos introducidos por el usuario se ajustan en cada caso al formato requerido, previo envío del formulario al servidor. 
+
+Para ello debes elaborar el código necesario para las 5 funciones validate_* vinculadas a las etiquetas input y el código adicional requerido para incluir la siguientes funcionalidades:
+
+- Si el usuario de la página cumplimenta cualquiera de los campos con un formato inadecuado, el texto cambiará a color rojo y automáticamente se mostrará un diálogo (<div class="dialog">) con el correspondiente aviso. El usuario no podrá reanudar la cumplimentación del formulario hasta que cierre esta ventana de diálogo.
+
+- El botón ''send'', al ser clickado, permitirá el envío de datos al servidor si y sólo si todos los campos del cuestionario han sido cumplimentados por el usuario de manera correcta., en cuyo caso se mostrará un diálogo informativo confirmando el envío de los datos. En caso contrario, mostrará un diálogo informativo  informando al cliente de la situación.
+
+El código JS elaborado podrá agregarse al archivo .html o figurar en un archivo .js aparte. La práctica se entregará a través de un único archivo .zip, que llevará el nombre y apellidos del alumn@, separados por '_' y omitiendo acentos y/u otros caracteres especiales (ejemplo: el alumno Antonio Muñoz López nombrará a su archivo como Antonio_Munoz_Lopez)
+
+Nota_1: Se asume que tanto el first name como el family name contienen, al menos, 2 caracteres alfabéticos
+
+Nota_2: para la dirección de e-mail se asume el formato estándar usuario@dominio.extension. Por simplicidad estableceremos para el usuario a) todo minúsculas b) no puede contener un punto ni un  caracter especial ni al comienzo ni al final c) no puede contener 2 caracteres especiales seguidos
+
+
+

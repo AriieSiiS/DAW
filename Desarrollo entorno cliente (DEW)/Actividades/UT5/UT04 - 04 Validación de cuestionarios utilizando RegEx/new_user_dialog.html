@@ -1,0 +1,54 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="new_user_dialog.css">
+    <script src="script.js"></script>
+</head>
+
+
+<style type="text/css">
+</style>
+
+<body>
+
+    <div class="dialog"><span>Your message her</span>
+        <ul>
+            <li><input type="checkbox" onclick="input_checked()"></li>
+            <li>Send me an e-mail with my Gifts list Id</li>
+        </ul>
+        <button onclick="close_me(event)">X</button><button onclick="close_me(event)">OK</button>
+    </div>
+
+
+    <div id="new_user">
+        <button onclick="close_me(event)">X</button>
+        <ul>
+            <li><span>(*) Mandatory field:</span><br></li>
+            <li><span id="name">First name*</span><br><input type="text" onchange="onchange_input_alt(event)"></input>
+            </li>
+            <li><span id="surname">Last name*</span><br><input type="text" onchange="onchange_input_alt(event)"></input>
+            </li>
+            <li><span id="e_mail">e-mail address*</span><br><input type="text"
+                    onchange="onchange_input_alt(event)"></input></li>
+            <li><span id="e_mail_conf">Repeat your e-email*</span><br><input type="text"
+                    onchange="onchange_input_alt(event)"></input></li>
+            <li><span id="user_name">User* (3 characters at least)</span><br><input type="text"
+                    onchange="onchange_input_alt(event)"></input></li>
+            <li><span id="birth_date">Birth date* (dd/mm/yy)</span><br><input type="text"
+                    onchange="onchange_input_alt(event)"></input></li>
+            <li><span id="tfn_number">Telephone number* (+prefix)xxxxxxxxx</span><br><input type="text"
+                    onchange="onchange_input_alt(event)"></input></li>
+            <li><br><span id="e_mail_sending_info">Enviando e-mail...</span></li>
+        </ul>
+        <button id="send_new_user">Send</button>
+    </div>
+
+    <form method="post" action=""><button id="form_submit" type="submit" name="" value=""
+            style="display:none;"></button></form>
+</body>
+
+</html>
