@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/UT04_MVC AUTH.iml" filepath="$PROJECT_DIR$/.idea/UT04_MVC AUTH.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test/test/test.iml" filepath="$PROJECT_DIR$/test/test/test.iml" />
     </modules>
   </component>
 </project>
