@@ -22,11 +22,10 @@ public class UserService implements UserDetailsService {
     private UserRepository userRepository;
     @Autowired
     private RoleRepository roleRepository;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username);
+        User user = userRepository.findByUserName(username);
 
         if (user == null) {
             throw new UsernameNotFoundException("Usuario no encontrado: " + username);
@@ -39,13 +38,10 @@ public class UserService implements UserDetailsService {
                 .build();
     }
     public User createUser(String username, String password) {
-        // Encriptar la contraseña
-        String encodedPassword = passwordEncoder.encode(password);
+        String encodedPassword = encodePassword(password);
 
-        // Recuperar el rol de la base de datos (suponiendo que "USER" es el nombre del rol)
-        Role userRole = roleRepository.findByName("USER");
+        Role userRole = roleRepository.findByName("ROLE_USER");
 
-        // Si el rol no existe, podrías manejarlo según tus necesidades (lanzar una excepción, asignar un rol predeterminado, etc.)
         if (userRole == null) {
             throw new RuntimeException("El rol 'USER' no existe en la base de datos.");
         }
@@ -54,13 +50,16 @@ public class UserService implements UserDetailsService {
         user.setUserName(username);
         user.setPassword(encodedPassword);
 
-        // Crear una lista de roles y asignarla al usuario
         Set<Role> userRoles = new HashSet<>();
         userRoles.add(userRole);
         user.setRoles(userRoles);
 
-        // Guardar el usuario en la base de datos
         return userRepository.save(user);
+    }
+
+    private String encodePassword(String password) {
+        PasswordEncoder encoder = new BCryptPasswordEncoder();
+        return encoder.encode(password);
     }
 
 
