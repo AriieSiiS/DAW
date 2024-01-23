@@ -24,13 +24,14 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain web(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((authz) -> authz
+                        .requestMatchers("/animals").hasRole("USER")
                         .requestMatchers("/", "/register").permitAll()
                         .anyRequest().authenticated()
                 );
         http.formLogin((form) -> form
                         .loginPage("/login")
                         .loginProcessingUrl("/login")
-                        .defaultSuccessUrl("/")
+                        .defaultSuccessUrl("/animals", true) // Ajusta la ruta de redirección después del login
                         .permitAll()
                 );
         http.logout((logout) -> logout

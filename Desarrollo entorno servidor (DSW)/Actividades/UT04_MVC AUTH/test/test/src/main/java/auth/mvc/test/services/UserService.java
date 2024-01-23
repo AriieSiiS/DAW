@@ -4,6 +4,7 @@ import auth.mvc.test.models.User;
 import auth.mvc.test.models.Role;
 import auth.mvc.test.repositories.RoleRepository;
 import auth.mvc.test.repositories.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,6 +16,7 @@ import auth.mvc.test.security.SecurityConfig;
 
 import java.util.*;
 
+@Transactional
 @Service
 public class UserService implements UserDetailsService {
 
@@ -31,6 +33,8 @@ public class UserService implements UserDetailsService {
             throw new UsernameNotFoundException("Usuario no encontrado: " + username);
         }
 
+        user.getRoles().size(); // eager load
+
         return org.springframework.security.core.userdetails.User
                 .withUsername(username)
                 .password(user.getPassword())
@@ -40,7 +44,7 @@ public class UserService implements UserDetailsService {
     public User createUser(String username, String password) {
         String encodedPassword = encodePassword(password);
 
-        Role userRole = roleRepository.findByName("ROLE_USER");
+        Role userRole = roleRepository.findByName("USER");
 
         if (userRole == null) {
             throw new RuntimeException("El rol 'USER' no existe en la base de datos.");
