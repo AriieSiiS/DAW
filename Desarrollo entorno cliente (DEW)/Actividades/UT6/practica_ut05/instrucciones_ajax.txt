@@ -1,0 +1,29 @@
+Utiliza los elementos de interfaz y los archivos .php contenidos en el archivo .zip y crea una inferfaz dinámica capaz de establecer conexión con un servidor php
+para realizar la siguientes funciones:
+
+- Permitir al usuario llevar a cabo el login
+
+- Permitir a un nuevo usuario crearse una cuenta
+
+- Permitir a un usuario generar una nueva contraseña en caso de pérdida de la anterior
+
+
+El comportamiento que debe exhibir la interfaz es el siguiente:
+
+- Proceso de login (check_user.php): si el servidor confirma que el usuario y contraseña introducidos son correctos, el elemento ".dialog" mostrará un mensaje de bienvenida 
+personalizado con el username del usuario. El icono de candado bloqueado será automáticamente sustituido por el icono de candado abierto y el "id=unlogged_user_dialog"
+quedará oculto. En su lugar se  mostrará el elemento "id=logged_user_dialog"
+
+- Proceso de recuperación de contraseña (psswrd_recover.php): si se hace click en esta opción (situada  en el elemento "test"), se mostrará el segundo elemento
+ ".dialog", donde  el usuario tendrá que introducir su dirección de correo. Si, tras gestionar la petición, el servidor envía de vuelta una nueva contraseña, ésta será mostrada
+medianta un elemento ".dialog". En caso contrario ".dialog" informará al usuario de que no se ha encontrado ninguna dirección de email coincidente con la introducida
+
+- Proceso de creación de nuevo usuario (new_user.php): la interfaz provista ya cuenta con código para validación de inputs, por lo que habrá que elaborar el código necesario 
+para que el botón "send" gestione la petición una vez validados los campos. Los datos del nuevo usuario serán enviado al servidor  mediante un objeto json en forma 
+de string. Una vez recibida la respuesta por parte del servidor, un elemento ".dialog" se encargará de informar al usuario de que su cuenta ha sido creada con éxito.
+
+- Proceso de logout: el elemento ".dialog" mostrará un mensaje informando sobre el cierre de sesión y la interfaz se mostrará como al comienzo
+
+
+La tarea consiste en la creación del código JS necesario para gestionar los eventos oportunos y la comunicación con el servidor. Este código será incluido en un archivo aparte 
+denominado ''users_handling.js''  
