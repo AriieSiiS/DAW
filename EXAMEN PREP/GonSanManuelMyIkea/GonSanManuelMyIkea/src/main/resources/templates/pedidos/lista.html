@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/general_fragments::header}"></head>
+<body>
+
+<div class="container">
+<h1>Pedidos Realizados</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Precio Total</th>
+        <th scope="col"> Detalles</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pedido : ${pedidos}">
+        <td th:text="${pedido.getId()}"></td>
+        <td th:text="${#dates.format(pedido.getFecha_pedido(), 'yyyy-MM-dd')}"></td>
+        <td th:text="${pedido.getPrecio_Total()}"></td>
+        <td>
+            <a th:href="@{'/pedidos/detalles/' + ${pedido.getId()}}">
+                <button type="button" class="btn btn-outline-success">
+                    Detalles
+                </button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+</body>
+
+<script th:replace="~{general_fragments::bs-jquery}"></script>
+<script th:replace="~{general_fragments::bs-popper}"></script>
+<script th:replace="~{general_fragments::bs-js}"></script>
+
+</html>

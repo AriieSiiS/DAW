@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/general_fragments::header}"></head>
+<body>
+
+<div class="container">
+    <h1>Editar Producto</h1>
+    <form th:action="@{/productos/editar/{id}(id=${editedProduct.productId})}" method="post"
+          th:object="${editedProduct}" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label for="productName">Nombre:</label>
+            <input type="text" class="form-control" id="productName" th:field="${editedProduct.productName}" required>
+            <div th:if="${#fields.hasErrors('productName')}" th:errors="${productName}" class="text-danger"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="productPrice">Precio:</label>
+            <input type="number" class="form-control" id="productPrice" th:field="${editedProduct.productPrice}" required>
+            <div th:if="${#fields.hasErrors('productPrice')}" th:errors="${editedProduct.productPrice}" class="text-danger"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="productStock">Stock:</label>
+            <input type="number" class="form-control" id="productStock" th:field="${editedProduct.productStock}" required>
+            <div th:if="${#fields.hasErrors('productStock')}" th:errors="${editedProduct.productStock}" class="text-danger"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="productImage">Imagen del Producto:</label>
+            <input type="file" class="form-control" id="productImage" name="productImage" accept="image/*">
+            <input th:field="${editedProduct.productPicture}" th:value="${editedProduct.productPicture}" type="text" hidden>
+        </div>
+
+        <div class="form-group">
+            <label for="idProvincia">Provincia:</label>
+            <select class="form-control" id="idProvincia" name="idProvincia" th:field="*{municipio.idProvincia.idProvincia}" required>
+                <option value="0">---Seleccione Provincia---</option>
+                <option th:each="province : ${provincias}" th:value="${province.idProvincia}" th:text="${province.nombre}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="idMunicipio">Municipio:</label>
+            <select class="form-control" id="idMunicipio" th:field="*{municipio.idMunicipioId}" required>
+                <option value="0">---Seleccione Municipio---</option>
+                <option th:each="municipio : ${municipios}" th:value="${municipio.getIdMunicipioId()}" th:text="${municipio.nombre}" th:attr="data-provincia=${municipio.idProvincia.idProvincia}"></option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    </form>
+
+    <a th:href="@{/productos}">
+        <button type="button" class="btn btn-outline-secondary mt-3">Volver a la lista</button>
+    </a>
+
+    <script th:replace="~{general_fragments::bs-jquery}"></script>
+    <script th:replace="~{general_fragments::bs-popper}"></script>
+    <script th:replace="~{general_fragments::bs-js}"></script>
+
+    <script>
+        var idMunicipio = document.getElementById("idMunicipio")
+        var idProvincia = document.getElementById("idProvincia");
+
+        idMunicipio.addEventListener("change",function(){
+            municipiosProvincias();
+        })
+        idProvincia.addEventListener("change", function(){
+            provinciasMunicipios();
+        })
+        function municipiosProvincias(){
+            var selectedOption = idMunicipio.options[idMunicipio.selectedIndex];
+            var selectedProvincia = selectedOption.getAttribute("data-provincia");
+            idProvincia.value = selectedProvincia
+        }
+
+        function provinciasMunicipios(){
+            var selectedOption = idProvincia.value;
+            idMunicipio.value = 0;
+            [...idMunicipio.options].map(x=>{
+                if(idProvincia.value !=0){
+                    console.log(x.getAttribute("data-provincia")==null)
+                    if(x.getAttribute("data-provincia") != null){
+                        if(x.getAttribute("data-provincia") == selectedOption){
+                            x.style.display = "block";
+                        }else{
+                            x.style.display = "none"
+                        }
+                    }else{
+                        x.style.display = "block";
+                    }
+                }else{
+                    x.style.display = "block";
+                }
+            })
+        }
+    </script>
+</div>
+
+</body>
+</html>

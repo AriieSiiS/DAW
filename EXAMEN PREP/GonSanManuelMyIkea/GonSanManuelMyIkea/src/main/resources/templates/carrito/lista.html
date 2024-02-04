@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/general_fragments::header}"></head>
+<body>
+<div class="container">
+<h1>Carrito</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Imagen</th>
+        <th scope="col">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="producto : ${productos}">
+        <td th:text="${producto.getProductId()}"></td>
+        <td th:text="${producto.getProductName()}"></td>
+        <td th:text="${producto.getProductPrice()}"></td>
+        <td>
+            <img th:src="@{ '/imagenes/' + ${producto.getProductPicture()}}" alt="Product Image" style="max-width: 400px; max-height: 400px;" />
+        </td>
+        <td>
+            <a th:href="@{'/carrito/eliminar/' + ${producto.productId}}">
+                <button type="button" class="btn btn-outline-primary">
+                    Eliminar
+                </button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h1>Precio total: <span th:text="${precioTotal}"></span></h1>
+<a th:href="@{'/pedidos/crear'}">
+    <button type="button" class="btn btn-success">
+        Finalizar Pedido
+    </button>
+</a>
+</div>
+</body>
+
+<script th:replace="~{general_fragments::bs-jquery}"></script>
+<script th:replace="~{general_fragments::bs-popper}"></script>
+<script th:replace="~{general_fragments::bs-js}"></script>
+
+</html>

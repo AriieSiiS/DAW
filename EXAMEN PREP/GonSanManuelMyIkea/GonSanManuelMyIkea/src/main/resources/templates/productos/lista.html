@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/general_fragments::header}"></head>
+<body>
+
+<div class="container">
+    <h1>Lista de Productos</h1>
+
+    <!-- Botón para crear nuevo producto, solo visible para el rol MANAGER -->
+    <div th:if="${#authorization.expression('hasRole(''MANAGER'')')}">
+        <a th:href="@{/productos/crear}">
+            <button type="button" class="btn btn-outline-primary">
+                Crear Nuevo Producto
+            </button>
+        </a>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Municipio</th>
+            <th scope="col">Provincia</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Use th:each instead of @foreach -->
+        <tr th:each="producto : ${products}">
+            <th scope="row" th:text="${producto.productId}"></th>
+            <td th:text="${producto.productName}"></td>
+            <td th:text="${producto.productPrice}"></td>
+            <td th:text="${producto.productStock}"></td>
+            <td th:text="${producto.getMunicipio().nombre}"></td>
+            <td th:text="${producto.getMunicipio().getIdProvincia().nombre}"></td>
+            <td>
+                <img th:src="@{${imageBasePath} + ${producto.getProductPicture()}}" alt="Product Image" style="max-width: 100px; max-height: 100px;" />
+            </td>
+            <td>
+                <div th:if="${#authorization.expression('hasRole(''USER'')')}">
+                    <a th:href="@{'/productos/detalles/' + ${producto.productId}}">
+                        <button type="button" class="btn btn-outline-success">
+                            Detalles
+                        </button>
+                    </a>
+                </div>
+                <div th:if="${#authorization.expression('hasRole(''USER'')')}">
+                    <a th:href="@{'/productos/comprar/' + ${producto.productId}}">
+                        <button type="button" class="btn btn-outline-primary">
+                            Comprar
+                        </button>
+                    </a>
+                </div>
+                <div th:if="${#authorization.expression('hasRole(''MANAGER'')')}">
+                    <a th:href="@{'/productos/editar/' + ${producto.productId}}">
+                        <button type="button" class="btn btn-outline-warning">
+                            Editar
+                        </button>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+
+<script th:replace="~{general_fragments::bs-jquery}"></script>
+<script th:replace="~{general_fragments::bs-popper}"></script>
+<script th:replace="~{general_fragments::bs-js}"></script>
+
+</html>

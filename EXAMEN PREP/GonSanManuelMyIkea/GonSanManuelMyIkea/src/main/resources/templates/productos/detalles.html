@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/general_fragments::header}"></head>
+<body>
+
+<div class="container">
+  <h1>Detalles del Producto</h1>
+
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong>Id:</strong>
+      <span class="ml-1" th:text="${product.productId}"></span>
+    </li>
+
+    <li class="list-group-item">
+      <strong>Nombre:</strong>
+      <span class="ml-1" th:text="${product.productName}"></span>
+    </li>
+
+    <li class="list-group-item">
+      <strong>Precio:</strong>
+      <span class="ml-2" th:text="${product.productPrice}"></span>
+    </li>
+
+    <li class="list-group-item">
+      <strong>Stock:</strong>
+      <span class="ml-2" th:text="${product.productStock}"></span>
+    </li>
+
+    <li class="list-group-item">
+      <strong>Municipio:</strong>
+      <span class="ml-2" th:text="${product.getMunicipio().nombre}"></span>
+    </li>
+
+    <li class="list-group-item">
+      <strong>Provincia:</strong>
+      <span class="ml-2" th:text="${product.getMunicipio().getIdProvincia().nombre}"></span>
+    </li>
+
+    <li class="list-group-item image-list-item">
+      <strong>Imagen:</strong>
+            <span class="ml-5">
+                <img th:src="@{ '/imagenes/' + ${product.getProductPicture()}}" alt="Product Image" style="max-width: 400px; max-height: 400px;" />
+            </span>
+    </li>
+  </ul>
+
+  <a th:href="@{/productos/lista}">
+    <button type="button" class="btn btn-outline-secondary">Volver a la lista</button>
+  </a>
+</div>
+
+<script th:replace="~{general_fragments::bs-jquery}"></script>
+<script th:replace="~{general_fragments::bs-popper}"></script>
+<script th:replace="~{general_fragments::bs-js}"></script>
+
+</body>
+</html>

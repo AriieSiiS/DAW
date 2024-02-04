@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header">
+    <meta charset="UTF-8">
+    <title>MyIkea-Manuel Glez</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<header th:fragment="header_nav">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-primary border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" th:href="@{/}">MyIkea-MGS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <th:block th:if="${#authorization.expression('isAuthenticated()')}">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" th:href="@{/productos/lista}">Muebles</a>
+                        </li>
+                        <li class="nav-item" th:if="${#authorization.expression('hasRole(''USER'')')}">
+                            <a class="nav-link text-white" th:href="@{/pedidos/lista}">Pedidos</a>
+                        </li>
+                        <li class="nav-item" th:if="${#authorization.expression('hasRole(''USER'')')}">
+                            <a class="nav-link text-white" th:href="@{/carrito/lista}">Carrito</a>
+                        </li>
+                        <li class="nav-item" th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
+                            <a class="nav-link text-white" th:href="@{/usuarios/lista}">Usuarios</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav flex-grow-3">
+                        <li class="nav-item ">
+                            <span class="text-white nav-link">Bienvenido: <span class="text-white" th:text="${#authentication.name}"></span></span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white btn btn-danger" th:href="@{/logout}">
+                                <button class="btn btn-danger">
+                                    Cerrar Sesion
+                                </button>
+                            </a>
+                        </li>
+                    </ul>
+                </th:block>
+                <th:block th:unless="${#authorization.expression('isAuthenticated()')}">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" th:href="@{/login}">
+                                <button class="btn btn-success">
+                                    Iniciar Sesion
+                                </button>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" th:href="@{/register}">
+                                <button class="btn btn-secondary">
+                                    Registrarse
+                                </button>
+                            </a>
+                        </li>
+                    </ul>
+                </th:block>
+            </div>
+        </div>
+    </nav>
+</header>
+</body>
+<script th:fragment="bs-jquery" src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script th:fragment="bs-popper" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script th:fragment="bs-js" src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/general_fragments::header}"></head>
+<body>
+
+<div class="container">
+<h1>Detalles del Pedido</h1>
+
+<h2> Fecha del pedido: <span th:text="${#dates.format(pedido.getFecha_pedido(), 'yyyy-MM-dd')}"></span></h2>
+
+<h2>Precio Total del Pedido: <span th:text="${pedido.getPrecio_Total()}"></span></h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID Producto</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Imagen</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="producto : ${pedido.getProductos()}">
+        <td th:text="${producto.getProductId()}"></td>
+        <td th:text="${producto.getProductName()}"></td>
+        <td th:text="${producto.getProductPrice()}"></td>
+        <td>
+            <span>
+                <img th:src="@{ '/imagenes/' + ${producto.getProductPicture()}}" alt="Product Image" style="max-width: 400px; max-height: 400px;" />
+            </span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a th:href="@{'/pedidos/lista'}">
+    <button type="button" class="btn btn-outline-primary">
+        Volver a la lista de pedidos
+    </button>
+</a>
+</div>
+</body>
+
+<script th:replace="~{general_fragments::bs-jquery}"></script>
+<script th:replace="~{general_fragments::bs-popper}"></script>
+<script th:replace="~{general_fragments::bs-js}"></script>
+
+</html>
