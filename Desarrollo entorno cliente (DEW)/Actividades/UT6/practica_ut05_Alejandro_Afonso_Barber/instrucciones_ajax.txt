@@ -1,0 +1,10 @@
+Utiliza los elementos de interfaz y los archivos .php contenidos en el archivo .zip y crea una inferfaz dinámica capaz de establecer conexión con un servidor php
+para realizar la siguientes funciones:
+
+- Permitir a un usuario generar una nueva contraseña en caso de pérdida de la anterior
+
+El comportamiento que debe exhibir la interfaz es el siguiente:
+
+- Proceso de recuperación de contraseña (psswrd_recover.php): si se hace click en esta opción (situada  en el elemento "test"), se mostrará el segundo elemento
+ ".dialog", donde  el usuario tendrá que introducir su dirección de correo. Si, tras gestionar la petición, el servidor envía de vuelta una nueva contraseña, ésta será mostrada
+medianta un elemento ".dialog". En caso contrario ".dialog" informará al usuario de que no se ha encontrado ninguna dirección de email coincidente con la introducida

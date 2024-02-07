@@ -60,14 +60,14 @@
 
       <li>
         <div>
-          <image src="padlock_locked_32x32_white.png">
+          <image id="lock_icon" src="padlock_locked_32x32_white.png">
         </div>
         <ul id="unlogged_user_dialog">
           <li>User:<br>
             <form id="loggin_form" method="post" action="">
-              <input type="text" name="user" value="" required>
+              <input type="text" name="userName" value="" required>
           </li>
-          <li>Password:<br><input type="text" name="password" value="" required></li>
+          <li>Password:<br><input type="text" name="psswrd" value="" required></li>
           <li><button id="loggin_button" type="button">Login</button></li>
           </form>
           <li>Forgot your password?<br>Click <a href="#">here</a> to restore it
@@ -79,14 +79,14 @@
         <ul id="logged_user_dialog">
           <li>
             <img src="user_icon_black_32x32.png">
-            <p>user name (logged in)</p>
+            <p id="user_name_logged">user name (logged in)</p>
           </li>
           <li id="fauvorites_list">
-             <img src="favorites_icon_black_32x32.png"> 
+            <img src="favorites_icon_black_32x32.png">
             <p>My favorites</p>
           </li>
           <li id="gifts_list">
-            <img src="gifted_icon_black_32x32.png"> 
+            <img src="gifted_icon_black_32x32.png">
             <p>Gifts list</p>
           </li>
           <li><button id="sign_out">Sign out</button></li>
@@ -107,7 +107,7 @@
   <div class="dialog" id="frgttn_psswrd"><span>Enter your e-mail</span>
     <ul>
       <li><input type="text"></li>
-    </ul><button onclick="close_me(event)">X</button><button>Send</button>
+    </ul><button onclick="close_me(event)">X</button><button id="frgttn_psswrd_send">Send</button>
   </div>
 
   <div id="new_user">
@@ -194,18 +194,54 @@
       if (val != '' && val.match(/^\(\+[\d]{1,3}\)[\d]{9}$/) != val) { mssg = 'Please enter a valid format'; show_warning(mssg, 6); }
     }
 
+  
     // manage "send" button behaviour
+    var inputs = document.getElementById('new_user').getElementsByTagName('input'); // declare inputs variable
     document.getElementById('send_new_user').onclick = function () {
-      ctrl = true; // define a control boolean set to true by default 
-      for (i = 0; i < inputs.length; i++) if (inputs[i].value == '' || inputs[i].value == null || inputs[i].style.color == 'red') ctrl = false; // check all input fields are validated
+      var ctrl = true; // define a control boolean set to true by default 
+      var mssg = ''; // declare a message variable
+      for (var i = 0; i < inputs.length; i++) if (inputs[i].value == '' || inputs[i].value == null || inputs[i].style.color == 'red') ctrl = false; // check all input fields are validated
       if (ctrl) {
         mssg = 'Connecting to the server...<br><br> This may take a few seconds...';
-        // {  } further code to connect to server and send info
-      } else { mssg = 'Fields marked with (*) are mandatory <br><br> Pleaser check your info'; }
+        var newUser = {};
+
+        newUser.firstName = inputs[0].value;
+        newUser.lastName = inputs[1].value;
+        newUser.email = inputs[2].value;
+        newUser.repeatEmail = inputs[3].value;
+        newUser.userName = inputs[4].value;
+        newUser.birthDate = inputs[5].value;
+        newUser.phoneNumber = inputs[6].value;
+        newUser.psswrd = "yourPassword";
+
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+          if (xhttp.readyState === 4 && xhttp.status === 200) {
+            var response = xhttp.responseText;
+            console.log(response); // print the server response
+            if (response !== null) {
+              mssg = 'Your account has been created successfully!';
+              document.getElementById('new_user').style.filter = 'opacity(20%)';
+              document.getElementsByClassName('dialog')[0].style.display = 'block';
+              document.getElementsByClassName('dialog')[0].getElementsByTagName('span')[0].innerHTML = mssg;
+            }
+          }
+        }
+
+        // Send the HTTP request
+        xhttp.open("POST", "new_user.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        var data = `new_user=${encodeURIComponent(JSON.stringify(newUser))}`;
+        xhttp.send(data);
+      } else {
+        mssg = 'Fields marked with (*) are mandatory <br><br> Please check your info';
+      }
       document.getElementById('new_user').style.filter = 'opacity(20%)';
       document.getElementsByClassName('dialog')[0].style.display = 'block';
       document.getElementsByClassName('dialog')[0].getElementsByTagName('span')[0].innerHTML = mssg;
     }
   </script>
 </body>
+
 </html>

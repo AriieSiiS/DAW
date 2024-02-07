@@ -10,7 +10,7 @@ $file_name = 'users_registry.txt';
 fopen($file_name,'a+');
 
 
-$users_data = explode(PHP_EOL,file_get_contents($file_name));
+$users_data = file_get_contents($file_name);
 
 
 $psswrd = NULL;
@@ -26,16 +26,21 @@ echo $psswrd;
 
 
 function recover_psswrd($email,$users_data) {
+  $users = explode(PHP_EOL,$users_data);
+  $psswrd = NULL;
 
-for ($i = 0; $i < count($users_data); $i++) {
+  for ($i = 0; $i < count($users); $i++) {
+      $user = json_decode($users[$i]);
 
-if (json_decode($users_data[$i])->email == $email) $psswrd = json_decode($users_data[$i])->psswrd;
 
-  }; 
+      if ($user !== null && $user->email == $email) {
+          $psswrd = $user->psswrd;
+          break;
+      }
+  }
 
-return $psswrd;
-
-  };
+  return $psswrd;
+}
 
 
 

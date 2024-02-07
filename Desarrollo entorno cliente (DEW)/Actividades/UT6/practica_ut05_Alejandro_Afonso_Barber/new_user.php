@@ -26,7 +26,6 @@ $ctrl = check_psswrd($psswrd, $users_data);
 
    };
 
-
 $json = json_decode($data);
 $json->psswrd = $psswrd;
 $data = json_encode($json);
@@ -61,8 +60,6 @@ if (json_decode($users_data[$i])->psswrd == $psswrd) $ctrl = -1;
 return $ctrl;
 
   };
-
-
 
 ?> 
 
