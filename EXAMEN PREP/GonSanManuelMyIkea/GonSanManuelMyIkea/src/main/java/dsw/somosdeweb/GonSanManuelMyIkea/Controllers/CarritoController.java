@@ -45,8 +45,6 @@ public class CarritoController {
             carritoService.saveCarrito(carrito1);
             return "redirect:/carrito/lista";
     }
-
-
     @GetMapping("/carrito/lista")
     public String getCarritos(Model model, Authentication authentication) {
         String currentUsername = authentication.getName();
