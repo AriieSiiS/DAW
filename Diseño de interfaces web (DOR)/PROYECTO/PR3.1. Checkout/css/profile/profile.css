@@ -7,7 +7,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: "Morion";
-  color: #8A733E;
+  color:#594822;
 }
 
 @font-face {
@@ -218,7 +218,7 @@ button {
   height: 24px;
   background-color: #FDF7E9;
   border: 1px solid #8A733E;
-  color: #8A733E;
+  color:#594822;
   font-family: "Morion";
 }
 
@@ -282,7 +282,7 @@ h1 {
     margin-top: 24px;
     width: 250px;
     height: 48px;
-    font-size: 2em;
+    font-size: 1em;
   }
 }
 /* -------------FIN DE TABLET--------------------------- */

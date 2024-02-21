@@ -40,38 +40,26 @@
                 <h1><a href="Index.html">HOME</a></h1>
                 <h1><a href="Catalogo.html">WORK</a></h1>
                 <h1><a href="Profile.html">PROFILE</a></h1>
-                <h1><a href="">ABOUT</a></h1>
+                <h1><a href="About.html">ABOUT</a></h1>
                 <h1><a href="">SERVICES</a></h1>
                 <h1><a href="">CONTACT</a></h1>
                 <h1>PERSONAL PROFILE</h1>
             </div>
             <button class="buton-toggle" id="light-mode-btn" style="display:block"><i class="fa fa-lightbulb-o"></i> Light Mode</button>
             <button class="buton-toggle" id="dark-mode-btn" style="display:none;"><i class="fa fa-lightbulb-o"></i> Dark Mode</button>
-            <input type="checkbox" id="menuToggle" />
+            <input type="checkbox" id="menuToggle">
             <div class="span">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
             <ul id="menu">
-                <a href="Index.html">
-                    <li>Home</li>
-                </a>
-                <a href="Catalogo.html">
-                    <li>Work</li>
-                </a>
-                <a href="Profile.html">
-                    <li>Profile</li>
-                </a>
-                <a href="#">
-                    <li>About</li>
-                </a>
-                <a href="#">
-                    <li>Services</li>
-                </a>
-                <a href="#">
-                    <li>Contact</li>
-                </a>
+                <li><a href="Index.html">Home</a></li>
+                <li><a href="Catalogo.html">Work</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </nav>
         <div class="barra">
@@ -84,17 +72,17 @@
     <main>
         <div class="profile">
             <div>
-                <img id="ProfilePic" src="images/Profile Pic.png">
+                <img id="ProfilePic" src="images/Profile_Pic.png" alt="Foto de perfil del usuario">
             </div>
             <form id="Formulario">
                 <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" id="nombre" required/>
+                <input type="text" name="nombre" id="nombre" required>
             
                 <label for="correo">Correo electrónico</label>
-                <input type="email" name="correo" id="correo" required/>
+                <input type="email" name="correo" id="correo" required>
 
                 <label for="pass">Contraseña</label>
-                <input type="password" name="pass" id="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mínimo 8 letras, con una mayuscula y un número incluido" required/>
+                <input type="password" name="pass" id="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mínimo 8 letras, con una mayuscula y un número incluido" required>
 
                 <label for="address">Dirección:</label>
                 <input type="text" id="address" name="address" placeholder="Calle Principal" >
@@ -107,12 +95,14 @@
             
                 <label for="zip">Código Postal:</label>
                 <input type="text" id="zip" name="zip">
+
+                <div class="button">
+                    <button type="submit" form="Formulario">CREATE</button>
+                </div>
             </form>
-            <div class="button">
-                <button type="submit" form="Formulario">CREATE</button>
-            </div>
+
         </div>
-        <img id="background" src="images/BackgroundMovile.png">
+        <img id="background" src="images/BackgroundMovile.png" alt="Imagen de fondo">
     </main>
     <script>
         // Select the buttons

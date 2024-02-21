@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css//about/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Landing Page</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <svg class="logo" width="64" height="32" viewBox="0 0 64 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_18_1253)">
+                    <path
+                        d="M25.7573 26.802V27.1352H17.1275V26.802L18.8724 23.7225L16.4603 17.6772H8.56481L6.27115 23.7225L8.26478 26.7614V27.1311H2.03125V26.7614L4.41965 23.7184L11.4704 5.57858L9.86757 1.54434L14.4272 -0.178241L23.7598 23.7225L25.7573 26.802ZM15.8879 16.1984L12.4336 7.59367L9.15697 16.1984H15.8879Z"
+                        fill="#8A733E" />
+                    <path d="M24.6104 5.0946L20.8995 4.5502L18.5742 7.58909L22.297 8.12943L24.6104 5.0946Z"
+                        fill="#8A733E" />
+                    <path d="M22.5299 9.21822L18.8032 8.67789L20.2126 12.2855L23.9472 12.769L22.5299 9.21822Z"
+                        fill="#8A733E" />
+                    <path d="M18.9688 0L16.5923 3.00638L17.9977 6.61811L20.3269 3.57516L18.9688 0Z" fill="#8A733E" />
+                    <path d="M0 15.3122L2.31734 18.3389L6.04008 17.7905L3.70695 14.7557L0 15.3122Z" fill="#8A733E" />
+                    <path d="M4.26758 13.805L6.6086 16.8398L8.00217 13.2281L5.62166 10.2298L4.26758 13.805Z"
+                        fill="#8A733E" />
+                    <path d="M0.670898 23.007L4.40154 22.5154L5.80694 18.9077L2.08025 19.4521L0.670898 23.007Z"
+                        fill="#8A733E" />
+                </g>
+                <path
+                    d="M27.1695 27.1233V26.8833L28.3215 25.0593V20.2113C28.3215 18.6113 27.9775 17.5953 27.2895 17.1633L30.7455 15.8913H31.1535V17.4753C31.4255 16.9313 31.8255 16.5073 32.3535 16.2033C32.8975 15.8993 33.4895 15.7473 34.1295 15.7473C35.4255 15.7473 36.4495 16.2513 37.2015 17.2593L35.2575 19.8753L34.8975 19.6593C34.9135 18.8433 34.7695 18.2033 34.4655 17.7393C34.1775 17.2593 33.7615 17.0193 33.2175 17.0193C32.7375 17.0193 32.2815 17.2833 31.8495 17.8113C31.4175 18.3233 31.2015 19.0113 31.2015 19.8753V25.0593L32.4015 26.8833V27.1233H27.1695ZM42.8138 27.4593C41.7258 27.4593 40.8618 27.1633 40.2218 26.5713C39.5978 25.9793 39.2858 25.1713 39.2858 24.1473V16.8993H37.8938V16.4673L41.8778 12.5313H42.1658V16.0833H45.3818V16.8993H42.1658V24.9633C42.1658 25.9073 42.6858 26.3793 43.7258 26.3793C44.5258 26.3793 45.1898 25.9793 45.7178 25.1793L46.2458 25.5393C45.5258 26.8193 44.3818 27.4593 42.8138 27.4593Z"
+                    fill="#8A733E" />
+                <defs>
+                    <clipPath id="clip0_18_1253">
+                        <rect width="26" height="28" fill="white" />
+                    </clipPath>
+                </defs>
+            </svg>
+            <div>
+                <h1><a href="Index.html">HOME</a></h1>
+                <h1><a href="Catalogo.html">WORK</a></h1>
+                <h1><a href="Profile.html">PROFILE</a></h1>
+                <h1><a href="About.html">ABOUT</a></h1>
+                <h1><a href="">SERVICES</a></h1>
+                <h1><a href="">CONTACT</a></h1>
+                <h1>HOME</h1>
+            </div>
+            <button class="buton-toggle" id="light-mode-btn" style="display:block"><i class="fa fa-lightbulb-o"></i>
+                Light Mode</button>
+            <button class="buton-toggle" id="dark-mode-btn" style="display:none;"><i class="fa fa-lightbulb-o"></i> Dark
+                Mode</button>
+            <input name="invisible" type="checkbox" id="menuToggle">
+            <div class="span">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="menu">
+                <li><a href="Index.html">Home</a></li>
+                <li><a href="Catalogo.html">Work</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="barra">
+            <svg width="100%" height="1" viewBox="0 0 3000 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line opacity="1" y1="0.5" x2="100%" y2="0.5" stroke="#8A733E" />
+            </svg>
+        </div>
+    </header>
+    <main>
+        <div class="landing">
+            <div class="portada aboutme">
+
+                <h1>ABOUT US</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis consectetur sapien, id ornare
+                    massa. Mauris et sapien eget sem elementum fermentum dignissim non ipsum. In in lorem ut mi
+                    ultricies pretium. Curabitur sed augue urna. Donec sit amet turpis vitae risus congue tristique.
+                </p>
+                <img src="images/Painter.png" alt="Dibujo de un pintor">
+            </div>
+
+
+            <div class="aboutme">
+                <h1>HELLO!</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis consectetur sapien, id ornare
+                    massa. Mauris et sapien eget sem elementum fermentum dignissim non ipsum. In in lorem ut mi
+                    ultricies pretium. Curabitur sed augue urna. Donec sit amet turpis vitae risus congue tristique.
+                </p>
+                <div>
+                    <iframe width="450" height="315" src="https://www.youtube.com/embed/nfBvk3D2chE"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen title="Video sobre el pintor">
+                </iframe>
+                    <p>Este contenido es un vídeo. Si no puedes verlo, puedes acceder al vídeo <a href="ruta/al/video.mp4"><strong>aquí</strong></a>.</p>
+                    <p>Transcripción del vídeo disponible <a href="transcripcion.pdf"><strong>en nuestra plataforma.</strong></a>.</p>
+                    <br>
+                </div>
+
+            </div>
+            <div style="margin:24px">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis consectetur sapien, id ornare
+                    massa. Mauris et sapien eget sem elementum fermentum dignissim non ipsum. In in lorem ut mi
+                    ultricies pretium. Curabitur sed augue urna. Donec sit amet turpis vitae risus congue tristique.
+                </p>
+                <div style="display: flex;">
+                    <img  class="pintor" height="150" src="images/pintor10.jpg" alt="Imagen del pintor principal pintando">
+                    <img  class="pintor" height="150" src="images/pintor11.jpg" alt="Imagen del pintor principal sosteniendo un cuadro">
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis consectetur sapien, id ornare
+                    massa. Mauris et sapien eget sem elementum fermentum dignissim non ipsum. In in lorem ut mi
+                    ultricies pretium. Curabitur sed augue urna. Donec sit amet turpis vitae risus congue tristique.
+                </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis consectetur sapien, id ornare
+                    massa. Mauris et sapien eget sem elementum fermentum dignissim non ipsum. In in lorem ut mi
+                    ultricies pretium. Curabitur sed augue urna. Donec sit amet turpis vitae risus congue tristique.
+                </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis consectetur sapien, id ornare
+                    massa. Mauris et sapien eget sem elementum fermentum dignissim non ipsum. In in lorem ut mi
+                    ultricies pretium. Curabitur sed augue urna. Donec sit amet turpis vitae risus congue tristique.
+                </p>
+                <img height="350" id="pintor13" src="images/pintor13.jpg" alt="Imagen del pintor principal con un premio">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis consectetur sapien, id ornare
+                    massa. Mauris et sapien eget sem elementum fermentum dignissim non ipsum. In in lorem ut mi
+                    ultricies pretium. Curabitur sed augue urna. Donec sit amet turpis vitae risus congue tristique.
+                </p>
+                <canvas id="myChart" width="400" height="400"></canvas>
+
+                <script>
+                    // Datos del gráfico
+                    const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'];
+                    const ventas = [12, 19, 3, 5, 2];
+
+                    // Obtener el contexto del lienzo
+                    const ctx = document.getElementById('myChart').getContext('2d');
+
+                    // Crear el gráfico
+                    const myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: meses,
+                            datasets: [{
+                                label: 'Ventas',
+                                data: ventas,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                </script>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis consectetur sapien, id ornare
+                    massa. Mauris et sapien eget sem elementum fermentum dignissim non ipsum. In in lorem ut mi
+                    ultricies pretium. Curabitur sed augue urna. Donec sit amet turpis vitae risus congue tristique.
+                </p>
+            </div>
+
+
+            <div class="barra">
+                <svg width="100%" height="1" viewBox="0 0 3000 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line opacity="1" y1="0.5" x2="100%" y2="0.5" stroke="#8A733E" />
+                </svg>
+            </div>
+            <div class="contact" style="margin:20px">
+                <h1>WANT TO WORK WITH US?</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis consectetur sapien, id ornare
+                    massa. Mauris et sapien eget sem elementum fermentum dignissim non ipsum. In in lorem ut mi
+                    ultricies pretium. Curabitur sed augue urna. Donec sit amet turpis vitae risus congue tristique.
+                </p>
+                <canvas id="bar-chart" width="800" height="400"></canvas>
+
+                <script>
+                    const categoriasArte = ['Pintura', 'Escultura', 'Fotografía', 'Arte digital', 'Arte urbano'];
+                    const cantidadVendida = [100, 80, 120, 90, 110];
+
+                    const contexto = document.getElementById('bar-chart').getContext('2d');
+                    const graficoBarras = new Chart(contexto, {
+                        type: 'bar',
+                        data: {
+                            labels: categoriasArte,
+                            datasets: [{
+                                label: 'Cantidad Vendida',
+                                data: cantidadVendida,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                </script>
+                <h2>Conoce a algunos de nuestros empleados</h2>
+                <table>
+                    <caption>Empleados de la empresa</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Edad</th>
+                            <th scope="col">Ubicación</th>
+                            <th scope="col">Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>María López</td>
+                            <td>32 años</td>
+                            <td>Madrid, España</td>
+                            <td>Me encargo del desarrollo y diseño de la página</td>
+                        </tr>
+                        <tr>
+                            <td>Pablo Martínez</td>
+                            <td>28 años</td>
+                            <td>Buenos Aires, Argentina</td>
+                            <td>Me encargo del desarrollo y diseño de la página</td>
+                        </tr>
+                        <tr>
+                            <td>Luisa Fernández</td>
+                            <td>35 años</td>
+                            <td>Barcelona, España</td>
+                            <td>Experta en marketing y comunicación</td>
+                        </tr>
+                        <tr>
+                            <td>Diego Ramirez</td>
+                            <td>30 años</td>
+                            <td>Ciudad de México, México</td>
+                            <td>Apasionado coleccionista y crítico de arte</td>
+                        </tr>
+                        <tr>
+                            <td>Carla Gómez</td>
+                            <td>26 años</td>
+                            <td>Santiago, Chile</td>
+                            <td>Amante del arte desde pequeña, me encargo del servicio al cliente</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="barra">
+                    <svg width="100%" height="1" viewBox="0 0 3000 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line opacity="1" y1="0.5" x2="100%" y2="0.5" stroke="#8A733E" />
+                    </svg>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam
+                </p>
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name">
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" autocomplete="email" placeholder="Enter your email">
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Enter your message"></textarea>
+
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+
+
+            <footer>
+                <div class="socialMedia">
+                    <div class="social">
+                        <a href="#"><i class="fa fa-instagram" style="font-size:24px"></i></a>
+                        <a href="#"><i class='fa fa-facebook-official' style="font-size:24px"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play" style="font-size:24px"></i></a>
+                        <a href="#"><i class="fa fa-pinterest-square" style="font-size:24px"></i></a>
+                    </div>
+                </div>
+                <div class="barra">
+                    <svg width="100%" height="1" viewBox="0 0 3000 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line opacity="1" y1="0.5" x2="100%" y2="0.5" stroke="#8A733E" />
+                    </svg>
+                </div>
+                <p>©2023 AlejandroDesign. All Rights Reserved</p>
+            </footer>
+        </div>
+    </main>
+
+
+
+    <script>
+        // Select the buttons
+        const lightModeBtn = document.querySelector("#light-mode-btn");
+        const darkModeBtn = document.querySelector("#dark-mode-btn");
+        const account = document.querySelector("#account");
+        const form = document.querySelector("#form");
+        const section = document.querySelector("#section");
+
+        // Listen for a click on the buttons
+        lightModeBtn.addEventListener("click", function () {
+            // Toggle the .dark-theme class on the body
+            document.body.classList.toggle("dark-theme");
+
+            // Store the current theme setting in local storage
+            localStorage.setItem("theme", "dark");
+
+            // Toggle the buttons
+            lightModeBtn.style.display = "none";
+            darkModeBtn.style.display = "block";
+        });
+
+        darkModeBtn.addEventListener("click", function () {
+            // Toggle the .dark-theme class on the body
+            document.body.classList.toggle("dark-theme");
+
+            // Store the current theme setting in local storage
+            localStorage.setItem("theme", "light");
+
+            // Toggle the buttons
+            darkModeBtn.style.display = "none";
+            lightModeBtn.style.display = "block";
+        });
+
+
+        // Check if there is a stored theme setting and apply it
+        const storedTheme = localStorage.getItem("theme");
+        if (storedTheme) {
+            document.body.classList.add(storedTheme + "-theme");
+            if (storedTheme === "dark") {
+                lightModeBtn.style.display = "none";
+                darkModeBtn.style.display = "block";
+            } else {
+                darkModeBtn.style.display = "none";
+                lightModeBtn.style.display = "block";
+            }
+        }
+    </script>
+
+    <script  src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script  src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script  src="slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.your-class').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 3,
+                slidesToScroll: 1
+            });
+        });
+    </script>
+</body>
+
+</html>

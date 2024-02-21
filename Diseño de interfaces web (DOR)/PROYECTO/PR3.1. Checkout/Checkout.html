@@ -39,39 +39,27 @@
                 <h1><a href="Index.html">HOME</a></h1>
                 <h1><a href="Catalogo.html">WORK</a></h1>
                 <h1><a href="Profile.html">PROFILE</a></h1>
-                <h1><a href="">ABOUT</a></h1>
+                <h1><a href="About.html">ABOUT</a></h1>
                 <h1><a href="">SERVICES</a></h1>
                 <h1><a href="">CONTACT</a></h1>
                 <h1>PAYMENT</h1>
             </div>
             <button class="buton-toggle" id="light-mode-btn" style="display:block"><i class="fa fa-lightbulb-o"></i> Light Mode</button>
             <button class="buton-toggle" id="dark-mode-btn" style="display:none;"><i class="fa fa-lightbulb-o"></i> Dark Mode</button>
-            <input type="checkbox" id="menuToggle" />
+            <input type="checkbox" id="menuToggle">
             <div class="span">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
             <ul id="menu">
-                <a href="Index.html">
-                    <li>Home</li>
-                </a>
-                <a href="Catalogo.html">
-                    <li>Work</li>
-                </a>
-                <a href="Profile.html">
-                    <li>Profile</li>
-                </a>
-                <a href="#">
-                    <li>About</li>
-                </a>
-                <a href="#">
-                    <li>Services</li>
-                </a>
-                <a href="#">
-                    <li>Contact</li>
-                </a>
-            </ul>
+              <li><a href="Index.html">Home</a></li>
+              <li><a href="Catalogo.html">Work</a></li>
+              <li><a href="Profile.html">Profile</a></li>
+              <li><a href="About.html">About</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Contact</a></li>
+          </ul>
         </nav>
         <div class="barra">
             <svg width="100%" height="1" viewBox="0 0 3000 1" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,11 +71,11 @@
     <main>
         <div class="profile">
             <div>
-                <img id="ProfilePic" src="images/Profile Pic.png">
+                <img id="ProfilePic" src="images/Profile_Pic.png" alt="Imagen de perfil">
             </div>
 
             <div id="form1" class="form-container">
-                <form action="" method="post">
+                <form action="post" method="post">
                     <fieldset>
                         <legend>Shipping Address</legend>
                         <div class="toggle-symbol" onclick="toggleForm('shippingForm')">⨉</div>
@@ -100,7 +88,7 @@
                         <label for="email">Email Address:</label>
                         <input type="email" id="email" name="email" required><br>
                     
-                        <label for="street_address">Street Address:</label>
+                        <label for="street_address1">Street Address:</label>
                         <input type="text" id="street_address1" name="street_address1" placeholder="Address Line 1" required><br>
                         <input type="text" id="street_address2" name="street_address2" placeholder="Address Line 2"><br>
                     

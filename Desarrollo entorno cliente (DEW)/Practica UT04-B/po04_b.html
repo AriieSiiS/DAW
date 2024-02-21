@@ -1,0 +1,274 @@
+.000000000000000000000000000000000000000000000000000000000000000000000<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      --mainclr: rgba(100, 100, 100, 1);
+      --enphasisclr: rgba(255, 75, 0, 1);
+    }
+
+    @font-face {
+      font-family: 'houston';
+      src: url('Houston.ttf');
+    }
+
+    * {
+      margin: 0px;
+      padding: 0px
+    }
+
+    body {
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }
+
+    #header {
+      height: 10%;
+      background-color: var(--mainclr);
+      position: absolute;
+      left: 0%;
+      top: 0%;
+      font-family: houston;
+      width: 100%;
+      font-size: 2.5vw;
+      text-align: center;
+      color: rgba(255, 255, 255, 1);
+      font-weight: bold;
+    }
+
+    #header>ul {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #header>ul>li {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    #header>ul:nth-child(1)>li:nth-child(2) {
+      padding: 1vw 0vw 0vw 0.5vw;
+    }
+
+    #header>ul:nth-child(1)>li:nth-child(2)>img {
+      scale: 0.9;
+    }
+
+    #header>ul:nth-child(2) {
+      position: absolute;
+      left: 90%;
+      top: 50%;
+      transform: translate(0%, -50%);
+    }
+
+    #header>ul:nth-child(2)>li>img {
+      scale: 0.4;
+    }
+
+    hr {
+      width: 100%;
+      height: 1.5vh;
+      background-color: var(--enphasisclr);
+      position: absolute;
+      left: 0%;
+      top: 11%;
+      border: none;
+    }
+
+    .dialog_window {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 1vw;
+      min-width: 30%;
+      width: auto;
+      z-index: 2;
+      font-size: 1.5vw;
+      text-align: center;
+      height: 30vh;
+      box-shadow: 1vw 1vw 1vw var(--mainclr);
+      font-family: houston;
+      color: rgba(0, 0, 0, 1);
+      border: 0.2vw solid var(--mainclr);
+      font-weight: bold;
+      display: none;
+    }
+
+    .dialog_window>ul {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -60%);
+      width: 80%;
+    }
+
+    .dialog_window>span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -60%);
+      width: 80%;
+    }
+
+    .dialog_window>ul>li {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .dialog_window>img {
+      position: absolute;
+      left: 100%;
+      top: 0%;
+      transform: translate(-125%, 0%);
+      scale: 0.8;
+    }
+
+    .dialog_window>button {
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translate(-50%, -130%);
+      background-color: var(--enphasisclr);
+      border: none;
+      border-radius: 0.5vw;
+      font-family: houston;
+      color: rgba(255, 255, 255, 1);
+      padding: 0.8vw;
+      font-size: 2vw;
+    }
+
+    .dialog_window>button:active {
+      color: var(--mainclr);
+      background-color: rgba(255, 255, 255, 1);
+    }
+
+    form {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 3vw 3vw 6vw 3vw;
+      border-radius: 1vw;
+      border: 0.2vw solid var(--mainclr);
+      box-shadow: 1vw 1vw 1vw var(--mainclr);
+      display: none;
+    }
+
+    label {
+      font-family: houston;
+      font-size: 1.5vw;
+      font-weight: bold;
+    }
+
+    input {
+      outline: none;
+      border-radius: 0.5vw;
+      border-color: var(--enphasisclr);
+      padding: 0.5vw;
+      margin-bottom: 3vw;
+    }
+
+    input:focus {
+      background-color: #fed8b1;
+    }
+
+    input[type="submit"] {
+      color: rgba(255, 255, 255, 1);
+      background-color: var(--enphasisclr);
+      ont-family: houston;
+      color: rgba(255, 255, 255, 1);
+      padding: 0.8vw;
+      font-size: 1.5vw;
+      border-radius: 0.5vw;
+      left: 50%;
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translate(-50%, -200%);
+    }
+  </style>
+
+  <link rel="stylesheet" type="text/css"
+    href="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cookieconsent.min.css" />
+</head>
+
+<body>
+  <div id="header">
+    <ul>
+      <li>Asociaci&oacute;n Deportiva Las Mercedes</li>
+      <li><img src="soccer-3-64.png"></li>
+    </ul>
+    <ul>
+      <li><img id="user_icon" src="user.png"></li>
+      <li><img id="padlock_icon" src="padlock_blocked.png"></li>
+    </ul>
+  </div>
+  <hr>
+
+  <div class="dialog_window">
+    <span>Bienvenido a la p&aacute;gina web de la A.D. Las Mercedes</span>
+    <!--<ul><li>Bienvenido a la p&aacute;gina web de la A.D. Las Mercedes</li></ul>-->
+    <img src="soccer-3-64.png">
+    <button>login</button>
+  </div>
+
+  <form action="">
+    <label for="user" id="user">Usuario</label><br>
+    <input type="text" name="user" value=""><br>
+    <label for="psswrd">Contrase&ntilde;a</label><br>
+    <input type="text" name="psswrd" id="psswrd" value=""><br><br>
+    <input id="submit" type="submit" value="Enviar">
+  </form>
+
+  <script>
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[_@#$%&*])[A-Za-z\d_@#$%&*]{8,16}$/;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const dialogWindow = document.querySelector('.dialog_window');
+        dialogWindow.style.display = 'block';
+      }, 2000);
+
+      let loginButton = document.querySelector('button');
+      loginButton.addEventListener('click', () => {
+        let dialogWindow = document.querySelector('.dialog_window');
+        dialogWindow.style.display = 'none';
+        setTimeout(() => {
+          let form = document.querySelector('form');
+          form.style.display = 'block';
+        }, 1000);
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+          event.preventDefault();
+
+          const passwordInput = document.getElementById('psswrd');
+          const password = passwordInput.value;
+
+          if (regex.test(password)) {
+            let form = document.querySelector('form'); form.style.display = 'none';
+            let loginButton = document.querySelector('button'); loginButton.style.display = 'none';
+            let dialogWindow = document.querySelector('.dialog_window'); dialogWindow.style.display = 'block';
+            let spanText = document.querySelector('.dialog_window span'); spanText.textContent = 'Validando información de acceso';
+          } else {
+            passwordInput.style.color = 'red';
+            passwordInput.value = 'Contraseña no valida';
+            passwordInput.addEventListener('focus', () => {
+              passwordInput.style.color = 'black';
+              passwordInput.value = '';
+            });
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>
